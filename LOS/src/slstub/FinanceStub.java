@@ -42,9 +42,9 @@ public class FinanceStub implements FinanceService {
 	}
 
 	@Override
-	public ResultMessage payPayment(PaymentVO payment) {
+	public vo.ResultMessage payPayment(PaymentVO payment) {
 		// TODO Auto-generated method stub
-		return ResultMessage.SUCCESS;
+		return vo.ResultMessage.SUCCESS;
 	}
 
 	@Override
@@ -55,9 +55,9 @@ public class FinanceStub implements FinanceService {
 	}
 
 	@Override
-	public ResultMessage deleteAccount(AccountVO account) {
+	public vo.ResultMessage deleteAccount(AccountVO account) {
 		// TODO Auto-generated method stub
-		return ResultMessage.SUCCESS;
+		return vo.ResultMessage.SUCCESS;
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package slstub;
 
 import java.util.ArrayList;
 
-import strategyblservice.SalaryStrategyService;
+import strategyslservice.SalaryStrategyService;
 import vo.SalaryVO;
 
 public class SalaryStrategyStub implements SalaryStrategyService{

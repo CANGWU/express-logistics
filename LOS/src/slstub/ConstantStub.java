@@ -1,6 +1,6 @@
 package slstub;
 
-import strategyblservice.ConstantService;
+import strategyslservice.ConstantService;
 import vo.ConstantVO;
 
 public class ConstantStub implements ConstantService{

@@ -1,6 +1,6 @@
 package driver;
 
-import strategyblservice.SalaryStrategyService;
+import strategyslservice.SalaryStrategyService;
 import vo.SalaryVO;
 
 public class SalaryStrategyServiceDriver {

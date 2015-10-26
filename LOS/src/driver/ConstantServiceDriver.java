@@ -1,6 +1,6 @@
 package driver;
 
-import strategyblservice.ConstantService;
+import strategyslservice.ConstantService;
 import vo.ConstantVO;
 
 public class ConstantServiceDriver {
