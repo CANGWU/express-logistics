@@ -1,4 +1,6 @@
+package main;
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;

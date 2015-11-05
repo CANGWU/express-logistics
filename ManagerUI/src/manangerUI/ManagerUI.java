@@ -1,3 +1,4 @@
+package manangerUI;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.WindowAdapter;
@@ -6,14 +7,18 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
+
+import courierUI.CourierUI;
 
 
 
 //
 
 public class ManagerUI extends JFrame{
-	
+	JLabel message;
 	
 	public ManagerUI(){
 		super("快递物流系统");
@@ -37,6 +42,12 @@ private void layoutUI(){
 	JTabbedPane tab = new JTabbedPane(JTabbedPane.LEFT);
 	//容器，只是方便布局
 	Container container = this.getLayeredPane();
+	
+	JSeparator sep1=new JSeparator();
+	JSeparator sep2=new JSeparator();
+	sep1.setOrientation(SwingConstants.HORIZONTAL);
+	sep2.setOrientation(SwingConstants.HORIZONTAL);
+	message=new JLabel("总经理信息");
 	 //暂未实现！！！
 	 JPanel statusBar = new JPanel();
 	 JPanel informationBar = new JPanel();
@@ -47,7 +58,7 @@ private void layoutUI(){
 	 JPanel audit = new AuditUI();
 	 JPanel constant = new ConstantUI();
 	 JPanel salary = new SalaryStrategyUI();
-	 JPanel log = new LogIUI();
+	 JPanel log = new LogUI();
 	 tab.add("人员管理", aM);
 	 tab.add("机构管理", pM);
 	 tab.add("统计报表", report);
@@ -58,17 +69,21 @@ private void layoutUI(){
 	 
 	 
 	 //暂未实现
-	 statusBar.add(new JLabel("状态栏(未实现)"));
-	 informationBar.add(new JLabel("总经理消息(未实现)"));
+     informationBar.setLayout(new BorderLayout());
+		informationBar.add(new JLabel("快递物流系统ELS"),BorderLayout.WEST);
+		informationBar.add(message,BorderLayout.EAST);
+		informationBar.add(sep1,BorderLayout.SOUTH);
+		
+		statusBar.setLayout(new BorderLayout());
+		statusBar.add(new JLabel("状态栏(未实现)"),BorderLayout.SOUTH);
+		statusBar.add(sep2,BorderLayout.NORTH);
 	 //
 	container.setLayout(new BorderLayout());
-	container.add(tab, BorderLayout.WEST);
+	container.add(tab, BorderLayout.CENTER);
 	container.add(statusBar, BorderLayout.SOUTH);
 	container.add(informationBar, BorderLayout.NORTH);
 }
 
 
-public static void main(String[]args){
-	ManagerUI m = new ManagerUI();
-}
+
 }

@@ -1,10 +1,14 @@
+package manangerUI;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+
+import main.BaseUI;
 
 public class ReportUI extends JPanel {
 	public ReportUI(){
@@ -21,6 +25,7 @@ public class ReportUI extends JPanel {
 	
 		GridBagLayout gb=new GridBagLayout(); 
 		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.insets=new Insets(25,0,25,0);
 		JPanel bpanel = new JPanel();
 		bpanel.setLayout(gb);
 		BaseUI.myAdd(bpanel,cReport,constraints,0,0,1,1);
