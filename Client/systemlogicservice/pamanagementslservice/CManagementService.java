@@ -9,7 +9,7 @@ public interface CManagementService {
 
 	public CarVO select(String id);
 	public void delect(String id);
-	public void revise(String id);
+	public CarVO revise(String id);
 	public void saveChange(CarVO vo);
 	public void save(CarVO vo);
 	public void add();
