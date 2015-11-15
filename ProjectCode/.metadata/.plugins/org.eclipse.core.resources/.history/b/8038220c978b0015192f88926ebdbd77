@@ -1,0 +1,14 @@
+/auditslservice/
+/checkslservice/
+/data/
+/dataservice/
+/dataserviceimpl/
+/datastub/
+/driver/
+/financeslservice/
+/ioputsl/
+/ioputslservice/
+/main/
+/pamanagementslservice/
+/po/
+/presentation/
