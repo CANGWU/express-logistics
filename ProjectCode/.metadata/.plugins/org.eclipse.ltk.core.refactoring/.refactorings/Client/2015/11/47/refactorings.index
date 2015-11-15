@@ -5,3 +5,12 @@
 1447592536727	Rename package 'courierUI'
 1447592545730	Rename package 'manangerUI'
 1447592555424	Rename package 'finance'
+1447594959776	Rename resource 'Mock'
+1447594995054	Move package
+1447595003974	Delete element
+1447595058926	Delete element
+1447595107781	Rename package 'mockmanangement'
+1447598659248	Infer generic type arguments
+1447598676349	Delete element
+1447598682622	Delete element
+1447599034862	Rename package 'audittest'

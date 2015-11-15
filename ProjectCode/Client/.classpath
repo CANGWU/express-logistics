@@ -6,6 +6,8 @@
 	<classpathentry kind="src" path="dataservice"/>
 	<classpathentry kind="src" path="systemlogicservice"/>
 	<classpathentry kind="src" path="main"/>
+	<classpathentry kind="src" path="mock"/>
+	<classpathentry kind="src" path="tester"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

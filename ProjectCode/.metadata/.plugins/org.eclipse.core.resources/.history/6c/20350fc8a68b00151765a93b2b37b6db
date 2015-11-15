@@ -1,0 +1,31 @@
+package mockaudit;
+
+import vo.DecumentVO;
+import vo.PaymentVO;
+import vo.TransportVO;
+
+public class mockAuditInfo{
+	TransportVO transport;
+	PaymentVO payment;
+	
+	
+	public mockAuditInfo(TransportVO transport, PaymentVO payment){
+		this.transport = transport;
+		this.payment = payment;
+				
+	}
+	
+	
+	public TransportVO getTransportVO(){
+		return transport;
+	}
+	
+	public PaymentVO getPaymentVO(){
+		return payment;
+	}
+	
+	
+	
+	
+
+}

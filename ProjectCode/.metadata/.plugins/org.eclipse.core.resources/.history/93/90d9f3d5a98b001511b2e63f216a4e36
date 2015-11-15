@@ -1,0 +1,18 @@
+package audittest;
+
+import auditsl.Decument;
+import mockaudit.MockAuditInfo;
+import vo.PaymentVO;
+import vo.TransportVO;
+
+public class AuditTest {
+	public void  test(){
+		MockAuditInfo audditInfo = new MockAuditInfo(new TransportVO(null, null, null, null, null, null, 0, null, null, null), new PaymentVO(null, null));
+		Decument decument = new Decument();
+		
+		
+		
+	}
+	
+
+}
