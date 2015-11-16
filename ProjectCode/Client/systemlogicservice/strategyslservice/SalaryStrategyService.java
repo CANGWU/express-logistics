@@ -1,7 +1,6 @@
 package strategyslservice;
 import java.util.ArrayList;
 
-import po.SalaryPO;
 import vo.SalaryVO;
 
 public interface SalaryStrategyService {

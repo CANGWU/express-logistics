@@ -1,7 +1,5 @@
 package dataservice;
 
-import java.util.ArrayList;
-
 import po.ConstantPO;
 
 public interface ConstantDataService {

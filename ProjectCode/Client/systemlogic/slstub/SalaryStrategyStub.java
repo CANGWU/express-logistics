@@ -28,6 +28,7 @@ public class SalaryStrategyStub implements SalaryStrategyService{
 		System.out.println("新的薪水策略保存成功！！�?");
 	}
 	
+	@Override
 	public void endSalaryStrategy(){
 		System.out.println("数据保存成功，正在结束制定薪水策略！！！");
 	}

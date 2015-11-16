@@ -7,10 +7,6 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
-import courierui.DeliveryCheckUI;
-import courierui.OrderInputUI;
-import courierui.ReceiveUI;
-import manangerui.AuditUI;
 import manangerui.LogUI;
 import manangerui.ReportUI;
 
@@ -29,7 +25,8 @@ public class FinanceUI extends JFrame{
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.addWindowListener(new WindowAdapter(){
-			   public void windowClosing(WindowEvent e) {
+			   @Override
+			public void windowClosing(WindowEvent e) {
 			    super.windowClosing(e);
 			    System.exit(0);
 			   }});
@@ -38,7 +35,7 @@ public class FinanceUI extends JFrame{
 	}
 	
 	private void layoutUI(){
-		JTabbedPane tab = new JTabbedPane(JTabbedPane.LEFT);
+		JTabbedPane tab = new JTabbedPane(SwingConstants.LEFT);
 		JSeparator sep1=new JSeparator();
 		JSeparator sep2=new JSeparator();
 		sep1.setOrientation(SwingConstants.HORIZONTAL);

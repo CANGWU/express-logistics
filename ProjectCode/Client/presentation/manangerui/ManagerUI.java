@@ -11,8 +11,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
-import courierui.CourierUI;
-
 
 
 //
@@ -30,7 +28,8 @@ public class ManagerUI extends JFrame{
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.addWindowListener(new WindowAdapter(){
-			   public void windowClosing(WindowEvent e) {
+			   @Override
+			public void windowClosing(WindowEvent e) {
 			    super.windowClosing(e);
 			    System.exit(0);
 			   }});
@@ -41,7 +40,7 @@ public class ManagerUI extends JFrame{
 	
 private void layoutUI(){
 	//实现页面内的翻
-	tab = new JTabbedPane(JTabbedPane.LEFT);
+	tab = new JTabbedPane(SwingConstants.LEFT);
 	//容器，只是方便布局
 	Container container = this.getLayeredPane();
 	

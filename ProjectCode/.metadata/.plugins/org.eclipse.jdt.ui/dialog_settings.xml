@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
-		<item value="400" key="height"/>
-	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
@@ -19,6 +15,24 @@
 		<item value="1" key="rootMode"/>
 		<item value="false" key="linkWithEditor"/>
 	</section>
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+		<item value="true" key="create_unimplemented"/>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+	</section>
+	<section name="DialogBounds_GenerateToStringDialog">
+		<item value="766" key="DIALOG_WIDTH"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		<item value="1031" key="DIALOG_HEIGHT"/>
+		<item value="908" key="DIALOG_X_ORIGIN"/>
+		<item value="124" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item value="600" key="width"/>
+		<item value="400" key="height"/>
+	</section>
 	<section name="SourceActionDialog.methods">
 		<item value="true" key="IgnoreDefault"/>
 		<item value="false" key="SynchronizedModifier"/>
@@ -30,12 +44,8 @@
 		<item value="10" key="LimitValue"/>
 		<item value="false" key="FinalModifier"/>
 	</section>
-	<section name="NewClassWizardPage">
-		<item value="false" key="create_constructor"/>
-		<item value="true" key="create_unimplemented"/>
-	</section>
-	<section name="OptionalMessageDialog.hide.">
-		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+	<section name="ClasspathContainerSelectionPage">
+		<item value="4" key="index"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
@@ -46,13 +56,6 @@
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="completion_proposal_size">
-	</section>
-	<section name="DialogBounds_GenerateToStringDialog">
-		<item value="766" key="DIALOG_WIDTH"/>
-		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
-		<item value="1031" key="DIALOG_HEIGHT"/>
-		<item value="908" key="DIALOG_X_ORIGIN"/>
-		<item value="124" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>

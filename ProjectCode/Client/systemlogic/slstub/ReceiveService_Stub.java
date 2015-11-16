@@ -2,8 +2,6 @@ package slstub;
 
 import java.util.ArrayList;
 
-import po.DeliverPO;
-import po.OrderPO;
 import receiveslservice.ReceiveService;
 import vo.DeliverVO;
 import vo.OrderVO;

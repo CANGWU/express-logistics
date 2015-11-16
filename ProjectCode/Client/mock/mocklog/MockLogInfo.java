@@ -1,7 +1,6 @@
 package mocklog;
 
 import userslservice.LogCreate;
-import vo.LogVO;
 
 public class MockLogInfo implements LogCreate{
      

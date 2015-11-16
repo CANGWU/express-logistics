@@ -11,8 +11,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 import courierui.CourierUI;
-import financeui.FinanceUI;
-import manangerui.ManagerUI;
 
 public class MainUI extends JFrame{
 
@@ -32,7 +30,8 @@ public class MainUI extends JFrame{
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.addWindowListener(new WindowAdapter(){
-			   public void windowClosing(WindowEvent e) {
+			   @Override
+			public void windowClosing(WindowEvent e) {
 			    super.windowClosing(e);
 			    System.exit(0);
 			   }});

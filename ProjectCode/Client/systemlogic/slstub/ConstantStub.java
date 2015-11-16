@@ -24,6 +24,7 @@ public class ConstantStub implements ConstantService{
 		System.out.println("新的常量信息保存成功！！�?");
 	}
 	
+	@Override
 	public void endConstant(){
 		System.out.println("数据已更新，正在结束制定产量！！�?");
 	}

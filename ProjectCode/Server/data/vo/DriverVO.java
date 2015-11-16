@@ -1,7 +1,5 @@
 package vo;
 
-import po.StaffPO;
-
 public class DriverVO extends StaffVO{
 	public int driverYear;
 	public DriverVO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,String sex,int driverYear,int page){

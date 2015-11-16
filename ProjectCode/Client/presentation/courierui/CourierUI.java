@@ -21,7 +21,8 @@ public class CourierUI extends JFrame{
 		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.addWindowListener(new WindowAdapter(){
-			   public void windowClosing(WindowEvent e) {
+			   @Override
+			public void windowClosing(WindowEvent e) {
 			    super.windowClosing(e);
 			    System.exit(0);
 			   }});
@@ -30,7 +31,7 @@ public class CourierUI extends JFrame{
 	}
 	
 	private void layoutUI(){
-		JTabbedPane tab = new JTabbedPane(JTabbedPane.LEFT);
+		JTabbedPane tab = new JTabbedPane(SwingConstants.LEFT);
 		statusBar = new JPanel();
 		informationBar = new JPanel();
 		JSeparator sep1=new JSeparator();

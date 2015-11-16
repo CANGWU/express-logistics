@@ -19,6 +19,7 @@ public class StockAdjustSLStub implements StockAdjustService {
 		return VOS;
 	}
 
+	@Override
 	public AreaVO selectArea(String name) {
 		// TODO Auto-generated method stub
 		if(name.equals("º½ÔËÇø"))

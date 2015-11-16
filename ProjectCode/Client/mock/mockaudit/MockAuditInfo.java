@@ -1,6 +1,5 @@
 package mockaudit;
 
-import vo.DecumentVO;
 import vo.PaymentVO;
 import vo.TransportVO;
 

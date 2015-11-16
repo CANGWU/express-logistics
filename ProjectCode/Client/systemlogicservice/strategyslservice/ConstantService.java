@@ -1,6 +1,5 @@
 package strategyslservice;
 
-import po.ConstantPO;
 import vo.ConstantVO;
 
 public interface ConstantService {
