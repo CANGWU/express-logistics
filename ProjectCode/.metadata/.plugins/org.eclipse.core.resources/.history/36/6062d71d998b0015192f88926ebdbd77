@@ -18,9 +18,9 @@ public class MainUI extends JFrame{
 
 	public static void main(String[]args){
 		//ManagerUI m = new ManagerUI();
-		CourierUI c=new CourierUI();
+		//CourierUI c=new CourierUI();
 		//FinanceUI f=new FinanceUI();
-		//MainUI mainui=new MainUI();
+		MainUI mainui=new MainUI();
 		}
 	
 	public MainUI(){
