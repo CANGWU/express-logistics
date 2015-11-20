@@ -5,21 +5,21 @@ import java.rmi.RemoteException;
 
 public interface DataFactoryService extends Remote{
           
-	   public CheckDataService getCheckData() ;
+	   public CheckDataService getCheckData()throws RemoteException ;
 	   
-	   public FinanceDataService getFinanceData();
+	   public FinanceDataService getFinanceData()throws RemoteException;
 	   
-	   public SendDataService getSendData();
+	   public SendDataService getSendData()throws RemoteException;
 	   
-	   public UserDataService getUserData();
+	   public UserDataService getUserData()throws RemoteException;
 	   
-	   public AManagementDataService getAManagementData();
+	   public AManagementDataService getAManagementData()throws RemoteException;
 	   
 	   public PManagementDataService getPManagementData() throws RemoteException;
 	   
-	   public DManagementDataService getDManagementData();
+	   public DManagementDataService getDManagementData()throws RemoteException;
 	   
-	   public CManagementDataService getCManagementData();
+	   public CManagementDataService getCManagementData()throws RemoteException;
 	   
 	     
 	   

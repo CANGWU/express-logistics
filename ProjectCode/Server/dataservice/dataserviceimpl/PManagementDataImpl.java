@@ -9,7 +9,7 @@ import dataservice.PManagementDataService;
 
 public class PManagementDataImpl extends UnicastRemoteObject implements PManagementDataService{
 
-	protected PManagementDataImpl() throws RemoteException {
+	public PManagementDataImpl() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}

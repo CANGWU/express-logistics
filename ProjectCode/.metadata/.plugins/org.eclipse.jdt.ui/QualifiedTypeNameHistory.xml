@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.rmi.server.UnicastRemoteObject"/>
+<fullyQualifiedTypeName name="po.StaffPO"/>
+<fullyQualifiedTypeName name="dataservice.PManagementDataService"/>
+<fullyQualifiedTypeName name="pamanagementslservice.PManagementService"/>
+</qualifiedTypeNameHistroy>

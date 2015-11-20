@@ -1,6 +1,7 @@
 package dataserviceimpl;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import dataservice.AManagementDataService;
 import dataservice.CManagementDataService;
@@ -12,7 +13,17 @@ import dataservice.PManagementDataService;
 import dataservice.SendDataService;
 import dataservice.UserDataService;
 
-public class DataFactory implements DataFactoryService{
+public class DataFactory extends UnicastRemoteObject implements DataFactoryService{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DataFactory() throws RemoteException{
+		super();
+		
+	}
 
 	@Override
 	public CheckDataService getCheckData() {
@@ -54,6 +65,7 @@ public class DataFactory implements DataFactoryService{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 

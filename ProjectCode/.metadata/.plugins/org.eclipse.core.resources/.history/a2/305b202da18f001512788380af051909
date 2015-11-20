@@ -1,0 +1,24 @@
+package RMItest;
+
+import java.rmi.Naming;
+import dataservice.DataFactoryService;
+
+public class TestMain {
+	
+	public static void main(String[]args){
+		DataFactoryService dataFactory;
+		
+		try{
+			dataFactory = (DataFactoryService)Naming.lookup("//localhost:8000/getDataFactory");
+			System.out.println(dataFactory.getPManagementData().find("1").getName());
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}
