@@ -1,11 +1,12 @@
 package dataservice;
 
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.StaffPO;
 
-public interface PManagementDataService {
+public interface PManagementDataService extends Remote{
 	
 	public StaffPO find(String id);
 	public ArrayList<StaffPO>findAll();

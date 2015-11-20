@@ -1,11 +1,12 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.DeliverPO;
 import po.OrderPO;
 
-public interface ReceiveDataService{
+public interface ReceiveDataService extends Remote{
 	//¶ÔOrderPOµÄ²Ù×÷
 	public OrderPO findO(String id) throws Exception;
 	public ArrayList<OrderPO> findsO(String field,String id) throws Exception;

@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.SalaryPO;
 
-public interface SalaryStrategyDataService {
+public interface SalaryStrategyDataService extends Remote{
 	
 	public ArrayList<SalaryPO> findAll();
 	public void insert(SalaryPO po);

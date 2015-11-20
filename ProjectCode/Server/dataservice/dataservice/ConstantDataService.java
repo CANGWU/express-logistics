@@ -1,10 +1,11 @@
 package dataservice;
 
-import java.util.ArrayList;
+import java.rmi.Remote;
+
 
 import po.ConstantPO;
 
-public interface ConstantDataService {
+public interface ConstantDataService extends Remote{
 
 
 	public ConstantPO find();

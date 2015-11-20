@@ -1,10 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="stcokslservice.StockAdjustService"/>
-<fullyQualifiedTypeName name="vo.DecumentVO"/>
-<fullyQualifiedTypeName name="auditslservice.AuditInfo"/>
-<fullyQualifiedTypeName name="mockaudit.MockAuditInfo"/>
-<fullyQualifiedTypeName name="vo.PaymentVO"/>
-<fullyQualifiedTypeName name="vo.TransportVO"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

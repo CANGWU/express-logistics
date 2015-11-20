@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.AgencyPO;
 
-public interface AManagementDataService {
+public interface AManagementDataService extends Remote{
 	public AgencyPO find(String id);
 	public ArrayList<AgencyPO> findAll();
 	public void insert(AgencyPO po);

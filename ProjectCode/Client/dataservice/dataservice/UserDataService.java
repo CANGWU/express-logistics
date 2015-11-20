@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.*;
 
-public interface UserDataService {
+public interface UserDataService extends Remote{
       public UserPO findUserPO(String id);
       public ArrayList<UserPO> findsUserPO(String id[]);
       public ResultMessage insertUserPO(UserPO user);

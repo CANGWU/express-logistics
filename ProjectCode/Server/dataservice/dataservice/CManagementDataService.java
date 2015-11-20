@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.CarPO;
 
-public interface CManagementDataService {
+public interface CManagementDataService extends Remote{
 	
 	public CarPO find(String id);
 	public ArrayList<CarPO> findAll();

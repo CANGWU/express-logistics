@@ -1,8 +1,10 @@
 package dataservice;
 
+import java.rmi.Remote;
+
 import po.*;
 
-public interface IoputDataService {
+public interface IoputDataService extends Remote{
 	
 	public IoputPO find(String id);
 	public IoputPO[] finds(String[]ids);

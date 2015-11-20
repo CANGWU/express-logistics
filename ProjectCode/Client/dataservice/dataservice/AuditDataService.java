@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.DecumentPO;
 
-public interface AuditDataService {
+public interface AuditDataService extends Remote{
 	
 	public DecumentPO find(String id);
 	public ArrayList<DecumentPO> find(String[] ids);

@@ -2,15 +2,18 @@ package Junit_test;
 
 import org.junit.Test;
 
+import usersl.Log;
+import usersl.LogList;
 import mocklog.MockLogInfo;
 
 public class LogListTest {
 
-	@Test
-	public void test() {
-		//fail("Not yet implemented");
-		MockLogInfo loginfo=new MockLogInfo();
-		loginfo.createLog("张三，快递员，鼓楼营业厅，订单输入，2015/11/11");
-	}
 
+
+
+	@Test
+	public void testCreateLog() {
+		MockLogInfo info=new MockLogInfo();
+		info.createLog("张三，管理员，日志管理，2015/11/11");
+	}
 }

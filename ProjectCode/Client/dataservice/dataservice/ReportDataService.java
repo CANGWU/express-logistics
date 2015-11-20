@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.ReportPO;
 
-public interface ReportDataService {
+public interface ReportDataService extends Remote{
 	public ReportPO find(String id) throws Exception;
 	public ArrayList<ReportPO> finds(String field,String id) throws Exception;
 	public void insert(ReportPO po) throws Exception;

@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.TransportPO;
 
-public interface TransportDataService {
+public interface TransportDataService extends Remote{
 	public TransportPO find(String id) throws Exception;
 	public ArrayList<TransportPO> finds(String fields,String id) throws Exception;
 	public void insert(TransportPO po) throws Exception;

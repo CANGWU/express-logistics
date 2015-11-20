@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.*;
 
-public interface FinanceDataService {
+public interface FinanceDataService extends Remote{
     public ReceiptsPO findReceiptsPO(String id);
     public ArrayList<ReceiptsPO> findsUser(String id[]);
     

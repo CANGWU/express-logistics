@@ -4,14 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import data.DataFactory;
+//import data.DataFactory;
 import po.OrderPO;
 import sendslservice.OrderInputCheckMessage;
 import sendslservice.SendService;
 import vo.*;
 
 public class Send implements SendService{
-	DataFactory factory=new 		DataFactory();
+	//DataFactory factory=new 		DataFactory();
 	@Override
 	public OrderVO calculate(String[] info) {
 		// TODO Auto-generated method stub
@@ -48,7 +48,7 @@ public class Send implements SendService{
 		order.setDueOfReceive(this.computedue(order));
 		order.setBill(bill);
 		OrderPO orderpo=new OrderPO(order.getTimeOfSend(),order.getDueOfReceive(),order.getOrdernumber(),order.getNameOfCourier(),order.getSender(),order.getReceiver(),order.getBill(),order.getGoods());
-		factory.getSendData().insertOrderPO(orderpo);
+		//factory.getSendData().insertOrderPO(orderpo);
 	}
 
 	@Override

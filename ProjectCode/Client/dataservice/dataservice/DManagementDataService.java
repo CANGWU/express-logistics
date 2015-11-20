@@ -1,10 +1,11 @@
 package dataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.DriverPO;
 
-public interface DManagementDataService {
+public interface DManagementDataService extends Remote{
 	
 	public DriverPO find(String id);
 	public ArrayList<DriverPO> findAll();

@@ -1,7 +1,10 @@
 package Junit_test;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
+import financesl.Cost;
 import mockcost.MockStrategyInfo;
 
 public class CostTest {
@@ -10,7 +13,11 @@ public class CostTest {
 	public void test() {
 		//fail("Not yet implemented");
 		MockStrategyInfo strategyinfo=new MockStrategyInfo();
-		String strategy=strategyinfo.getStrategy("快递员");	
+		String strategy=strategyinfo.getStrategy("快递员");
+		Cost cost=new Cost();
+		cost.computePayment(null);
+		assertEquals(cost.getStrategy(null),"");
+		assertEquals(strategy,"3000");
 
 	}
 
