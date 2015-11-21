@@ -2,13 +2,25 @@ package po;
 
 import java.util.ArrayList;
 
+import enums.Work;
+
 public class UserPO {
      
 	String name;
 	String accountnumber;
 	String code;
 	String privileges;
-    ArrayList<LogPO> loglist=new ArrayList<LogPO>();
+	Work work;
+	
+ 
+	public Work getWork() {
+		return work;
+	}
+
+	public void setWork(Work work) {
+		this.work = work;
+	}
+	ArrayList<LogPO> loglist=new ArrayList<LogPO>();
     
     public UserPO(String name,String accountnumber,String code,String privileges){
     	this.name=name;

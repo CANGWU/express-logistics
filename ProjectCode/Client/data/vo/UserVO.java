@@ -2,13 +2,25 @@ package vo;
 
 import java.util.ArrayList;
 
+import enums.Work;
+
 public class UserVO {
      
 	String name;
 	String accountnumber;
 	String code;
 	String privileges;
-    ArrayList<LogVO> loglist=new ArrayList<LogVO>();
+	Work work;
+
+	
+	public Work getWork() {
+		return work;
+	}
+
+	public void setWork(Work work) {
+		this.work = work;
+	}
+	ArrayList<LogVO> loglist=new ArrayList<LogVO>();
     
     public UserVO(String name,String accountnumber,String code,String privileges){
     	this.name=name;

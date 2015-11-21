@@ -13,10 +13,10 @@ public interface UserDataService extends Remote{
       public ResultMessage deleteUserPO(UserPO user);
       public ResultMessage updateUserPO(UserPO user);
       
-      public LogPO findLogPO(String id);
+      public LogPO findLogPO(String office,String time);
       public ResultMessage insertLogPO(LogPO log);
       
-      public ArrayList<LogPO> findsLogsPO(String id[]);
+      public ArrayList<LogPO> findsLogsPO(String office,String time);
       
       
       

@@ -2,6 +2,7 @@ package usersl;
 
 
 import dataservice.UserDataService;
+import dataserviceimpl.DataFactory;
 import enums.ResultMessage;
 import po.LogPO;
 import userslservice.LogCreate;
@@ -29,7 +30,7 @@ public class LogList implements LogCreate{
 	}
 	
 	
-	static LogList creatCheck(DataFactory datafactory){
+	public static LogList creatLogList(DataFactory datafactory){
 		if(loglist==null)
 			loglist = new LogList(datafactory);	
 		
