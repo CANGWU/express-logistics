@@ -43,6 +43,10 @@ public class IoputPO implements Serializable  {
 		return id;
 	}
 	
+	public String getTime(){
+		return time;
+	}
+	
 	public String getInputDate(){
 		return inputdate;
 	}
