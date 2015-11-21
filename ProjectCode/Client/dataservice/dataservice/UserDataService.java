@@ -3,6 +3,7 @@ package dataservice;
 import java.rmi.Remote;
 import java.util.ArrayList;
 
+import enums.ResultMessage;
 import po.*;
 
 public interface UserDataService extends Remote{

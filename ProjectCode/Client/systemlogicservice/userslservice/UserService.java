@@ -3,7 +3,7 @@ package userslservice;
 
 import java.util.ArrayList;
 
-import po.ResultMessage;
+import enums.ResultMessage;
 import vo.*;
 
 

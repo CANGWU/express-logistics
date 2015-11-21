@@ -2,6 +2,7 @@ package dataservice;
 
 import java.rmi.Remote;
 
+import enums.ResultMessage;
 import po.*;
 
 public interface SendDataService extends Remote{

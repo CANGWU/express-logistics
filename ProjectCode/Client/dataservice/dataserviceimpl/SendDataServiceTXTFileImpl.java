@@ -4,8 +4,8 @@ import java.io.*;
 
 import po.OrderPO;
 import po.ReceiptsPO;
-import po.ResultMessage;
 import dataservice.SendDataService;
+import enums.ResultMessage;
 
 public class SendDataServiceTXTFileImpl implements SendDataService {
 

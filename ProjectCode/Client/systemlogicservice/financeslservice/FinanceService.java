@@ -2,6 +2,7 @@ package financeslservice;
 
 import java.util.ArrayList;
 
+import enums.ResultMessage;
 import vo.*;
 
 public interface FinanceService {

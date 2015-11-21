@@ -1,7 +1,6 @@
 package checksl;
 
 import po.LogisticsPO;
-import data.DataFactory;
 import dataservice.CheckDataService;
 import vo.LogisticsVO;
 
