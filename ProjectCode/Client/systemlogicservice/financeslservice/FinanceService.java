@@ -2,7 +2,6 @@ package financeslservice;
 
 import java.util.ArrayList;
 
-import slstub.ResultMessage;
 import vo.*;
 
 public interface FinanceService {

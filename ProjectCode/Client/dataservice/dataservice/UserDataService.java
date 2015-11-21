@@ -4,7 +4,6 @@ import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.*;
-import slstub.ResultMessage;
 
 public interface UserDataService extends Remote{
       public UserPO findUserPO(String id);

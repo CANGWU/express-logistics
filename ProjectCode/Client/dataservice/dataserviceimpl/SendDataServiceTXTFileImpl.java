@@ -4,7 +4,7 @@ import java.io.*;
 
 import po.OrderPO;
 import po.ReceiptsPO;
-import slstub.ResultMessage;
+import po.ResultMessage;
 import dataservice.SendDataService;
 
 public class SendDataServiceTXTFileImpl implements SendDataService {
