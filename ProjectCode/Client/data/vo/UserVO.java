@@ -22,11 +22,12 @@ public class UserVO {
 	}
 	ArrayList<LogVO> loglist=new ArrayList<LogVO>();
     
-    public UserVO(String name,String accountnumber,String code,String privileges){
+    public UserVO(String name,String accountnumber,String code,String privileges,Work work){
     	this.name=name;
     	this.accountnumber=accountnumber;
     	this.code=code;
     	this.privileges=privileges;
+    	this.work=work;
     	
     }
     

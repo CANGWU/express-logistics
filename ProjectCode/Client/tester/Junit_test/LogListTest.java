@@ -2,7 +2,7 @@ package Junit_test;
 
 import org.junit.Test;
 
-import usersl.Log;
+import usersl.LogManagement;
 import usersl.LogList;
 import mocklog.MockLogInfo;
 

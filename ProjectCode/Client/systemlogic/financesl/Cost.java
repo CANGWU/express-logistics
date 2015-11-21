@@ -1,19 +1,37 @@
 package financesl;
 
-import financeslservice.GetStrategy;
+import enums.ResultMessage;
+import financeslservice.CostService;
+import vo.AccountVO;
 import vo.PaymentVO;
+import vo.StaffVO;
 
-public class Cost implements GetStrategy {
-	
-	public void computePayment(PaymentVO payment){
-		
+public class Cost implements CostService {
+
+	@Override
+	public PaymentVO setPayment(AccountVO account, String paymentType,
+			StaffVO receiver) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public String getStrategy(String work) {
+	public PaymentVO computePayment(PaymentVO payment) {
 		// TODO Auto-generated method stub
-		String strategy="";
-		return strategy;
+		return null;
 	}
+
+	@Override
+	public PaymentVO computePayment(PaymentVO payment, double money) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage payPayment(PaymentVO payment) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

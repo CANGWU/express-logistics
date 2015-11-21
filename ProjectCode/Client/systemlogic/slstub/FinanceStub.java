@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import vo.*;
 
-import financeslservice.FinanceService;
+import financeslservice.AccountManagementtService;
 
-public class FinanceStub implements FinanceService {
+public class FinanceStub implements AccountManagementtService {
 
 	@Override
 	public ArrayList<ReceiptsVO> getBalanceMessage(String office,

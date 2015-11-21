@@ -1,4 +1,3 @@
-/usersl/
 /Junit_test/
 /RMItest/
 /auditsl/
@@ -22,6 +21,7 @@
 /mocklog/
 /mockreportmessage/
 /pamanagementslservice/
+/receivesl/
 /po/
 /presentationstub/
 /receiveslservice/
@@ -34,6 +34,7 @@
 /stockslservice/
 /strategyslservice/
 /transportslservice/
+/usersl/
 /userslservice/
 /userui/
 /vo/

@@ -17,13 +17,13 @@ import enums.ResultMessage;
 import po.LogPO;
 import userslservice.LogService;
 
-public class Log implements LogService{
+public class LogManagement implements LogService{
 	
-	static Log log;
+	static LogManagement log;
 	DataFactory datafactory;
 	ArrayList<LogPO> logs;
 	
-	private Log(DataFactory datafactory){
+	private LogManagement(DataFactory datafactory){
 		this.datafactory=datafactory;
 	}
 	
@@ -48,14 +48,14 @@ public class Log implements LogService{
 		
 		LogList loglist=LogList.creatLogList(datafactory);
 		
-		ResultMessage message=loglist.logCreate(time, null, null, "日志查询");
+		ResultMessage message=loglist.logCreate(time, null, "", "日志查询");
 	}
 	
 	
 	
-	static Log creatCheck(DataFactory datafactory){
+	static LogManagement creatCheck(DataFactory datafactory){
 		if(log==null)
-			log = new Log(datafactory);	
+			log = new LogManagement(datafactory);	
 		
 		 return log;
 	}
