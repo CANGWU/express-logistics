@@ -12,6 +12,12 @@ public class LogisticsPO {
     	this.ordernumber=ordernumber;
     }
     
+    
+    public ArrayList<String> getLogisticsMessage(){
+		return logisticsMessage;
+    	
+    }
+    
     public void addMessage(String newmessgae){
     	logisticsMessage.add(newmessgae);
     }
