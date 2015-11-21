@@ -14,6 +14,8 @@ public interface UserDataService extends Remote{
       public ResultMessage updateUserPO(UserPO user);
       
       public LogPO findLogPO(String id);
+      public ResultMessage insertLogPO(LogPO log);
+      
       public ArrayList<LogPO> findsLogsPO(String id[]);
       
       
