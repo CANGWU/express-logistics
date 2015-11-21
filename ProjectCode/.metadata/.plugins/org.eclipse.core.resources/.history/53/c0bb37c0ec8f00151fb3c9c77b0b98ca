@@ -1,0 +1,54 @@
+package dataserviceimpl;
+
+import java.util.ArrayList;
+
+import dataservice.UserDataService;
+import po.LogPO;
+import po.ResultMessage;
+import po.UserPO;
+
+public class UserDataImpl implements UserDataService {
+
+	@Override
+	public UserPO findUserPO(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<UserPO> findsUserPO(String[] id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage insertUserPO(UserPO user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage deleteUserPO(UserPO user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage updateUserPO(UserPO user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LogPO findLogPO(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<LogPO> findsLogsPO(String[] id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

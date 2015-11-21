@@ -16,6 +16,10 @@ public class DriverPO extends StaffPO{
 		this.driverYear = driverYear;
 		}
 	
+	public DriverPO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setDriverYear(int driverYear){
 		this.driverYear = driverYear;
 	}

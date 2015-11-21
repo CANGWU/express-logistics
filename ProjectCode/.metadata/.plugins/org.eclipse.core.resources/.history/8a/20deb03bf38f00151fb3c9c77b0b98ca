@@ -1,0 +1,83 @@
+package dataserviceimpl;
+
+import java.util.ArrayList;
+
+import dataservice.ReceiveDataService;
+import po.DeliverPO;
+import po.OrderPO;
+
+public class ReceiveDataImpl implements ReceiveDataService {
+
+	@Override
+	public OrderPO findO(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<OrderPO> findsO(String field, String id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertO(OrderPO po) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteO(OrderPO po) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateO(OrderPO po) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public DeliverPO findD(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<DeliverPO> findsD(String field, String id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertD(DeliverPO po) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteD(DeliverPO po) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateD(DeliverPO po) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void init() throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void finish() throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

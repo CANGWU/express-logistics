@@ -1,0 +1,45 @@
+
+import java.rmi.Naming;
+import java.rmi.RMISecurityManager;
+import java.rmi.registry.LocateRegistry;
+
+import dataservice.DManagementDataService;
+import dataservice.DataFactoryService;
+import dataservice.PManagementDataService;
+import dataserviceimpl.DManagementDataImpl;
+import dataserviceimpl.DataFactory;
+import dataserviceimpl.PManagementDataImpl;
+
+public class Main {
+	//@SuppressWarnings("deprecation")
+	public static void main(String[]args){
+		//set RMISercurity
+	
+//		if(System.getSecurityManager() == null){
+//			System.setSecurityManager(new RMISecurityManager());	
+//		}
+//		
+		
+		DataFactoryService dataFactory = new DataFactory();
+		try{
+			//LocateRegistry.createRegistry(port); 
+			
+			PManagementDataService pm = PManagementDataImpl.create();
+		    LocateRegistry.createRegistry(1099); 
+			Naming.bind("//localhost:1099/getPManagementDataService",pm);
+			
+			
+//			DManagementDataService dm = DManagementDataImpl.create();
+//			LocateRegistry.createRegistry(8001);
+//			Naming.bind("//localhost:8001/getDManagementDataService",dm);
+//			System.out.println("OK to bound the RMI Service");
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

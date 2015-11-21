@@ -3,24 +3,37 @@ package dataservice;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface DataFactoryService extends Remote{
+import dataserviceimpl.CManagementDataImpl;
+
+public interface DataFactoryService{
           
-	   public CheckDataService getCheckData()throws RemoteException ;
+	   public CheckDataService getCheckData() ;
 	   
-	   public FinanceDataService getFinanceData()throws RemoteException;
+	   public FinanceDataService getFinanceData();
 	   
-	   public SendDataService getSendData()throws RemoteException;
+	   public SendDataService getSendData();
 	   
-	   public UserDataService getUserData()throws RemoteException;
+	   public UserDataService getUserData();
 	   
-	   public AManagementDataService getAManagementData()throws RemoteException;
+	   public AManagementDataService getAManagementData();
 	   
-	   public PManagementDataService getPManagementData() throws RemoteException;
+	   public PManagementDataService getPManagementData() ;
 	   
-	   public DManagementDataService getDManagementData()throws RemoteException;
+	   public DManagementDataService getDManagementData();
 	   
-	   public CManagementDataService getCManagementData()throws RemoteException;
+	   public CManagementDataService getCManagementData();
 	   
-	     
+	   public ConstantDataService getConstantData();
 	   
+	   public IoputDataService getIoputData();
+	   
+	   public ReceiveDataService getReceiveData();
+	   
+	   public SalaryStrategyDataService getSalaryStrategyData();
+	   
+	   public StockDataService getStockDate();
+	   
+	   public TransportDataService getTransportDate();
+	   
+	 
 }

@@ -1,19 +1,20 @@
 package dataservice;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.DriverPO;
 
 public interface DManagementDataService extends Remote{
 	
-	public DriverPO find(String id);
-	public ArrayList<DriverPO> findAll();
-	public void insert(DriverPO po);
-	public void delect(DriverPO po);
-	public void delect(String id);
-	public void update(DriverPO po);
-	public void init();
-	public void finish();
+	public DriverPO find(String id) throws RemoteException;
+	public ArrayList<DriverPO> findAll() throws RemoteException;
+	public void insert(DriverPO po) throws RemoteException;
+	public void delect(DriverPO po) throws RemoteException;
+	public void delect(String id) throws RemoteException;
+	public void update(DriverPO po) throws RemoteException;
+	public void init() throws RemoteException;
+	public void finish() throws RemoteException;
 
 }

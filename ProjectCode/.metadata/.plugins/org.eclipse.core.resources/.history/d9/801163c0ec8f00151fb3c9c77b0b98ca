@@ -1,0 +1,14 @@
+package dataserviceimpl;
+
+import dataservice.CheckDataService;
+import po.LogisticsPO;
+
+public class CheckDataImpl implements CheckDataService {
+
+	@Override
+	public LogisticsPO find(String ordernumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
