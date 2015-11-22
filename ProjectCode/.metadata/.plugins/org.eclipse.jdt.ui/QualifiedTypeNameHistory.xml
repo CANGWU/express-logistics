@@ -20,4 +20,9 @@
 <fullyQualifiedTypeName name="dataservice.StockDataService"/>
 <fullyQualifiedTypeName name="dataservice.TransportDataService"/>
 <fullyQualifiedTypeName name="dataservice.UserDataService"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="link.Helper"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="enums.Sex"/>
+<fullyQualifiedTypeName name="enums.ResultMessage"/>
 </qualifiedTypeNameHistroy>

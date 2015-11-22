@@ -5,11 +5,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.FinanceDataService;
+import enums.ResultMessage;
 import po.AccountPO;
 import po.CompanyAccountPO;
 import po.PaymentPO;
 import po.ReceiptsPO;
-import po.ResultMessage;
 
 public class FinanceDataImpl extends UnicastRemoteObject implements FinanceDataService {
 

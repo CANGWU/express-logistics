@@ -3,6 +3,7 @@ package dataserviceimpl;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import dataservice.ConstantDataService;
+import enums.ResultMessage;
 import po.ConstantPO;
 
 public class ConstantDataImpl extends UnicastRemoteObject implements ConstantDataService {
@@ -14,24 +15,26 @@ public class ConstantDataImpl extends UnicastRemoteObject implements ConstantDat
 
 	@Override
 	public ConstantPO find() {
-		// TODO Auto-generated method stub
 		return null;
-	}
+				}
 
 	@Override
-	public void insert(ConstantPO po) {
+	public ResultMessage insert(ConstantPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect() {
+	public ResultMessage delect() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void update(ConstantPO po) {
+	public ResultMessage update(ConstantPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

@@ -1,8 +1,10 @@
 package po;
 
+import enums.Sex;
+
 public class DriverPO extends StaffPO{
 	public int driverYear;
-	public DriverPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,String sex,int driverYear,int page){
+	public DriverPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,int driverYear,int page){
 		this.name = name;
 		this.position = position;
 		this.workNumber = workNumber;

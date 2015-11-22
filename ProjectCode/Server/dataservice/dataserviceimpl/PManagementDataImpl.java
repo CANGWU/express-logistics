@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import po.StaffPO;
 import dataservice.PManagementDataService;
+import enums.ResultMessage;
 
 public class PManagementDataImpl extends UnicastRemoteObject implements PManagementDataService{
 
@@ -29,25 +30,29 @@ public class PManagementDataImpl extends UnicastRemoteObject implements PManagem
 	}
 
 	@Override
-	public void insert(StaffPO po) {
+	public ResultMessage insert(StaffPO po) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delect(StaffPO po) {
+	public ResultMessage delect(StaffPO po) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delect(String id) {
+	public ResultMessage delect(String id) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void update(StaffPO po) {
+	public ResultMessage update(StaffPO po) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}

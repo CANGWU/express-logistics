@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.SalaryStrategyDataService;
+import enums.ResultMessage;
 import po.SalaryPO;
 
 public class SalaryStrategyDataImpl extends UnicastRemoteObject implements SalaryStrategyDataService {
@@ -21,37 +22,42 @@ public class SalaryStrategyDataImpl extends UnicastRemoteObject implements Salar
 	}
 
 	@Override
-	public void insert(SalaryPO po) {
+	public ResultMessage insert(SalaryPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect(SalaryPO po) {
+	public ResultMessage delect(SalaryPO po) {
+		return null;
+	}
+
+	@Override
+	public ResultMessage delect(String id) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect(String id) {
+	public ResultMessage delect(ArrayList<String> ids) {
+		
+		
+		return null;
+
+	}
+
+	@Override
+	public ResultMessage update(SalaryPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect(ArrayList<SalaryPO> salarys) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(SalaryPO po) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(ArrayList<SalaryPO> salarys) {
+	public ResultMessage update(ArrayList<SalaryPO> salarys) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

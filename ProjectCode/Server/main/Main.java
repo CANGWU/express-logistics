@@ -9,6 +9,7 @@ import dataservice.PManagementDataService;
 import dataserviceimpl.DManagementDataImpl;
 import dataserviceimpl.DataFactory;
 import dataserviceimpl.PManagementDataImpl;
+import link.Helper;
 
 public class Main {
 	//@SuppressWarnings("deprecation")
@@ -21,6 +22,7 @@ public class Main {
 		//		
        RMILinking rmi = new RMILinking();
        rmi.setRMI();
+       Helper helper = new Helper();
 
 	}
 

@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.AManagementDataService;
+import enums.ResultMessage;
 import po.AgencyPO;
 
 public class AManagementDataImpl extends UnicastRemoteObject  implements AManagementDataService {
@@ -25,28 +26,29 @@ public class AManagementDataImpl extends UnicastRemoteObject  implements AManage
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public ResultMessage insert(AgencyPO po) {
+		return null;
+
+	}
 
 	@Override
-	public void insert(AgencyPO po) {
+	public ResultMessage delect(AgencyPO po) {
+		
+		return null;
+
+	}
+
+	@Override
+	public ResultMessage delect(String id) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect(AgencyPO po) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delect(String id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(AgencyPO po) {
-		// TODO Auto-generated method stub
+	public ResultMessage update(AgencyPO po) {
+		return null;
 
 	}
 

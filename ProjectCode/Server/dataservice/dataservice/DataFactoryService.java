@@ -3,7 +3,6 @@ package dataservice;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import dataserviceimpl.CManagementDataImpl;
 
 public interface DataFactoryService{
           

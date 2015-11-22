@@ -1,6 +1,5 @@
 package mockcost;
 
-import financeslservice.GetStrategy;
 
 public class MockStrategyInfo implements GetStrategy{
 

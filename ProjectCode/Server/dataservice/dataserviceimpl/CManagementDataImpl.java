@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.CManagementDataService;
+import enums.ResultMessage;
 import po.CarPO;
 
 public class CManagementDataImpl extends UnicastRemoteObject implements CManagementDataService {
@@ -27,25 +28,29 @@ public class CManagementDataImpl extends UnicastRemoteObject implements CManagem
 	}
 
 	@Override
-	public void insert(CarPO po) {
+	public ResultMessage insert(CarPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect(CarPO po) {
+	public ResultMessage delect(CarPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delect(String id) {
+	public ResultMessage delect(String id) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void update(CarPO po) {
+	public ResultMessage update(CarPO po) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

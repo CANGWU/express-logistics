@@ -2,6 +2,8 @@ package po;
 
 import java.io.Serializable;
 
+import enums.Sex;
+
 /*
  * 
  * @author:xuan
@@ -19,10 +21,10 @@ String birthDate;
 String idNumber;
 String phoneNumber;
 String address;
-String sex;
+Sex sex;
 double page;
 
-public StaffPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,String sex,double page){
+public StaffPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
 this.name = name;
 this.position = position;
 this.workNumber = workNumber;
@@ -69,7 +71,7 @@ public String getAddress(){
 	return address;
 }
 
-public String getSex(){
+public Sex getSex(){
 	return sex;
 }
 
@@ -109,7 +111,7 @@ public void setPosition(String position){
 	this.position = position;
 }
 
-public void setSex(String sex){
+public void setSex(Sex sex){
 	this.sex = sex;
 }
 

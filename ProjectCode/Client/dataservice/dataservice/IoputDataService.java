@@ -2,6 +2,7 @@ package dataservice;
 
 import java.rmi.Remote;
 
+import enums.ResultMessage;
 import po.*;
 
 public interface IoputDataService extends Remote{
@@ -11,9 +12,9 @@ public interface IoputDataService extends Remote{
 	public IoputPO[] findDate(String date);
 	public IoputPO[] findDates(String[] date);
 	public IoputPO[] findTimes(String[] time);
-	public void insert(IoputPO PO);
-	public void delete(IoputPO PO);
-	public void update(IoputPO PO);
+	public ResultMessage insert(IoputPO PO);
+	public ResultMessage delete(IoputPO PO);
+	public ResultMessage update(IoputPO PO);
 
 
 }

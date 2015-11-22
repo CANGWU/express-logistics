@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import dataservice.IoputDataService;
+import enums.ResultMessage;
 import po.IoputPO;
 
 public class IoputDataImpl extends UnicastRemoteObject implements IoputDataService {
@@ -44,19 +45,22 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 	}
 
 	@Override
-	public void insert(IoputPO PO) {
+	public ResultMessage insert(IoputPO PO) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(IoputPO PO) {
+	public ResultMessage delete(IoputPO PO) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void update(IoputPO PO) {
+	public ResultMessage update(IoputPO PO) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

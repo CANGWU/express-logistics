@@ -1,9 +1,11 @@
+
 package dataserviceimpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.TransportDataService;
+import enums.ResultMessage;
 import po.TransportPO;
 
 public class TransportDataImpl implements TransportDataService {
@@ -21,19 +23,22 @@ public class TransportDataImpl implements TransportDataService {
 	}
 
 	@Override
-	public void insert(TransportPO po) throws Exception {
+	public ResultMessage insert(TransportPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(TransportPO po) throws Exception {
+	public ResultMessage delete(TransportPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void update(TransportPO po) throws Exception {
+	public ResultMessage update(TransportPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

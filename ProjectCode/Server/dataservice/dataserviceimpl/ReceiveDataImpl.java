@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.ReceiveDataService;
+import enums.ResultMessage;
 import po.DeliverPO;
 import po.OrderPO;
 
@@ -28,19 +29,22 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 	}
 
 	@Override
-	public void insertO(OrderPO po) throws Exception {
+	public ResultMessage insertO(OrderPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteO(OrderPO po) throws Exception {
+	public ResultMessage deleteO(OrderPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateO(OrderPO po) throws Exception {
+	public ResultMessage updateO(OrderPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
@@ -58,19 +62,22 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 	}
 
 	@Override
-	public void insertD(DeliverPO po) throws Exception {
+	public ResultMessage insertD(DeliverPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteD(DeliverPO po) throws Exception {
+	public ResultMessage deleteD(DeliverPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateD(DeliverPO po) throws Exception {
+	public ResultMessage updateD(DeliverPO po) throws Exception {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

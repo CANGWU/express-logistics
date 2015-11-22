@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.StockDataService;
+import enums.ResultMessage;
 import po.StockPO;
 
 public class StockDataImpl extends UnicastRemoteObject implements StockDataService {
@@ -21,25 +22,28 @@ public class StockDataImpl extends UnicastRemoteObject implements StockDataServi
 	}
 
 	@Override
-	public StockPO[] findpositions(ArrayList<int[][]> positions) {
+	public ArrayList<StockPO> findpositions(ArrayList<int[][]> positions) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void insert(StockPO PO) {
+	public ResultMessage insert(StockPO PO) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(StockPO PO) {
+	public ResultMessage delete(StockPO PO) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void update(StockPO PO) {
+	public ResultMessage update(StockPO PO) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

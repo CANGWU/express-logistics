@@ -5,9 +5,9 @@ import java.rmi.server.UnicastRemoteObject;
 
 import dataservice.CheckDataService;
 import dataservice.SendDataService;
+import enums.ResultMessage;
 import po.OrderPO;
 import po.ReceiptsPO;
-import po.ResultMessage;
 
 public class SendDataImpl extends UnicastRemoteObject implements SendDataService {
 
