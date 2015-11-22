@@ -9,7 +9,6 @@ public interface SalaryStrategyService {
         public void endSalaryStrategy();
         public void save(SalaryVO vo);
         public void saveChange(SalaryVO vo);
-        public void update(SalaryVO vo);
 	    public void newSalaryVO(); 
         public SalaryVO select(String id);
         public void revise();

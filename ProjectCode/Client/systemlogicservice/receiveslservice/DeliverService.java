@@ -8,8 +8,9 @@ public interface DeliverService {
 	
 	//生成派件单
 	public void newDeliver(String time,DeliverVO delivervo);
-	public void addMember(String id);
+	public void addExpress(String orderNumber,DeliverVO delivervo);
+	public void addMember(String id,DeliverVO delivervo);
 	public void printDeliver(String id);
-	public void saveDeliver(DeliverVO delivervo);
-	public void endDeliver();
+	public void saveDeliver(DeliverVO delivervo) throws Exception;
+	public void endDeliver() throws Exception;
 }
