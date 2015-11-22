@@ -9,7 +9,7 @@ public interface AccountManagementService {
 
 	
 	
-	public AccountVO addAccount(String accountname,double accountmoney);
+	public ResultMessage addAccount(String accountname,double accountmoney);
 	public ResultMessage deleteAccount(AccountVO account);
 	public AccountVO fixAccount(AccountVO account,String accountname);
 	public ArrayList<AccountVO> seekAccount(String accountname);

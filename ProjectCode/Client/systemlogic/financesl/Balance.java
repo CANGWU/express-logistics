@@ -14,8 +14,8 @@ public class Balance implements BalanceService{
 	}
 
 	@Override
-	public ArrayList<ReceiptsVO> getBalanceMessage(String office,
-			String time) {
+	public ArrayList<ReceiptsVO> getBalanceMessage(String starttime,
+			String endtime,String office) {
 		// TODO Auto-generated method stub
 		
 		
