@@ -14,6 +14,7 @@ public interface FinanceDataService extends Remote{
     
     public AccountPO findAccountPO(String id);
     public ArrayList<AccountPO> findsAccountPO(String id[]);
+    public ArrayList<AccountPO> seekAccount(String name);
     public ResultMessage insertAccountPO(AccountPO account);
     public ResultMessage deleteAccountPO(AccountPO account);
     public ResultMessage updateAccountPO(AccountPO account);

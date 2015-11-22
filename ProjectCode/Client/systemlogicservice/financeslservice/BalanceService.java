@@ -5,5 +5,5 @@ import java.util.ArrayList;
 import vo.ReceiptsVO;
 
 public interface BalanceService {
-	public ArrayList<ReceiptsVO> getBalanceMessage(String office,String time);
+	public ArrayList<ReceiptsVO> getBalanceMessage(String starttime,String endtime,String office);
 }
