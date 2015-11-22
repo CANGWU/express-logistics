@@ -20,9 +20,9 @@ String idNumber;
 String phoneNumber;
 String address;
 String sex;
-int page;
+double page;
 
-public StaffPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,String sex,int page){
+public StaffPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,String sex,double page){
 this.name = name;
 this.position = position;
 this.workNumber = workNumber;
@@ -73,7 +73,7 @@ public String getSex(){
 	return sex;
 }
 
-public int getPage(){
+public double getPage(){
 	return page;
 }
 
@@ -101,7 +101,7 @@ public void setAddress(String address){
 	this.address = address;
 }
 
-public void setPage(int page){
+public void setPage(double page){
 	this.page = page;
 }
 
