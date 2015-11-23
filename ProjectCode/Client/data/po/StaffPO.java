@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 
 import enums.Sex;
+import enums.Work;
 
 /*
  * 
@@ -14,7 +15,7 @@ import enums.Sex;
 
 public class StaffPO implements Serializable{
 String name; 
-String position;
+Work work;
 String workNumber;
 String workPlaceNumber;
 String birthDate;
@@ -23,10 +24,11 @@ String phoneNumber;
 String address;
 Sex sex;
 double page;
+int numbers;
 
-public StaffPO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
+public StaffPO(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
 this.name = name;
-this.position = position;
+this.work=work;
 this.workNumber = workNumber;
 this.workPlaceNumber = workPlaceNumber;
 this.birthDate = birthDate;
@@ -39,6 +41,7 @@ this.page = page;
 
 public StaffPO(){};
 
+
 public String getPhoneNumber(){
 	    return phoneNumber;
 }
@@ -47,9 +50,7 @@ public String getName(){
 return name;
 }
 
-public String getPosition(){
-	return position;
-}
+
 
 public String getWorkNumber(){
 return workNumber;
@@ -107,8 +108,30 @@ public void setPage(double page){
 	this.page = page;
 }
 
-public void setPosition(String position){
-	this.position = position;
+
+
+public Work getWork() {
+	return work;
+}
+
+public void setWork(Work work) {
+	this.work = work;
+}
+
+public String getBirthDate() {
+	return birthDate;
+}
+
+public void setBirthDate(String birthDate) {
+	this.birthDate = birthDate;
+}
+
+public String getIdNumber() {
+	return idNumber;
+}
+
+public void setIdNumber(String idNumber) {
+	this.idNumber = idNumber;
 }
 
 public void setSex(Sex sex){

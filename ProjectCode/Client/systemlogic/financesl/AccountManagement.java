@@ -7,9 +7,10 @@ import dataservice.FinanceDataService;
 import dataserviceimpl.DataFactory;
 import vo.AccountVO;
 import enums.ResultMessage;
+import financeslservice.AccountBalanceChange;
 import financeslservice.AccountManagementService;
 
-public class AccountManagement implements AccountManagementService{
+public class AccountManagement implements AccountManagementService,AccountBalanceChange{
 	
 	DataFactory datafactory;
 	static AccountManagement accountmanagement;
@@ -53,8 +54,8 @@ public class AccountManagement implements AccountManagementService{
 		// TODO Auto-generated method stub
 		
 		FinanceDataService data=datafactory.getFinanceData();
-		data.findsAccountPO(id)
-		return null;
+		ArrayList list=data.seekAccount(accountname);
+		return list;
 	}
 	
 	
@@ -63,6 +64,13 @@ public class AccountManagement implements AccountManagementService{
 			accountmanagement = new AccountManagement(datafactory);	
 		
 		 return accountmanagement;
+	}
+
+	@Override
+	public AccountVO changeBalance(AccountVO vo, double balance) {
+		// TODO Auto-generated method stub
+		vo.setBalance(balance);
+		return vo;
 	}
 
 }

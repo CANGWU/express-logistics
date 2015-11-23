@@ -56,7 +56,7 @@ public class Check {
 		
 	}
 	
-	static Check creatCheck(DataFactory datafactory){
+	public static Check creatCheck(DataFactory datafactory){
 		if(check==null)
 			check = new Check(datafactory);	
 		

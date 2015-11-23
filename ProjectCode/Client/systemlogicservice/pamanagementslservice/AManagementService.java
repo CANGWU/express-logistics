@@ -9,7 +9,7 @@ public interface AManagementService {
 		
 		public AgencyVO select(String id);
 		public ArrayList<AgencyVO> getAllAgency();
-		public void delect(String id);
+		public void delete(String id);
 		public AgencyVO revise(String id);
 		public void saveChange(AgencyVO vo);
 		public void save(AgencyVO vo);

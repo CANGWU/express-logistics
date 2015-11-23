@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import po.SalaryPO;
 import dataservice.DataFactoryService;
 import dataservice.SalaryStrategyDataService;
+import enums.Work;
+import strategyslservice.GetSalary;
 import strategyslservice.SalaryStrategyService;
 import vo.SalaryVO;
 
-public class SalaryStrategy {
+public class SalaryStrategy implements GetSalary {
 	DataFactoryService datafactory;
 	SalaryStrategyDataService salarystrategyData;
 	
@@ -24,7 +26,7 @@ public class SalaryStrategy {
 		SalaryPO po;
 		for(int i=0;i<salarypolist.size();i++){
 			po=salarypolist.get(i);
-			vo=new SalaryVO(po.getBaseWage(),po.getAllowance(),po.getCommission());
+			vo=new SalaryVO(po.getBaseWage(),po.getAllowance(),po.getCommission(),po.getWork());
 			salaryvolist.add(vo);
 		}
 		return salaryvolist;
@@ -35,7 +37,7 @@ public class SalaryStrategy {
 	}
 
 	public void save(SalaryVO vo) {
-		SalaryPO po=new SalaryPO(vo.getBaseWage(),vo.getAllowance(),vo.getCommission());
+		SalaryPO po=new SalaryPO(vo.getBaseWage(),vo.getAllowance(),vo.getCommission(),vo.getWork());
 		salarystrategyData.insert(po);
 	}
 
@@ -55,5 +57,12 @@ public class SalaryStrategy {
 	public void revise() {
 
 		
+	}
+
+	@Override
+	public SalaryPO getSingleSalaryStrategy(Work work) {
+		// TODO Auto-generated method stub
+		SalaryPO po=salarystrategyData.find(work);
+		return po;
 	}
 }
