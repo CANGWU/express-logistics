@@ -27,7 +27,7 @@ Sex sex;
 double page;
 int number;
 
-public StaffVO(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,int page){
+public StaffVO(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
 this.name = name;
 this.work=work;
 this.workNumber = workNumber;

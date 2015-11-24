@@ -4,11 +4,9 @@ import reportslservice.ReportService;
 import vo.ReportVO;
 
 public class ReportController implements ReportService {
-	Report report = new Report();
-
-	@Override
-	public void inquire() {
-		report.inquire();
+	Report report;
+	public ReportController(Report report) {
+		this.report=report;
 	}
 
 	@Override
@@ -29,6 +27,11 @@ public class ReportController implements ReportService {
 	@Override
 	public void endReport() {
 		report.endReport();
+	}
+
+	@Override
+	public void caculate(ReportVO reportvo) {
+		
 	}
 
 }

@@ -2,8 +2,10 @@ package vo;
 
 import java.util.ArrayList;
 
+import enums.TransportType;
+
 public class TransportVO {
-	String sign;
+	TransportType sign;
 	String departure;
 	String destination;
 	String time;
@@ -14,7 +16,7 @@ public class TransportVO {
 	ArrayList<String> order;
 	ArrayList<String> condition;
 
-	public TransportVO(String sign,String id, String departure, String destination,
+	public TransportVO(TransportType sign,String id, String departure, String destination,
 			String time, String traffic, long fare, ArrayList<String> member,
 			ArrayList<String> order, ArrayList<String> condition) {
 		this.id=id;
@@ -29,7 +31,7 @@ public class TransportVO {
 		this.condition=condition;
 	}
 	
-	public String getSign(){
+	public TransportType getSign(){
 		return sign;
 	}
 	public String getID(){
@@ -59,7 +61,7 @@ public class TransportVO {
 	public  ArrayList<String> getCondition(){
 		return condition;
 	}
-	public  void setSign(String sign){
+	public  void setSign(TransportType sign){
 		this.sign=sign;
 	}
 	public  void setID(String id){
