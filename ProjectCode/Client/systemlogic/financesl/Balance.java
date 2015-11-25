@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import vo.ReceiptsVO;
 import financeslservice.BalanceService;
 
-public class Balance implements BalanceService{
+public class Balance {
 	
 	static Balance balance;
 	
@@ -13,7 +13,6 @@ public class Balance implements BalanceService{
 		
 	}
 
-	@Override
 	public ArrayList<ReceiptsVO> getBalanceMessage(String starttime,
 			String endtime,String office) {
 		// TODO Auto-generated method stub

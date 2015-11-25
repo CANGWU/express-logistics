@@ -10,7 +10,7 @@ import enums.ResultMessage;
 import financeslservice.AccountBalanceChange;
 import financeslservice.AccountManagementService;
 
-public class AccountManagement implements AccountManagementService,AccountBalanceChange{
+public class AccountManagement implements AccountBalanceChange{
 	
 	DataFactory datafactory;
 	static AccountManagement accountmanagement;
@@ -19,7 +19,7 @@ public class AccountManagement implements AccountManagementService,AccountBalanc
 		this.datafactory=datafactory;
 	}
 
-	@Override
+
 	public ResultMessage addAccount(String accountname, double accountmoney) {
 		// TODO Auto-generated method stub
 		
@@ -29,7 +29,7 @@ public class AccountManagement implements AccountManagementService,AccountBalanc
 		return data.insertAccountPO(po);
 	}
 
-	@Override
+
 	public ResultMessage deleteAccount(AccountVO account) {
 		// TODO Auto-generated method stub
 		FinanceDataService data=datafactory.getFinanceData();
@@ -38,7 +38,7 @@ public class AccountManagement implements AccountManagementService,AccountBalanc
 		return 	data.deleteAccountPO(po);
 	}
 
-	@Override
+
 	public AccountVO fixAccount(AccountVO account, String accountname) {
 		// TODO Auto-generated method stub
 		FinanceDataService data=datafactory.getFinanceData();
@@ -49,7 +49,6 @@ public class AccountManagement implements AccountManagementService,AccountBalanc
 		return account;
 	}
 
-	@Override
 	public ArrayList<AccountVO> seekAccount(String accountname) {
 		// TODO Auto-generated method stub
 		

@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import dataservice.AManagementDataService;
 import dataserviceimpl.DataFactory;
+import enums.ResultMessage;
 import pamanagementslservice.AManagementService;
 import po.AgencyPO;
 import vo.AgencyVO;
 
-public class AManagement implements AManagementService{
+public class AManagement {
     
 	DataFactory datafactory;
 	static AManagement amanagement;
@@ -18,16 +19,16 @@ public class AManagement implements AManagementService{
 		this.datafactory=datafactory;
 	}
 	
-	@Override
+
 	public AgencyVO select(String id) {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
 		AgencyPO po=data.find(id);
-		AgencyVO vo=new AgencyVO(po.getName(),po.getIDNumber(),po.getStaff(),po.getPhoneNumber(),po.getAddress(),po.getLeader());
+		AgencyVO vo=new AgencyVO(po);
 		return vo;
 	}
 
-	@Override
+
 	public ArrayList<AgencyVO> getAllAgency() {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
@@ -39,49 +40,64 @@ public class AManagement implements AManagementService{
 		return volist;
 	}
 
-	@Override
-	public void delete(String id) {
+	
+	public ResultMessage delete(String id) {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
-		data.delete(id);
+		return data.delete(id);
 		
 	}
 
-	@Override
+
 	public AgencyVO revise(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return this.select(id);
 	}
 
-	@Override
-	public void saveChange(AgencyVO vo) {
+
+	public ResultMessage saveChange(AgencyVO vo) {
+		// TODO Auto-generated method stub
+		AManagementDataService data=datafactory.getAManagementData();
+		AgencyPO po=new AgencyPO(vo)
+;		
+		return data.update(po);
+	}
+
+
+	public void save() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void save(AgencyVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void add() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void endAManagement() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public static AManagement creatAManagement(DataFactory datafactory){
 		if(amanagement==null)
 			amanagement = new AManagement(datafactory);	
 		
 		 return amanagement;
+	}
+
+
+	public ResultMessage add(String name, String idNumber,
+			ArrayList<String> staff, String phonenumber, String address,
+			String leader) {
+		// TODO Auto-generated method stub
+		AManagementDataService data=datafactory.getAManagementData();
+		AgencyPO po=new AgencyPO(name,idNumber,staff,phonenumber,address,leader);
+		return data.insert(po);
+	}
+	
+	public AManagement createAManagement(DataFactory datafactory){
+		if(amanagement==null){
+			amanagement=new AManagement(datafactory);
+		}
+		
+		return amanagement;
+		
 	}
 
 }

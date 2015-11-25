@@ -15,7 +15,7 @@ import vo.AccountVO;
 import vo.PaymentVO;
 import vo.StaffVO;
 
-public class Cost implements CostService {
+public class Cost  {
 	
 	DataFactory datafactory;
 	static Cost cost;
@@ -27,7 +27,7 @@ public class Cost implements CostService {
 
 
 
-	@Override
+
 	public PaymentVO computePayment(PaymentVO payment) {
 		// TODO Auto-generated method stub
 		SalaryStrategy salarystrategy=new SalaryStrategy(datafactory);
@@ -51,7 +51,7 @@ public class Cost implements CostService {
 		return payment;
 	}
 
-	@Override
+
 	public PaymentVO computePayment(PaymentVO payment, double money) {
 		// TODO Auto-generated method stub
 		payment.setNumberOfPayment(money);
@@ -71,7 +71,7 @@ public class Cost implements CostService {
 
 
 
-	@Override
+
 	public PaymentVO setPayment(PaymentType paymentType, StaffVO receiver) {
 		// TODO Auto-generated method stub
 
@@ -82,7 +82,7 @@ public class Cost implements CostService {
 
 
 
-	@Override
+
 	public ResultMessage payPayment(PaymentVO payment, AccountVO account) {
 		// TODO Auto-generated method stub
 		if(account.getBalance()>=payment.getNumberOfPayment()){

@@ -2,18 +2,19 @@ package pamanagementslservice;
 
 import java.util.ArrayList;
 
+import enums.ResultMessage;
 import vo.CarVO;
 
 public interface CManagementService {
 	
 
 	public CarVO select(String id);
-	public void delect(String id);
+	public ResultMessage delete(String id);
 	public CarVO revise(String id);
-	public void saveChange(CarVO vo);
-	public void save(CarVO vo);
-	public void add();
-	public void endCManagement();
+	public ResultMessage saveChange(CarVO vo);
+	public ResultMessage save(CarVO vo);
+	public ResultMessage add(String idNumber, String workPlaceNumber, String licenseNumber, int workYear);
+	public ResultMessage endCManagement();
 	public ArrayList<CarVO>getAllCar();
 	
 

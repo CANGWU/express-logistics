@@ -2,17 +2,20 @@ package pamanagementslservice;
 
 import java.util.ArrayList;
 
+import enums.ResultMessage;
+import enums.Sex;
+import enums.Work;
 import vo.StaffVO;
 
 public interface PManagementService {
 	
 	public StaffVO select(String id);
-	public void delect(String id);
+	public ResultMessage delete(String id);
 	public StaffVO revise(String id);
-	public void saveChange(StaffVO vo);
-	public void save(StaffVO vo);
-	public void add();
-	public void endPManagement();
+	public ResultMessage saveChange(StaffVO vo);
+	public ResultMessage save(StaffVO vo);
+	public ResultMessage add(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page);
+	public ResultMessage endPManagement();
 	public ArrayList<StaffVO> getAllStaff();
 
 }

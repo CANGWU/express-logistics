@@ -3,6 +3,8 @@ package vo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import po.AgencyPO;
+
 /*
  * 
  * @author:xuan
@@ -29,6 +31,15 @@ this.leader = leader;
 }
 
 public AgencyVO(){};
+
+public AgencyVO(AgencyPO po){
+	this.name=po.getName();
+	this.idNumber=po.getIDNumber();
+	this.staff=po.getStaff();
+	this.phoneNumber=po.getPhoneNumber();
+	this.address=po.getAddress();
+	this.leader=po.getLeader();
+}
 
 public String getName(){
 return name;

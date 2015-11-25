@@ -11,7 +11,7 @@ import dataservice.SalaryStrategyDataService;
 import strategyslservice.SalaryStrategyService;
 import vo.SalaryVO;
 
-public class SalaryStrategy {
+public class SalaryStrategy implements GetSingleStrategy{
 	DataFactoryService datafactory;
 	SalaryStrategyDataService salarystrategyData;
 	
@@ -66,5 +66,17 @@ public class SalaryStrategy {
 	public void revise() {
 
 		
+	}
+
+	@Override
+	public SalaryPO getSingleSalaryStrategy(enums.Work work) {
+		// TODO Auto-generated method stub
+		try {
+			return salarystrategyData.find(work);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

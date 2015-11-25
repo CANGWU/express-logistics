@@ -40,6 +40,19 @@ this.sex = sex;
 this.page = page;
 }
 
+public StaffVO(StaffPO po){
+	this.name=po.getName();
+	this.work=po.getWork();
+	this.workNumber=po.getWorkNumber();
+	this.workPlaceNumber=po.getWorkPlaceNumber();
+	this.birthDate=po.getBirthDate();
+	this.idNumber=po.getIdNumber();
+	this.phoneNumber=po.getPhoneNumber();
+	this.address=po.getAddress();
+	this.sex=po.getSex();
+	this.page=po.getPage();
+}
+
 public StaffVO(){};
 
 public String getPhoneNumber(){
@@ -58,14 +71,6 @@ return workNumber;
 
 public String getWorkPlaceNumber(){
 	return workPlaceNumber;	
-}
-
-public String getBrithDate(){
-	return birthDate;
-}
-
-public String getIDNumber(){
-	return idNumber;
 }
 
 public String getAddress(){
@@ -100,14 +105,6 @@ public void setWorkNumber(String workNumber){
 
 public void setWorkPlaceNumber(String workPlaceNumber){
 	this.workPlaceNumber =workPlaceNumber;
-}
-
-public void setIDNumber(String idNumber){
-	this.idNumber = idNumber;
-}
-
-public void setBrithDate(String birthDate){
-	this.birthDate = birthDate;
 }
 
 public void setAddress(String address){

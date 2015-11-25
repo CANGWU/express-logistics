@@ -2,6 +2,7 @@ package po;
 
 import java.io.Serializable;
 
+import vo.StaffVO;
 import enums.Sex;
 import enums.Work;
 
@@ -39,6 +40,18 @@ this.sex = sex;
 this.page = page;
 }
 
+public StaffPO(StaffVO vo){
+	this.name=vo.getName();
+	this.work=vo.getWork();
+	this.workNumber=vo.getWorkNumber();
+	this.workPlaceNumber=vo.getWorkPlaceNumber();
+	this.birthDate=vo.getBirthDate();
+	this.idNumber=vo.getIdNumber();
+	this.phoneNumber=vo.getPhoneNumber();
+	this.address=vo.getAddress();
+	this.sex=vo.getSex();
+	this.page=vo.getPage();
+}
 public StaffPO(){};
 
 
@@ -58,14 +71,6 @@ return workNumber;
 
 public String getWorkPlaceNumber(){
 	return workPlaceNumber;	
-}
-
-public String getBrithDate(){
-	return birthDate;
-}
-
-public String getIDNumber(){
-	return idNumber;
 }
 
 public String getAddress(){
@@ -90,10 +95,6 @@ public void setWorkNumber(String workNumber){
 
 public void setWorkPlaceNumber(String workPlaceNumber){
 	this.workPlaceNumber =workPlaceNumber;
-}
-
-public void setIDNumber(String idNumber){
-	this.idNumber = idNumber;
 }
 
 public void setBrithDate(String birthDate){

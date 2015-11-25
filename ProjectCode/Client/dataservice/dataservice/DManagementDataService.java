@@ -13,8 +13,8 @@ public interface DManagementDataService extends Remote{
 	public DriverPO find(String id) throws RemoteException, SQLException;
 	public ArrayList<DriverPO> findAll() throws RemoteException;
 	public ResultMessage insert(DriverPO po) throws RemoteException;
-	public ResultMessage delect(DriverPO po) throws RemoteException;
-	public ResultMessage delect(String id) throws RemoteException;
+	public ResultMessage delete(DriverPO po) throws RemoteException;
+	public ResultMessage delete(String id) throws RemoteException;
 	public ResultMessage update(DriverPO po) throws RemoteException;
 	public void init() throws RemoteException;
 	public void finish() throws RemoteException;

@@ -1,5 +1,6 @@
 package po;
 
+import vo.DriverVO;
 import enums.Sex;
 import enums.Work;
 
@@ -18,6 +19,21 @@ public class DriverPO extends StaffPO{
 		this.page = page;
 		this.driverYear = driverYear;
 		}
+	
+	
+	public DriverPO(DriverVO vo){
+		this.name=vo.getName();
+		this.work=vo.getWork();
+		this.workNumber=vo.getWorkNumber();
+		this.workPlaceNumber=vo.getWorkPlaceNumber();
+		this.birthDate=vo.getBirthDate();
+		this.idNumber=vo.getIdNumber();
+		this.phoneNumber=vo.getPhoneNumber();
+		this.address=vo.getAddress();
+		this.sex=vo.getSex();
+		this.page=vo.getPage();
+		this.driverYear=this.getDriverYear();
+	}
 	
 	public void setDriverYear(int driverYear){
 		this.driverYear = driverYear;
