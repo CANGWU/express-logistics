@@ -3,10 +3,12 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import enums.DocumentCondition;
 import enums.TransportType;
 
 public class TransportPO implements Serializable {
 	private TransportType sign;
+	private DocumentCondition documentCondition;
 	private String id;
 	private String departure;
 	private String destination;
@@ -17,79 +19,108 @@ public class TransportPO implements Serializable {
 	private ArrayList<String> order;
 	private ArrayList<String> condition;
 
-	public TransportPO(TransportType sign, String id, String departure, String destination,
-			String time, String traffic, long fare, ArrayList<String> member,
+	public TransportPO(TransportType sign, DocumentCondition documentCondition,
+			String id, String departure, String destination, String time,
+			String traffic, long fare, ArrayList<String> member,
 			ArrayList<String> order, ArrayList<String> condition) {
-		this.id=id;
-		this.sign=sign;
-		this.departure=departure;
-		this.destination=destination;
-		this.time=time;
-		this.traffic=traffic;
-		this.fare=fare;
-		this.member=member;
-		this.order=order;
-		this.condition=condition;
+		this.id = id;
+		this.sign = sign;
+		this.documentCondition = documentCondition;
+		this.departure = departure;
+		this.destination = destination;
+		this.time = time;
+		this.traffic = traffic;
+		this.fare = fare;
+		this.member = member;
+		this.order = order;
+		this.condition = condition;
 	}
-	
-	public TransportType getSign(){
+
+	public TransportType getSign() {
 		return sign;
 	}
-	public String getID(){
+
+	public DocumentCondition getDocumentCondition() {
+		return documentCondition;
+	}
+
+	public String getID() {
 		return id;
 	}
-	public String getDeparture(){
+
+	public String getDeparture() {
 		return departure;
 	}
-	public String getDestination(){
+
+	public String getDestination() {
 		return destination;
 	}
-	public String getTime(){
+
+	public String getTime() {
 		return time;
 	}
-	public String getTraffic(){
+
+	public String getTraffic() {
 		return traffic;
 	}
-	public long getfare(){
+
+	public long getfare() {
 		return fare;
 	}
-	public  ArrayList<String> getMember(){
+
+	public ArrayList<String> getMember() {
 		return member;
 	}
-	public  ArrayList<String> getOrder(){
+
+	public ArrayList<String> getOrder() {
 		return order;
 	}
-	public  ArrayList<String> getCondition(){
+
+	public ArrayList<String> getCondition() {
 		return condition;
 	}
-	public  void setSign(TransportType sign){
-		this.sign=sign;
+
+	public void setSign(TransportType sign) {
+		this.sign = sign;
 	}
-	public  void setID(String id){
-		this.id=id;
+
+	public void setDocumentCondition(DocumentCondition documentCondition) {
+		this.documentCondition = documentCondition;
 	}
-	public  void setDeparture(String departure){
-		this.departure=departure;
+
+	public void setID(String id) {
+		this.id = id;
 	}
-	public  void setDestination(String destination){
-		this.destination=destination;
+
+	public void setDeparture(String departure) {
+		this.departure = departure;
 	}
-	public  void setTime(String time){
-		this.time=time;
+
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
-	public  void setTraffic(String traffic){
-		this.traffic=traffic;
+
+	public void setTime(String time) {
+		this.time = time;
 	}
-	public  void setFare(long fare){
-		this.fare=fare;
+
+	public void setTraffic(String traffic) {
+		this.traffic = traffic;
 	}
-	public  void setMember(ArrayList<String> member){
-		this.member=member;
+
+	public void setFare(long fare) {
+		this.fare = fare;
 	}
-	public void setOrder(ArrayList<String> order){
-		this.order=order;
+
+	public void setMember(ArrayList<String> member) {
+		this.member = member;
 	}
-	public void setCondition(ArrayList<String> condition){
-		this.condition=condition;
+
+	public void setOrder(ArrayList<String> order) {
+		this.order = order;
+	}
+
+	public void setCondition(ArrayList<String> condition) {
+		this.condition = condition;
 	}
 }

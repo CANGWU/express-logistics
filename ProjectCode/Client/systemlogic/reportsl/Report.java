@@ -7,8 +7,6 @@ import po.StaffPO;
 import reportslservice.ReportService;
 import dataservice.DataFactoryService;
 import dataservice.FinanceDataService;
-import enums.Sex;
-import enums.Work;
 import financeslservice.BalanceService;
 import vo.PaymentVO;
 import vo.ReceiptsVO;
@@ -44,7 +42,7 @@ public class Report implements ReportService {
 			receivervo = new StaffVO(receiverpo.getName(),
 					receiverpo.getWork(), receiverpo.getWorkNumber(),
 					receiverpo.getWorkPlaceNumber(), receiverpo.getBirthDate(),
-					receiverpo.getIDNumber(), receiverpo.getPhoneNumber(),
+					receiverpo.getIdNumber(), receiverpo.getPhoneNumber(),
 					receiverpo.getAddress(), receiverpo.getSex(),
 					receiverpo.getPage());
 			paymentvo = new PaymentVO(receivervo, paymentpo.getType());
