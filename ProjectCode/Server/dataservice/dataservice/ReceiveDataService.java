@@ -9,7 +9,7 @@ import po.OrderPO;
 
 public interface ReceiveDataService extends Remote{
 	//¶ÔOrderPOµÄ²Ù×÷
-	public OrderPO findO(String id) throws Exception;
+	public OrderPO find(String id) throws Exception;
 	public ArrayList<OrderPO> findsO(String field,String id) throws Exception;
 	public ResultMessage insertO(OrderPO po) throws Exception;
 	public ResultMessage deleteO(OrderPO po) throws Exception;

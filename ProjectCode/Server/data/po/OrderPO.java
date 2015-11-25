@@ -24,6 +24,19 @@ public class OrderPO {
     	bill=new BillPO(_bill.getMoneyReceived(), _bill.getTotalfee(), _bill.getChange());
     }
     
+    public OrderPO(ReceiverPO receiver,SenderPO sender, BillPO bill, 
+    		GoodsPO goods, String timeOfSend, String dueOfReceive,String ordernumber, String nameOfCourier,String receivertime){
+    	this.receiver = receiver;
+    	this.bill = bill;
+    	this.goods = goods;
+    	this.timeOfSend = timeOfSend;
+    	this.dueOfReceive = dueOfReceive;
+    	this.ordernumber = ordernumber;
+    	this.nameOfCourier = nameOfCourier;
+    	this.receivetime = receivertime;
+    	
+    }
+    
 	public ReceiverPO getReceiver() {
 		return receiver;
 	}

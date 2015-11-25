@@ -2,6 +2,7 @@ package datastub;
 
 import po.IoputPO;
 import dataservice.IoputDataService;
+import enums.ResultMessage;
 
 public class IoputDataStub implements IoputDataService {
 	
@@ -52,23 +53,24 @@ public class IoputDataStub implements IoputDataService {
 	}
 
 	@Override
-	public void insert(IoputPO PO) {
+	public ResultMessage insert(IoputPO PO) {
 		// TODO Auto-generated method stub
 		System.out.print("insert Succeed!\n");
-		
+		return null;
 	}
 
 	@Override
-	public void delete(IoputPO PO) {
+	public ResultMessage delete(IoputPO PO) {
 		// TODO Auto-generated method stub
 		System.out.print("delete Succeed!\n");
-		
+		return null;
 	}
 
 	@Override
-	public void update(IoputPO PO) {
+	public ResultMessage update(IoputPO PO) {
 		// TODO Auto-generated method stub
 		System.out.print("update Succeed!\n");
+		return null;
 	}
 
 }

@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;  
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;  
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import enums.ResultMessage;
+ 
   
 public class Helper {  
     public static final String url = "jdbc:mysql://127.0.0.1:3306/sys";  
@@ -12,8 +16,9 @@ public class Helper {
     public static final String user = "root";  
     public static final String password = "";  
   
-    private static Connection conn = null;  
-    private static PreparedStatement pst = null;  
+    public static Connection conn = null;  
+    private static Statement statement = null;  
+    public static PreparedStatement pStatement = null;
   
     public Helper() {  
         try {  
@@ -25,20 +30,44 @@ public class Helper {
     }  
     
     
-   static public ResultSet run(String sql) throws SQLException{
-    	pst = conn.prepareStatement(sql);
-    	ResultSet result = pst.executeQuery();
-    	return result;
+   static public ResultSet find(String sql) throws SQLException{
+    ResultSet result = statement.executeQuery(sql);
+    return result;
     }
-    
-    
+   
+   
+   public static ResultMessage insert(String sql) {
+		// TODO Auto-generated method stub
+		 try {
+			statement.execute(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+	        return ResultMessage.FAIL;
+		}
+		 return ResultMessage.SUCCESS;
+	}  
+   
+   static public ResultMessage delete(String sql){
+	   try {
+		statement.executeUpdate(sql);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return ResultMessage.FAIL;
+	}
+	   return ResultMessage.SUCCESS;
+   }
     
     public void close() {  
         try {  
             conn.close();  
-            pst.close();  
+            statement.close();  
         } catch (SQLException e) {  
             e.printStackTrace();  
         }  
-    }  
+    }
+
+
+	
 }  

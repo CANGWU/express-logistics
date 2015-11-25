@@ -1,4 +1,4 @@
-package po;
+package enums;
 
 public enum PaymentType {
      Salary,Bonus,Rent;

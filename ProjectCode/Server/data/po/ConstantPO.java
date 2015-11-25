@@ -16,7 +16,8 @@ public class ConstantPO implements Serializable {
 	private double priceOfCarton, priceOfWood, priceOfBag; 
 	
 	
-	public ConstantPO(double lengthOfBN, double lengthOfBS, double lengthOfBG, double lengthOfSG, double lengthOfSN, double lengthOfGN, double lengthOfHall,
+	public ConstantPO(double lengthOfBN, double lengthOfBS, double lengthOfBG, double lengthOfSG,
+			double lengthOfSN, double lengthOfGN, double lengthOfHall,
 	double priceOfCheapest, double priceOfStandard, double priceOfExpress, 
 	double costOfCar, double costOfTrain, double costOfAir,
 	double priceOfCarton, double priceOfWood, double priceOfBag){

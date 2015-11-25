@@ -1,12 +1,13 @@
 package po;
 
+import enums.PaymentType;
 
 public class PaymentPO {
-    StaffPO receiver;
+    String receiver;
     PaymentType type;
     double numberOfPayment;
     
-    public PaymentPO(StaffPO receiver,PaymentType type,double numberOfPayment){
+    public PaymentPO(String receiver,PaymentType type,double numberOfPayment){
     	this.receiver=receiver;
     	this.type=type;
     	this.numberOfPayment=numberOfPayment;
@@ -26,5 +27,8 @@ public class PaymentPO {
 
 	public void setNumberOfPayment(double numberOfPayment) {
 		this.numberOfPayment = numberOfPayment;
+	}
+	public String getReceiver(){
+		return receiver;
 	}
 }

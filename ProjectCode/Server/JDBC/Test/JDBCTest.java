@@ -1,33 +1,39 @@
 package Test;
 
+import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import dataservice.AManagementDataService;
+import dataservice.CManagementDataService;
+import dataservice.CheckDataService;
+import dataservice.ConstantDataService;
+import dataservice.DManagementDataService;
+import dataservice.PManagementDataService;
+import dataserviceimpl.DataFactory;
+import enums.Sex;
 import link.Helper;
+import po.AgencyPO;
+import po.CarPO;
+import po.ConstantPO;
+import po.DriverPO;
+import po.StaffPO;
+import vo.DriverVO;
 
 public class JDBCTest {
+ 
 
-static String sql = null;  
-static Helper db1 = null;  
-static ResultSet ret = null;  
+public static void main(String[] args) throws RemoteException {  
+  Helper helper = new Helper();
+  DataFactory datafactory = new DataFactory();
+//  
+//  Sex male = Sex.male;
+  ConstantDataService dm  = datafactory.getConstantData();
+  ConstantPO po = new ConstantPO(34324,0,0,43434,343,434,343,343,434324,3423,32,43,43,43,4.342,324);
+  dm.find();
 
-public static void main(String[] args) {  
-    sql = "SELECT * FROM staffpo;";//SQL语句  
-    db1 = new Helper();//创建DBHelper对象  
+}
 
-    try {  
-        ret = Helper.run(sql);//执行语句，得到结果集  
-        while (ret.next()) {  
-            String uid = ret.getString(1);  
-            String ufname = ret.getString(2);  
-            String ulname = ret.getString(3);  
-            String udate = ret.getString(4);  
-            System.out.println(uid + "\t" + ufname + "\t" + ulname + "\t" + udate );  
-        }//显示数据  
-        ret.close();  
-        db1.close();//关闭连接  
-    } catch (SQLException e) {  
-        e.printStackTrace();  
-    }  
-}  
+	
 }
