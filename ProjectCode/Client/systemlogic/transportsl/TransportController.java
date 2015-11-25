@@ -1,5 +1,6 @@
 package transportsl;
 
+import enums.Condition;
 import enums.TransportType;
 import transportslservice.TransportService;
 import vo.TransportVO;
@@ -31,7 +32,7 @@ public class TransportController implements TransportService{
 	}
 
 	@Override
-	public void addCondition(String orderNumber, String conditon,
+	public void addCondition(String orderNumber, Condition conditon,
 			TransportVO transportvo) {
 		transport.addCondition(orderNumber, conditon, transportvo);
 	}

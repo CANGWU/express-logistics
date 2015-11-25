@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import enums.Condition;
 import enums.DocumentCondition;
 import enums.TransportType;
 
@@ -17,12 +18,12 @@ public class TransportPO implements Serializable {
 	private long fare;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
-	private ArrayList<String> condition;
+	private ArrayList<Condition> condition;
 
-	public TransportPO(TransportType sign, DocumentCondition documentCondition,
-			String id, String departure, String destination, String time,
-			String traffic, long fare, ArrayList<String> member,
-			ArrayList<String> order, ArrayList<String> condition) {
+	public TransportPO(TransportType sign, String id, String departure,
+			String destination, String time, String traffic, long fare,
+			ArrayList<String> member, ArrayList<String> order,
+			ArrayList<Condition> condition, DocumentCondition documentCondition) {
 		this.id = id;
 		this.sign = sign;
 		this.documentCondition = documentCondition;
@@ -76,7 +77,7 @@ public class TransportPO implements Serializable {
 		return order;
 	}
 
-	public ArrayList<String> getCondition() {
+	public ArrayList<Condition> getCondition() {
 		return condition;
 	}
 
@@ -120,7 +121,7 @@ public class TransportPO implements Serializable {
 		this.order = order;
 	}
 
-	public void setCondition(ArrayList<String> condition) {
+	public void setCondition(ArrayList<Condition> condition) {
 		this.condition = condition;
 	}
 }

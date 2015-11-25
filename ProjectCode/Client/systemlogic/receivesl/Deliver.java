@@ -21,7 +21,7 @@ public class Deliver implements DeliverService {
 		DeliverPO deliverpo = receiveData.findD(deliverNumber);
 		DeliverVO delivervo = new DeliverVO(deliverpo.getID(),
 				deliverpo.getTime(), deliverpo.getMember(),
-				deliverpo.getOrder());
+				deliverpo.getOrder(), deliverpo.getDocumentCondition());
 		return delivervo;
 	}
 
@@ -36,10 +36,10 @@ public class Deliver implements DeliverService {
 	}
 
 	@Override
-	public void addExpress(String orderNumber,DeliverVO delivervo) {
+	public void addExpress(String orderNumber, DeliverVO delivervo) {
 		delivervo.getOrder().add(orderNumber);
 	}
-	
+
 	@Override
 	public void printDeliver(String id) {
 		// TODO Auto-generated method stub
@@ -49,7 +49,8 @@ public class Deliver implements DeliverService {
 	@Override
 	public void saveDeliver(DeliverVO delivervo) throws Exception {
 		DeliverPO deliverpo = new DeliverPO(delivervo.getTime(),
-				delivervo.getID(), delivervo.getMember(), delivervo.getOrder());
+				delivervo.getID(), delivervo.getMember(), delivervo.getOrder(),
+				delivervo.getDocumentCondition());
 		receiveData.insertD(deliverpo);
 
 	}

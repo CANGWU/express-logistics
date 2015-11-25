@@ -1,5 +1,6 @@
 package transportslservice;
 
+import enums.Condition;
 import enums.TransportType;
 import vo.TransportVO;
 
@@ -11,7 +12,7 @@ public interface TransportService {
 	public void choose(TransportType sign,TransportVO transportvo);//选择生成何种单据
 	public void addMember(String id,TransportVO transportvo);
 	public void addExpress(String orderNumber,TransportVO transportvo);
-	public void addCondition(String orderNumber,String conditon,TransportVO transportvo);
+	public void addCondition(String orderNumber,Condition conditon,TransportVO transportvo);
 	public void addMessage(String departure,String destination,String time,TransportVO transportvo);
 	public void addTraffic(String id,TransportVO transportvo);
 	public void addFare(String departure,String destination,TransportVO transportvo);

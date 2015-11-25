@@ -1,10 +1,9 @@
 package transportsl;
 
-import java.util.ArrayList;
-
 import po.TransportPO;
 import dataservice.DataFactoryService;
 import dataservice.TransportDataService;
+import enums.Condition;
 import enums.TransportType;
 import vo.TransportVO;
 
@@ -19,14 +18,14 @@ public class Transport {
 
 	public TransportVO getTransport(String Transportid) throws Exception {
 		TransportPO po = transportData.find(Transportid);
-		TransportVO vo = new TransportVO(po.getSign(), po.getID(),
-				po.getDeparture(), po.getDestination(), po.getTime(),
-				po.getTraffic(), po.getfare(), po.getMember(), po.getOrder(),
-				po.getCondition());
+		TransportVO vo = new TransportVO(po.getSign(), po.getID(), po.getDeparture(),
+				po.getDestination(), po.getTime(), po.getTraffic(),
+				po.getfare(), po.getMember(), po.getOrder(), po.getCondition(),
+				po.getDocumentCondition());
 		return vo;
 	}
 
-	public void choose(TransportType sign,TransportVO transportvo) {
+	public void choose(TransportType sign, TransportVO transportvo) {
 		transportvo.setSign(sign);
 	}
 
@@ -38,7 +37,7 @@ public class Transport {
 		transportvo.getOrder().add(orderNumber);
 	}
 
-	public void addCondition(String orderNumber, String conditon,
+	public void addCondition(String orderNumber, Condition conditon,
 			TransportVO transportvo) {
 		transportvo.getCondition().add(conditon);
 	}
@@ -60,9 +59,12 @@ public class Transport {
 	}
 
 	public void saveTransport(TransportVO transportvo) throws Exception {
-		TransportPO po=new TransportPO(transportvo.getSign(), transportvo.getID(),transportvo.getDeparture(), transportvo.getDestination(),
-				transportvo.getTime(), transportvo.getTraffic(), transportvo.getfare(), transportvo.getMember(),
-				transportvo.getOrder(), transportvo.getCondition());
+		TransportPO po = new TransportPO(transportvo.getSign(), transportvo.getID(),
+				transportvo.getDeparture(), transportvo.getDestination(),
+				transportvo.getTime(), transportvo.getTraffic(),
+				transportvo.getfare(), transportvo.getMember(),
+				transportvo.getOrder(), transportvo.getCondition(),
+				transportvo.getDocumentCondition());
 		transportData.insert(po);
 	}
 

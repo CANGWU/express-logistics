@@ -1,43 +1,63 @@
 package vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DeliverVO {
+import enums.DocumentCondition;
+
+public class DeliverVO implements Serializable {
+	private DocumentCondition documentCondition;
 	private String id;
 	private String time;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
 
 	public DeliverVO(String id, String time, ArrayList<String> member,
-			ArrayList<String> order) {
+			ArrayList<String> order, DocumentCondition documentCondition) {
 		this.id = id;
 		this.time = time;
 		this.member = member;
 		this.order = order;
+		this.documentCondition = documentCondition;
 	}
-	
-	public String getTime(){
+
+	public String getTime() {
 		return time;
 	}
-	public String getID(){
+
+	public String getID() {
 		return id;
 	}
-	public ArrayList<String> getMember(){
+
+	public ArrayList<String> getMember() {
 		return member;
 	}
-	public ArrayList<String> getOrder(){
+
+	public ArrayList<String> getOrder() {
 		return order;
 	}
-	public void setTime(String time){
+
+	public DocumentCondition getDocumentCondition() {
+		return documentCondition;
+	}
+
+	public void setTime(String time) {
 		this.time = time;
 	}
-	public void setID(String id){
+
+	public void setID(String id) {
 		this.id = id;
 	}
-	public void setMember(ArrayList<String> member){
+
+	public void setMember(ArrayList<String> member) {
 		this.member = member;
 	}
-	public void setOrder(ArrayList<String> order){
+
+	public void setOrder(ArrayList<String> order) {
 		this.order = order;
+	}
+
+	public void setDocumentCondition(DocumentCondition documentCondition) {
+		this.documentCondition = documentCondition;
 	}
 }
