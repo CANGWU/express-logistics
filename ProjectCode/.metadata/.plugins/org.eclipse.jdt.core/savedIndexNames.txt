@@ -14,7 +14,6 @@ INDEX VERSION 1.127+C:\Users\xuan\Documents\GitHub\ExpressLogisticsSystem\Projec
 3995237016.index
 71698844.index
 4133831525.index
-2501520862.index
 3604818565.index
 2416542604.index
 4135478709.index
