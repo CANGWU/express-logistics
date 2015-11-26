@@ -26,7 +26,7 @@ public class StockDataImpl extends UnicastRemoteObject implements StockDataServi
 		try{
 			result = Helper.find(sql);
 			if(result.next()){
-				po = new StockPO(result.getInt(0),result.getString(1),result.getInt(2),result.getInt(3),result.getInt(4),result.getString(5).equals("true")?true:false);
+				po = new StockPO(result.getInt(0),result.getString(1),result.getInt(2),result.getInt(3),result.getInt(4),result.getString(5).equals("true")?true:false,result.getString(6),result.getString(7));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -49,7 +49,7 @@ public class StockDataImpl extends UnicastRemoteObject implements StockDataServi
 
 	@Override
 	public ResultMessage insert(StockPO PO) {
-		String sql = "insert into stockpo values("+PO.getNum()+",'"+PO.getArea()+"',"+PO.getRow()+","+PO.getShelf()+","+PO.getSeat()+",'"+PO.isEmpty()+"');";
+		String sql = "insert into stockpo values("+PO.getNum()+",'"+PO.getArea()+"',"+PO.getRow()+","+PO.getShelf()+","+PO.getSeat()+",'"+PO.isEmpty()+"','"+PO.getID()+"','"+PO.getInputDate()+"');";
 		return Helper.insert(sql);
 		// TODO Auto-generated method stub
 

@@ -1,28 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="po.StaffPO"/>
-<fullyQualifiedTypeName name="dataservice.PManagementDataService"/>
-<fullyQualifiedTypeName name="pamanagementslservice.PManagementService"/>
-<fullyQualifiedTypeName name="java.rmi.server.UnicastRemoteObject"/>
-<fullyQualifiedTypeName name="dataserviceimpl.DManagementDataImpl"/>
-<fullyQualifiedTypeName name="dataservice.DManagementDataService"/>
-<fullyQualifiedTypeName name="po.DriverPO"/>
-<fullyQualifiedTypeName name="dataservice.DataFactoryService"/>
-<fullyQualifiedTypeName name="dataservice.CManagementDataService"/>
-<fullyQualifiedTypeName name="dataservice.AManagementDataService"/>
-<fullyQualifiedTypeName name="dataservice.CheckDataService"/>
-<fullyQualifiedTypeName name="dataservice.ConstantDataService"/>
-<fullyQualifiedTypeName name="dataservice.FinanceDataService"/>
-<fullyQualifiedTypeName name="dataservice.IoputDataService"/>
-<fullyQualifiedTypeName name="dataservice.ReceiveDataService"/>
-<fullyQualifiedTypeName name="dataservice.SalaryStrategyDataService"/>
-<fullyQualifiedTypeName name="dataservice.SendDataService"/>
-<fullyQualifiedTypeName name="dataservice.StockDataService"/>
-<fullyQualifiedTypeName name="dataservice.TransportDataService"/>
-<fullyQualifiedTypeName name="dataservice.UserDataService"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="link.Helper"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="enums.Sex"/>
-<fullyQualifiedTypeName name="enums.ResultMessage"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

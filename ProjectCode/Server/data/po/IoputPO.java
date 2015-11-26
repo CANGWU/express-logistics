@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 
 import enums.Condition;
+import enums.DocumentCondition;
 import enums.Ioput;
 
 public class IoputPO implements Serializable  {
@@ -11,7 +12,7 @@ public class IoputPO implements Serializable  {
 	 */
 	private static final long serialVersionUID = 1L;
 	String id;/*¿ìµÝÌõÐÎÂëºÅ*/
-	String inputdate;
+	String inputdate;//DATE
 	String outputdate;
 	String time;
 	String destination;
@@ -20,17 +21,19 @@ public class IoputPO implements Serializable  {
 	String receiptID;
 	Ioput ioput;
 	Condition condition;
+	DocumentCondition dCondition;
 	
-	public IoputPO(String i,String idate,String it,String des,String posi,Ioput ioput){
+	public IoputPO(String i,String idate,String it,String des,String posi,Ioput ioput, DocumentCondition dCondition){
 		id = i;
 		inputdate = idate;
 		time = it;
 		position = posi;
 		destination = des;
 		this.ioput = ioput;
+		this.dCondition  = dCondition;
 		
 	}
-	public IoputPO(String i,String odate,String t,String des,String trans,String rID,Ioput ioput,Condition condition){
+	public IoputPO(String i,String odate,String t,String des,String trans,String rID,Ioput ioput,Condition condition,DocumentCondition dCondition){
 		id = i;
 		outputdate = odate;
 		time = t;
@@ -39,8 +42,15 @@ public class IoputPO implements Serializable  {
 		receiptID = rID;
 		this.ioput = ioput;
 		this.condition = condition;
+		this.dCondition = dCondition;
 	}
 	
+	public DocumentCondition getdCondition() {
+		return dCondition;
+	}
+	public void setdCondition(DocumentCondition dCondition) {
+		this.dCondition = dCondition;
+	}
 	public String getId() {
 		return id;
 	}

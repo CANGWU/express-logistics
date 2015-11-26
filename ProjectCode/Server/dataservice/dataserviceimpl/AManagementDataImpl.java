@@ -6,7 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import dataservice.AManagementDataService;
 import enums.ResultMessage;
 import link.Helper;

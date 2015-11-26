@@ -1,5 +1,6 @@
 package po;
 
+import enums.DocumentCondition;
 import vo.*;
 
 public class OrderPO {
@@ -12,8 +13,17 @@ public class OrderPO {
     String ordernumber;
     String nameOfCourier;
     String receivetime;
+    DocumentCondition dCondition;
     
-    public OrderPO(String _timeOfSend,String _dueOfReceive,String _ordernumber,String _nameOfCourier,SenderVO _sender,ReceiverVO _receiver,BillVO _bill,GoodsVO _goods){
+    public DocumentCondition getdCondition() {
+		return dCondition;
+	}
+
+	public void setdCondition(DocumentCondition dCondition) {
+		this.dCondition = dCondition;
+	}
+
+	public OrderPO(String _timeOfSend,String _dueOfReceive,String _ordernumber,String _nameOfCourier,SenderVO _sender,ReceiverVO _receiver,BillVO _bill,GoodsVO _goods, DocumentCondition dCondition){
     	timeOfSend=_timeOfSend; 
     	ordernumber=_ordernumber;
     	nameOfCourier=_nameOfCourier;
@@ -22,10 +32,11 @@ public class OrderPO {
     	sender=new SenderPO(_sender.getName(),_sender.getAddress(),_sender.getWorkPlace(),_sender.getTelNumber(),_sender.getPhoneNumber());
     	goods=new GoodsPO(_goods.getNumberOfGoods(), _goods.getWeight(), _goods.getVolume(), _goods.getNameOfGoods(), _goods.getSize(), _goods.getExpressType());
     	bill=new BillPO(_bill.getMoneyReceived(), _bill.getTotalfee(), _bill.getChange());
+    	this.dCondition = dCondition;
     }
     
     public OrderPO(ReceiverPO receiver,SenderPO sender, BillPO bill, 
-    		GoodsPO goods, String timeOfSend, String dueOfReceive,String ordernumber, String nameOfCourier,String receivertime){
+    		GoodsPO goods, String timeOfSend, String dueOfReceive,String ordernumber, String nameOfCourier,String receivertime, DocumentCondition dCondition){
     	this.receiver = receiver;
     	this.bill = bill;
     	this.goods = goods;
@@ -34,6 +45,7 @@ public class OrderPO {
     	this.ordernumber = ordernumber;
     	this.nameOfCourier = nameOfCourier;
     	this.receivetime = receivertime;
+    	this.dCondition = dCondition;
     	
     }
     

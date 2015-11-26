@@ -1,17 +1,29 @@
 package po;
 
+import enums.DocumentCondition;
 import enums.PaymentType;
 
 public class PaymentPO {
     String receiver;
     PaymentType type;
     double numberOfPayment;
+    DocumentCondition dCondition;
     
-    public PaymentPO(String receiver,PaymentType type,double numberOfPayment){
+    public PaymentPO(String receiver,PaymentType type,double numberOfPayment
+    		,DocumentCondition dCondition){
     	this.receiver=receiver;
     	this.type=type;
     	this.numberOfPayment=numberOfPayment;
+    	this.dCondition = dCondition;
     }
+
+	public DocumentCondition getdCondition() {
+		return dCondition;
+	}
+
+	public void setdCondition(DocumentCondition dCondition) {
+		this.dCondition = dCondition;
+	}
 
 	public PaymentType getType() {
 		return type;

@@ -3,20 +3,32 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import enums.DocumentCondition;
+
 public class DeliverPO implements Serializable {
 	private String id;
 	private String time;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
+	private DocumentCondition dCondition;
 
 	public DeliverPO(String id, String time, ArrayList<String> member,
-			ArrayList<String> order) {
+			ArrayList<String> order, DocumentCondition dCondition) {
 		this.id = id;
 		this.time = time;
 		this.member = member;
 		this.order = order;
+		this.dCondition = dCondition;
 	}
 	
+	public DocumentCondition getdCondition() {
+		return dCondition;
+	}
+
+	public void setdCondition(DocumentCondition dCondition) {
+		this.dCondition = dCondition;
+	}
+
 	public String getTime(){
 		return time;
 	}

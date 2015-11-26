@@ -4,24 +4,27 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import enums.Condition;
+import enums.DocumentCondition;
+import enums.Position;
 import enums.Traffic;
 import enums.TransportType;
 
 public class TransportPO implements Serializable {
 	private TransportType sign;
 	private String id;
-	private String departure;
-	private String destination;
+	private Position departure;
+	private Position destination;
 	private String time;
 	private Traffic traffic;
 	private double fare;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
 	private ArrayList<Condition> condition;
+	private DocumentCondition dCondition;
 
-	public TransportPO(TransportType sign, String id, String departure, String destination,
+	public TransportPO(TransportType sign, String id, Position departure, Position destination,
 			String time, Traffic traffic, double fare, ArrayList<String> member,
-			ArrayList<String> order, ArrayList<Condition> condition) {
+			ArrayList<String> order, ArrayList<Condition> condition,DocumentCondition dCondition) {
 		this.id=id;
 		this.sign=sign;
 		this.departure=departure;
@@ -32,20 +35,24 @@ public class TransportPO implements Serializable {
 		this.member=member;
 		this.order=order;
 		this.condition=condition;
+		this.dCondition = dCondition;
 	}
 	
+	public DocumentCondition getdCondition() {
+		return dCondition;
+	}
+
+	public void setdCondition(DocumentCondition dCondition) {
+		this.dCondition = dCondition;
+	}
+
 	public TransportType getSign(){
 		return sign;
 	}
 	public String getID(){
 		return id;
 	}
-	public String getDeparture(){
-		return departure;
-	}
-	public String getDestination(){
-		return destination;
-	}
+
 	public String getTime(){
 		return time;
 	}
@@ -70,12 +77,23 @@ public class TransportPO implements Serializable {
 	public  void setID(String id){
 		this.id=id;
 	}
-	public  void setDeparture(String departure){
-		this.departure=departure;
+	
+	public Position getDeparture() {
+		return departure;
 	}
-	public  void setDestination(String destination){
-		this.destination=destination;
+
+	public void setDeparture(Position departure) {
+		this.departure = departure;
 	}
+
+	public Position getDestination() {
+		return destination;
+	}
+
+	public void setDestination(Position destination) {
+		this.destination = destination;
+	}
+
 	public  void setTime(String time){
 		this.time=time;
 	}

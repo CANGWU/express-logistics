@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import dataservice.IoputDataService;
 import enums.Condition;
+import enums.DocumentCondition;
 import enums.Ioput;
 import enums.ResultMessage;
 import link.Helper;
@@ -29,8 +30,8 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 			result = Helper.find(sql);
 			if(result.next())
 				if(result.getString("ioput").equals("in"))
-					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),result.getString("destination"),result.getString("position"),Ioput.valueOf(result.getString("ioput")));
-				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),result.getString("destination"),result.getString("transport"),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")));
+					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),result.getString("destination"),result.getString("position"),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")));
+				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),result.getString("destination"),result.getString("transport"),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")));
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -40,9 +41,9 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 	
 	@Override
 	public ResultMessage insert(IoputPO po) {
-		String sql1 = "insert into ioputpo(id,inputdate,time,position,destination,ioput) values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getPosition()+"','"+po.getDestination()+"',"+po.getIoput()+");";
-		String sql2 = "insert into ioputpo(id,outputdate,time,destination,receiptid,ioput,condition) "
-				+ "values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getDestination()+"',"+po.getReceiptID()+"','"+po.getIoput()+","+po.getCondition()+");";
+		String sql1 = "insert into ioputpo(id,inputdate,time,position,destination,ioput,documentcondition) values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getPosition()+"','"+po.getDestination()+"','"+po.getIoput()+"','"+po.getdCondition()+"');";
+		String sql2 = "insert into ioputpo(id,outputdate,time,destination,receiptid,ioput,condition,documentcondition) "
+				+ "values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getDestination()+"','"+po.getReceiptID()+"','"+po.getIoput()+"','"+po.getCondition()+"','"+po.getdCondition()+"');";
 		// TODO Auto-generated method stub
 		if(po.getIoput()==Ioput.in)
 		return	Helper.insert(sql1);

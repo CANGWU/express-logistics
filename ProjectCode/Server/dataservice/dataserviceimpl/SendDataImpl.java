@@ -16,7 +16,7 @@ public class SendDataImpl extends UnicastRemoteObject implements SendDataService
 	@Override
 	public ResultMessage insertOrderPO(OrderPO order) {
 		// TODO Auto-generated method stub
-		String sql = "insert into orderpo values(?,?,?,?"+order.getTimeOfSend()+"','"+order.getDueOfReceive()+"','"+order.getOrdernumber()+"','"+order.getNameOfCourier()+"','"+order.getReceiver()+"');";
+		String sql = "insert into orderpo values(?,?,?,?"+order.getTimeOfSend()+"','"+order.getDueOfReceive()+"','"+order.getOrdernumber()+"','"+order.getNameOfCourier()+"','"+order.getReceiver()+"','"+order.getdCondition()+"');";
 		try{
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
 			Helper.pStatement.setObject(0,order.getReceiver());

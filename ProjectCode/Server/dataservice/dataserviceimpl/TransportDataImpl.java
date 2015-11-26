@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 import dataservice.TransportDataService;
 import enums.Condition;
+import enums.DocumentCondition;
+import enums.Position;
 import enums.ResultMessage;
 import enums.Traffic;
 import enums.TransportType;
@@ -36,10 +38,10 @@ public class TransportDataImpl implements TransportDataService {
 		        order = (ArrayList<String>)oips.readObject();
 		        oips =  new ObjectInputStream(result.getBinaryStream("condition"));
 		        condition = (ArrayList<Condition>)oips.readObject();
-				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),result.getString("departure"),
-						result.getString("destination"),result.getString("time"),
+				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),Position.valueOf(result.getString("departure")),
+						Position.valueOf(result.getString("destination")),result.getString("time"),
 						Traffic.valueOf(result.getString("traffic")),
-						result.getDouble("fare"),member,order,condition);
+						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("DocumentCondition")));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -51,7 +53,7 @@ public class TransportDataImpl implements TransportDataService {
 
 	@Override
 	public ResultMessage insert(TransportPO po){
-		String sql = "insert into transportpo values('"+po.getSign()+"','"+po.getID()+"','"+po.getDeparture()+"','"+po.getDestination()+"','"+po.getTime()+"','"+po.getTraffic()+"',"+po.getfare()+"?,?,?);";		// TODO Auto-generated method stub
+		String sql = "insert into transportpo values('"+po.getSign()+"','"+po.getID()+"','"+po.getDeparture()+"','"+po.getDestination()+"','"+po.getTime()+"','"+po.getTraffic()+"',"+po.getfare()+"?,?,?,'"+po.getdCondition()+ "');";		// TODO Auto-generated method stub
 		try {
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
 			Helper.pStatement.setObject(7, po.getMember());
@@ -129,10 +131,10 @@ public class TransportDataImpl implements TransportDataService {
 		        order = (ArrayList<String>)oips.readObject();
 		        oips =  new ObjectInputStream(result.getBinaryStream("condition"));
 		        condition = (ArrayList<Condition>)oips.readObject();
-				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),result.getString("departure"),
-						result.getString("destination"),result.getString("time"),
+				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),Position.valueOf(result.getString("departure")),
+						Position.valueOf(result.getString("destination")),result.getString("time"),
 						Traffic.valueOf(result.getString("traffic")),
-						result.getDouble("fare"),member,order,condition);
+						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("documentcondition")));
 				pos.add(po);
 			}
 		}catch(Exception e){
