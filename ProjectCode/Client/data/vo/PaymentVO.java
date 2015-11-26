@@ -1,6 +1,7 @@
 package vo;
 
 import po.PaymentPO;
+import enums.DocumentCondition;
 import enums.PaymentType;
 
 
@@ -9,8 +10,17 @@ public class PaymentVO {
     PaymentType type;
     double numberOfPayment;
     String accountname;
+    DocumentCondition condition;
     
-    public PaymentVO(StaffVO receiver,PaymentType type){
+    public DocumentCondition getCondition() {
+		return condition;
+	}
+
+	public void setCondition(DocumentCondition condition) {
+		this.condition = condition;
+	}
+
+	public PaymentVO(StaffVO receiver,PaymentType type){
     	this.receiver=receiver;
     	this.type=type;
     }
@@ -47,8 +57,4 @@ public class PaymentVO {
 		this.numberOfPayment = numberOfPayment;
 	}
 	
-	public PaymentPO changeToPO(){
-		PaymentPO po=new PaymentPO(this.receiver.changeToPO(),this.type,this.numberOfPayment,this.accountname);
-		return po;
-	}
 }

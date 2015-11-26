@@ -3,9 +3,11 @@ package financesl;
 import po.AccountPO;
 import po.PaymentPO;
 import po.SalaryPO;
+import strategysl.GetSingleStrategy;
 import strategysl.SalaryStrategy;
 import dataservice.FinanceDataService;
 import dataserviceimpl.DataFactory;
+import enums.DocumentCondition;
 import enums.PaymentType;
 import enums.ResultMessage;
 import vo.AccountVO;
@@ -27,7 +29,7 @@ public class Cost  {
 
 	public PaymentVO computePayment(PaymentVO payment) {
 		// TODO Auto-generated method stub
-		SalaryStrategy salarystrategy=new SalaryStrategy(datafactory);
+		GetSingleStrategy salarystrategy=new SalaryStrategy(datafactory);
 		SalaryPO salarypo=salarystrategy.getSingleSalaryStrategy(payment.getReceiver().getWork());
 		switch(salarypo.getWork()){
 		case Driver:
@@ -90,7 +92,7 @@ public class Cost  {
 			AccountPO accountpo=account.changeToPo();
 			data.updateAccountPO(accountpo);
 			
-			PaymentPO paymentpo=payment.changeToPO();
+			PaymentPO paymentpo=new PaymentPO(payment);
 			return data.insertPaymentPO(paymentpo);
 		}else{
 			return ResultMessage.FAIL;
