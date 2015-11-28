@@ -1,13 +1,15 @@
 package po;
 
+import java.util.ArrayList;
+
 public class ReceiptsPO {
       
 	String data;
 	double fee;
 	String courier;
-	String[] ordernumbers;
+	ArrayList<String> ordernumbers;
 	
-	public ReceiptsPO(String data,double fee,String courier,String[] ordernumbers){
+	public ReceiptsPO(String data,double fee,String courier,ArrayList<String> ordernumbers){
 		this.data=data;
 		this.fee=fee;
 		this.courier=courier;
@@ -40,11 +42,11 @@ public class ReceiptsPO {
 		this.courier = courier;
 	}
 
-	public String[] getOrdernumbers() {
+	public ArrayList<String> getOrdernumbers() {
 		return ordernumbers;
 	}
 
-	public void setOrdernumbers(String[] ordernumbers) {
+	public void setOrdernumbers(ArrayList<String> ordernumbers) {
 		this.ordernumbers = ordernumbers;
 	}
 	

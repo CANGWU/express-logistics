@@ -2,10 +2,6 @@ package vo;
 
 import java.io.Serializable;
 
-import enums.Sex;
-import enums.Work;
-import po.StaffPO;
-
 /*
  * 
  * @author:xuan
@@ -16,20 +12,19 @@ import po.StaffPO;
 
 public class StaffVO implements Serializable{
 String name; 
-Work work;
+String position;
 String workNumber;
 String workPlaceNumber;
 String birthDate;
 String idNumber;
 String phoneNumber;
 String address;
-Sex sex;
-double page;
-int number;
+String sex;
+int page;
 
-public StaffVO(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
+public StaffVO(String name,String position,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,String sex,int page){
 this.name = name;
-this.work=work;
+this.position = position;
 this.workNumber = workNumber;
 this.workPlaceNumber = workPlaceNumber;
 this.birthDate = birthDate;
@@ -63,7 +58,9 @@ public String getName(){
 return name;
 }
 
-
+public String getPosition(){
+	return position;
+}
 
 public String getWorkNumber(){
 return workNumber;
@@ -77,22 +74,12 @@ public String getAddress(){
 	return address;
 }
 
+public String getSex(){
+	return sex;
+}
 
-
-public double getPage(){
+public int getPage(){
 	return page;
-}
-
-public int getNumber() {
-	return number;
-}
-
-public void setNumber(int number) {
-	this.number = number;
-}
-
-public void setPage(double page) {
-	this.page = page;
 }
 
 public void setName(String name){
@@ -115,48 +102,15 @@ public void setPage(int page){
 	this.page = page;
 }
 
-
-
-
-
-public String getBirthDate() {
-	return birthDate;
+public void setPosition(String position){
+	this.position = position;
 }
 
-public void setBirthDate(String birthDate) {
-	this.birthDate = birthDate;
-}
-
-public String getIdNumber() {
-	return idNumber;
-}
-
-public void setIdNumber(String idNumber) {
-	this.idNumber = idNumber;
-}
-
-public Sex getSex() {
-	return sex;
-}
-
-public void setSex(Sex sex) {
+public void setSex(String sex){
 	this.sex = sex;
 }
 
 public void setPhoneNumber(String phoneNumber){
 	this.phoneNumber = phoneNumber;
-}
-
-public StaffPO changeToPO(){
-	StaffPO po=new StaffPO(this.name,this.work,this.workNumber,this.workPlaceNumber,this.birthDate,this.idNumber,this.phoneNumber,this.address,this.sex,this.page);
-	return po;
-}
-
-public Work getWork() {
-	return work;
-}
-
-public void setWork(Work work) {
-	this.work = work;
 }
 }

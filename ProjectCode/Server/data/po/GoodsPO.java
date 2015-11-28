@@ -1,22 +1,34 @@
 package po;
 
+import enums.Packing;
+
 public class GoodsPO {
     int numberOfGoods;
     double weight;
     double volume;
+    Packing packing;
     String nameOfGoods;
     String size;
     String expressType;
     
-    public GoodsPO(int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType){
+    public GoodsPO(int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType, Packing packing){
         numberOfGoods=_numberOfGoods;
         weight=_weight;
         volume=_volume;
         nameOfGoods=_nameOfGoods;
         size=_size;
         expressType=_expressType;
+        this.packing = packing;
     }
     
+	public Packing getPacking() {
+		return packing;
+	}
+
+	public void setPacking(Packing packing) {
+		this.packing = packing;
+	}
+
 	public int getNumberOfGoods() {
 		return numberOfGoods;
 	}

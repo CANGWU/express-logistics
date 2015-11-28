@@ -3,6 +3,36 @@ package vo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+public class TransportVO {
+	String sign;
+	String departure;
+	String destination;
+	String time;
+	String traffic;
+	String id;
+	long fare;
+	ArrayList<String> member;
+	ArrayList<String> order;
+	ArrayList<String> condition;
+
+	public TransportVO(String sign,String id, String departure, String destination,
+			String time, String traffic, long fare, ArrayList<String> member,
+			ArrayList<String> order, ArrayList<String> condition) {
+		this.id=id;
+		this.sign=sign;
+		this.departure=departure;
+		this.destination=destination;
+		this.time=time;
+		this.traffic=traffic;
+		this.fare=fare;
+		this.member=member;
+		this.order=order;
+		this.condition=condition;
+	}
+	
+	public String getSign(){
+=======
 import enums.Condition;
 import enums.DocumentCondition;
 import enums.TransportType;
@@ -38,6 +68,7 @@ public class TransportVO implements Serializable {
 	}
 
 	public TransportType getSign() {
+>>>>>>> origin/master
 		return sign;
 	}
 
@@ -80,9 +111,14 @@ public class TransportVO implements Serializable {
 	public ArrayList<Condition> getCondition() {
 		return condition;
 	}
+<<<<<<< HEAD
+	public  void setSign(String sign){
+		this.sign=sign;
+=======
 
 	public void setSign(TransportType sign) {
 		this.sign = sign;
+>>>>>>> origin/master
 	}
 
 	public void setDocumentCondition(DocumentCondition documentCondition) {

@@ -26,7 +26,7 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 	}
 
 	@Override
-	public OrderPO find(String id) throws Exception {
+	public OrderPO findO(String id) throws Exception {
 		// TODO Auto-generated method stub
 		String sql = "select*from orderpo where ordernumber='"+id+"';";
 		ResultSet result = null;
@@ -111,17 +111,54 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 
 		try{
 			result = Helper.find(sql);
+<<<<<<< HEAD
+			if(result.next()){
+=======
+>>>>>>> origin/master
 			ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("member"));  
 			member = (ArrayList<String>)oips.readObject();
 			oips = new ObjectInputStream(result.getBinaryStream("order"));  
 			order = (ArrayList<String>)oips.readObject();
+<<<<<<< HEAD
+			po = new DeliverPO(result.getString(0),result.getString(1),member,order,DocumentCondition.valueOf(result.getString(4)),result.getString(5));
+			}
+=======
 			po = new DeliverPO(result.getString(0),result.getString(1),member,order,DocumentCondition.valueOf(result.getString(4)));
 
+>>>>>>> origin/master
 		}catch(Exception e){
 			e.printStackTrace();
 		}
        return po;
 	}
+	
+	@Override
+	public ArrayList<DeliverPO> findDWithdCondition(String nameOfWriter, DocumentCondition dCondition) throws Exception {
+		// TODO Auto-generated method stub
+		String sql = "select*from deliverpo where documentcondition='"+dCondition+"' and nameOfWriter='"+nameOfWriter+"';";
+		DeliverPO po = null;
+		ResultSet result = null;
+		ArrayList<String>member;
+		ArrayList<String>order;
+		ArrayList<DeliverPO>pos = new ArrayList<DeliverPO>();
+
+		try{
+			result = Helper.find(sql);
+			while(result.next()){
+			ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("member"));  
+			member = (ArrayList<String>)oips.readObject();
+			oips = new ObjectInputStream(result.getBinaryStream("order"));  
+			order = (ArrayList<String>)oips.readObject();
+			po = new DeliverPO(result.getString(0),result.getString(1),member,order,DocumentCondition.valueOf(result.getString(4)),result.getString(5));
+            pos.add(po);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+       return pos;
+	}
+	
+	
 
 	@Override
 	public ArrayList<DeliverPO> findsD(String field, String id) throws Exception {
@@ -131,7 +168,11 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 
 	@Override
 	public ResultMessage insertD(DeliverPO po) throws Exception {
+<<<<<<< HEAD
+		String sql = "insert into deliverpo values('"+po.getID()+"','"+po.getTime()+"',?,?,'"+po.getdCondition()+"','"+po.getNameOfWriter()+"');";
+=======
 		String sql = "insert into deliverpo values('"+po.getID()+"','"+po.getTime()+"',?,?,'"+po.getdCondition()+"');";
+>>>>>>> origin/master
 		try{
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
 			Helper.pStatement.setObject(2,po.getMember());

@@ -1,5 +1,7 @@
 package vo;
 
+import enums.Packing;
+
 public class OrderVO {
     ReceiverVO receiver;
     SenderVO sender;
@@ -11,12 +13,13 @@ public class OrderVO {
     String nameOfCourier;
     String receivetime;
     
-    public OrderVO(String _timeOfSend,String _nameOfCourier,String sendername,String senderaddress,String senderworkplace,String sendertelnumber,String senderphonenumber,String receivername,String receiveraddress,String receiverworkplace,String receivertelnumber,String receiverphonenumber,int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType){
+    
+    public OrderVO(String _timeOfSend,String _nameOfCourier,String sendername,String senderaddress,String senderworkplace,String sendertelnumber,String senderphonenumber,String receivername,String receiveraddress,String receiverworkplace,String receivertelnumber,String receiverphonenumber,int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType,Packing _packing){
     	timeOfSend=_timeOfSend; 
     	nameOfCourier=_nameOfCourier;
     	receiver=new ReceiverVO(receivername,receiveraddress,receiverworkplace,receivertelnumber,receiverphonenumber);
     	sender=new SenderVO(sendername,senderaddress,senderworkplace,sendertelnumber,senderphonenumber);
-    	goods=new GoodsVO(_numberOfGoods, _weight, _volume, _nameOfGoods, _size, _expressType);
+    	goods=new GoodsVO(_numberOfGoods, _weight, _volume, _nameOfGoods, _size, _expressType,_packing);
     	bill=new BillVO();
 
     }

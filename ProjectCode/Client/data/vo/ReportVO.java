@@ -1,7 +1,5 @@
 package vo;
 
-import java.util.ArrayList;
-
 public class ReportVO {
 	private String id;
 	private String beginTime;
@@ -9,16 +7,14 @@ public class ReportVO {
 	private long income;
 	private long pay;
 	private long profit;
-	private ArrayList<PaymentVO> payList;
-	private ArrayList<ReceiptsVO> incomeList;
 	
-	
-	public ReportVO(String id,String beginTime,String endTime){
+	public ReportVO(String id,long income,long pay,long profit,String beginTime,String endTime){
 		this.id=id;
+		this.income=income;
+		this.pay=pay;
+		this.profit=profit;
 		this.beginTime=beginTime;
 		this.endTime=endTime;
-		payList=new ArrayList<PaymentVO>();
-		incomeList=new ArrayList<ReceiptsVO>();
 	}
 	
 	public String getID(){
@@ -56,21 +52,5 @@ public class ReportVO {
 	}
 	public void setEndTime(String endTime){
 		this.endTime=endTime;
-	}
-	
-	public void setPayList(ArrayList<PaymentVO> paylist){
-		this.payList=paylist;
-	}
-	
-	public ArrayList<PaymentVO> getPayList(){
-		return payList;
-	}
-	
-	public void setIncomeList(ArrayList<ReceiptsVO> receiptslist){
-		this.incomeList=receiptslist;
-	}
-	
-	public ArrayList<ReceiptsVO> getIncomeList(){
-		return incomeList;
 	}
 }

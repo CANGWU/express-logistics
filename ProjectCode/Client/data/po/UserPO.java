@@ -27,8 +27,7 @@ public class UserPO {
     	this.accountnumber=accountnumber;
     	this.code=code;
     	this.privileges=privileges;
-    	this.work=work;
-    	
+    	this.work = work;
     }
     
     public void addMessage(LogPO newlogpo){
@@ -59,5 +58,8 @@ public class UserPO {
 	public void setPrivileges(String privileges) {
 		this.privileges = privileges;
 	}
+
+	
+	
 	
 }

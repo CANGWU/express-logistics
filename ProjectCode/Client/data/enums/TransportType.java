@@ -1,5 +1,5 @@
 package enums;
 
-public enum TransportType {
-	Entruck,Reception,Load
+public enum TransportType {Entruck, Load, Reception 
+
 }

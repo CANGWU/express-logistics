@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import dataservice.FinanceDataService;
+import enums.DocumentCondition;
 import enums.PaymentType;
 import enums.ResultMessage;
 import link.Helper;
@@ -51,7 +52,7 @@ public class FinanceDataImpl extends UnicastRemoteObject implements FinanceDataS
 	public ResultMessage insertPaymentPO(PaymentPO payment) {
 		
 		// TODO Auto-generated method stub
-		String sql = "insert into paymentpo values('"+payment.getReceiver()+"','"+payment.getType()+"',"+payment.getNumberOfPayment()+");";
+		String sql = "insert into paymentpo values('"+payment.getReceiver()+"','"+payment.getType()+"',"+payment.getNumberOfPayment()+",'"+payment.getNameOfWriter()+"');";
 		return Helper.insert(sql);
 	}
 
@@ -164,11 +165,11 @@ public ArrayList<PaymentPO> findsPaymentPO(String workplacenumber) throws Remote
 	ArrayList<PaymentPO>pays = new ArrayList<PaymentPO>();
 	PaymentPO po = null;
 	ResultSet result = null;
-	String sql = "select *from paymentpo;";
+	String sql = "select *from paymentpo where workplacenumber="+workplacenumber+";";
 	try{
 		result = Helper.find(sql);
 		while(result.next()){
-			po = new PaymentPO(result.getString("receiver"),PaymentType.valueOf(result.getString("paymentype")),result.getDouble("numberofpayment"));
+			po = new PaymentPO(result.getString("receiver"),PaymentType.valueOf(result.getString("paymentype")),result.getDouble("numberofpayment"),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameOfWriter"));
 		   pays.add(po);
 		}
 	}catch(Exception e){
@@ -176,5 +177,25 @@ public ArrayList<PaymentPO> findsPaymentPO(String workplacenumber) throws Remote
 	}
 	return pays;
 }
+
+@Override
+public ArrayList<PaymentPO> findPWithdContion(String nameOfWriter, DocumentCondition dCondition) throws RemoteException {
+	// TODO Auto-generated method stub
+	ArrayList<PaymentPO>pays = new ArrayList<PaymentPO>();
+	PaymentPO po = null;
+	ResultSet result = null;
+	String sql = "select *from paymentpo where nameOfWriter="+nameOfWriter+"' and documentcondition='"+dCondition+"';";
+	try{
+		result = Helper.find(sql);
+		while(result.next()){
+			po = new PaymentPO(result.getString("receiver"),PaymentType.valueOf(result.getString("paymentype")),result.getDouble("numberofpayment"),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameOfWriter"));
+		   pays.add(po);
+		}
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	return pays;
+}
+
 
 }

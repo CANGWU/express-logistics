@@ -30,7 +30,7 @@ public class OrderPO {
     	dueOfReceive=_dueOfReceive;
     	receiver=new ReceiverPO(_receiver.getName(),_receiver.getAddress(),_receiver.getWorkPlace(),_receiver.getTelNumber(),_receiver.getPhoneNumber());
     	sender=new SenderPO(_sender.getName(),_sender.getAddress(),_sender.getWorkPlace(),_sender.getTelNumber(),_sender.getPhoneNumber());
-    	goods=new GoodsPO(_goods.getNumberOfGoods(), _goods.getWeight(), _goods.getVolume(), _goods.getNameOfGoods(), _goods.getSize(), _goods.getExpressType());
+    	goods=new GoodsPO(_goods.getNumberOfGoods(), _goods.getWeight(), _goods.getVolume(), _goods.getNameOfGoods(), _goods.getSize(), _goods.getExpressType(),_goods.getPacking());
     	bill=new BillPO(_bill.getMoneyReceived(), _bill.getTotalfee(), _bill.getChange());
     	this.dCondition = dCondition;
     }

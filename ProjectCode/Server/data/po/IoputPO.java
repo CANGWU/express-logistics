@@ -11,7 +11,11 @@ public class IoputPO implements Serializable  {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
+	String id;/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+=======
 	String id;/*¿ìµÝÌõÐÎÂëºÅ*/
+>>>>>>> origin/master
 	String inputdate;//DATE
 	String outputdate;
 	String time;
@@ -22,8 +26,14 @@ public class IoputPO implements Serializable  {
 	Ioput ioput;
 	Condition condition;
 	DocumentCondition dCondition;
+<<<<<<< HEAD
+	String nameOfWriter;
+	
+	public IoputPO(String i,String idate,String it,String des,String posi,Ioput ioput, DocumentCondition dCondition, String nameOfWriter){
+=======
 	
 	public IoputPO(String i,String idate,String it,String des,String posi,Ioput ioput, DocumentCondition dCondition){
+>>>>>>> origin/master
 		id = i;
 		inputdate = idate;
 		time = it;
@@ -31,9 +41,16 @@ public class IoputPO implements Serializable  {
 		destination = des;
 		this.ioput = ioput;
 		this.dCondition  = dCondition;
+<<<<<<< HEAD
+		this.nameOfWriter = nameOfWriter;
+		
+	}
+	public IoputPO(String i,String odate,String t,String des,String trans,String rID,Ioput ioput,Condition condition,DocumentCondition dCondition, String nameOfWriter){
+=======
 		
 	}
 	public IoputPO(String i,String odate,String t,String des,String trans,String rID,Ioput ioput,Condition condition,DocumentCondition dCondition){
+>>>>>>> origin/master
 		id = i;
 		outputdate = odate;
 		time = t;
@@ -43,8 +60,24 @@ public class IoputPO implements Serializable  {
 		this.ioput = ioput;
 		this.condition = condition;
 		this.dCondition = dCondition;
+<<<<<<< HEAD
+		this.nameOfWriter = nameOfWriter;
 	}
 	
+	public void setNameOfWriter(String nameOfWriter){
+		this.nameOfWriter = nameOfWriter;
+	}
+	
+	public String getNameOfWriter(){
+		return nameOfWriter;
+	}
+	
+	
+	
+=======
+	}
+	
+>>>>>>> origin/master
 	public DocumentCondition getdCondition() {
 		return dCondition;
 	}

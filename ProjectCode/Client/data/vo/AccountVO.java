@@ -1,7 +1,5 @@
 package vo;
 
-import po.AccountPO;
-
 public class AccountVO {
      String name;
      double balance;
@@ -27,10 +25,5 @@ public class AccountVO {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
-	}
-	
-	public AccountPO changeToPo(){
-		AccountPO po=new AccountPO(this.name,this.balance);
-		return po;
 	}
 }

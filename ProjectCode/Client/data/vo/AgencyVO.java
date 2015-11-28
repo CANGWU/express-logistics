@@ -16,12 +16,12 @@ import po.AgencyPO;
 public class AgencyVO implements Serializable{
 	String name;
 	String idNumber;
-	ArrayList<String>staff;
+	ArrayList<StaffVO>staff;
 	String phoneNumber;
 	String address;
-	String leader;
+	StaffVO leader;
 
-public AgencyVO(String name,String idNumber,ArrayList<String> staff,String phoneNumber,String address,String leader){
+public AgencyVO(String name,String idNumber,ArrayList<StaffVO> staff,String phoneNumber,String address,StaffVO leader){
 this.name = name;
 this.staff = staff;
 this.idNumber = idNumber;
@@ -54,13 +54,17 @@ public String getAddress(){
 	return address;
 }
 
-
+public ArrayList<StaffVO> getStaff(){
+	return staff;
+}
 
 public String getPhoneNumber(){
 	return phoneNumber;
 }
 
-
+public StaffVO getLeader(){
+	return leader;
+}
 
 
 public void setName(String name){
@@ -80,32 +84,12 @@ public void setPhoneNumber(String phoneNumber){
 	this.phoneNumber = phoneNumber;
 }
 
-
-
-public String getIdNumber() {
-	return idNumber;
-}
-
-public void setIdNumber(String idNumber) {
-	this.idNumber = idNumber;
-}
-
-public String getLeader() {
-	return leader;
-}
-
-public void setLeader(String leader) {
+public void setLeader(StaffVO leader){
 	this.leader = leader;
 }
 
-public ArrayList<String> getStaff() {
-	return staff;
-}
-
-public void setStaff(ArrayList<String> staff) {
+public void setStaff(ArrayList<StaffVO>staff){
 	this.staff = staff;
 }
-
-
 
 }

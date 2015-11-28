@@ -32,11 +32,11 @@ this.leader = leader;
 
 public AgencyPO(AgencyVO vo){
 	this.name = vo.getName();
-	this.staff = vo.getStaff();
+	//this.staff = vo.getStaff();
 	this.idNumber = vo.getIDNumber();
 	this.phoneNumber = vo.getPhoneNumber();
 	this.address = vo.getAddress();
-	this.leader = vo.getLeader();
+	//this.leader = vo.getLeader;
 	
 	
 }

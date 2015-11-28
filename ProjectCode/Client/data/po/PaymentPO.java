@@ -1,14 +1,46 @@
 package po;
 
+<<<<<<< HEAD
+=======
 import vo.PaymentVO;
+>>>>>>> origin/master
 import enums.DocumentCondition;
 import enums.PaymentType;
 
-
 public class PaymentPO {
-    StaffPO receiver;
+    String receiver;
     PaymentType type;
     double numberOfPayment;
+<<<<<<< HEAD
+    DocumentCondition dCondition;
+    String nameOfWriter;
+    
+    
+    public PaymentPO(String receiver,PaymentType type,double numberOfPayment
+    		,DocumentCondition dCondition,String nameOfWriter){
+    	this.receiver=receiver;
+    	this.type=type;
+    	this.numberOfPayment=numberOfPayment;
+    	this.dCondition = dCondition;
+    	this.nameOfWriter = nameOfWriter;
+    }
+    
+    public String getNameOfWriter(){
+    	return nameOfWriter;
+    }
+    
+    public void setNameOfWriter(String nameOfWriter){
+    	this.nameOfWriter = nameOfWriter;
+    }
+
+	public DocumentCondition getdCondition() {
+		return dCondition;
+	}
+
+	public void setdCondition(DocumentCondition dCondition) {
+		this.dCondition = dCondition;
+	}
+=======
     String accountname;
     DocumentCondition condition;
     
@@ -36,6 +68,7 @@ public class PaymentPO {
 		this.accountname = accountname;
 	}
 
+>>>>>>> origin/master
 
 	public PaymentType getType() {
 		return type;
@@ -52,6 +85,10 @@ public class PaymentPO {
 	public void setNumberOfPayment(double numberOfPayment) {
 		this.numberOfPayment = numberOfPayment;
 	}
+<<<<<<< HEAD
+	public String getReceiver(){
+		return receiver;
+=======
 	
 	public PaymentPO(StaffPO receiver,PaymentType type,double numberOfPayment,String accountname){
     	this.receiver=receiver;
@@ -67,5 +104,6 @@ public class PaymentPO {
 		this.numberOfPayment=vo.getNumberOfPayment();
 		this.accountname=vo.getAccountname();
         this.condition=DocumentCondition.handing;
+>>>>>>> origin/master
 	}
 }

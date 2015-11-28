@@ -41,7 +41,11 @@ public class TransportDataImpl implements TransportDataService {
 				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),Position.valueOf(result.getString("departure")),
 						Position.valueOf(result.getString("destination")),result.getString("time"),
 						Traffic.valueOf(result.getString("traffic")),
+<<<<<<< HEAD
+						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("DocumentCondition")),result.getString("nameOfWriter"));
+=======
 						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("DocumentCondition")));
+>>>>>>> origin/master
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -53,7 +57,11 @@ public class TransportDataImpl implements TransportDataService {
 
 	@Override
 	public ResultMessage insert(TransportPO po){
+<<<<<<< HEAD
+		String sql = "insert into transportpo values('"+po.getSign()+"','"+po.getID()+"','"+po.getDeparture()+"','"+po.getDestination()+"','"+po.getTime()+"','"+po.getTraffic()+"',"+po.getfare()+"?,?,?,'"+po.getdCondition()+"','"+po.getNameOfWriter()+"');";		// TODO Auto-generated method stub
+=======
 		String sql = "insert into transportpo values('"+po.getSign()+"','"+po.getID()+"','"+po.getDeparture()+"','"+po.getDestination()+"','"+po.getTime()+"','"+po.getTraffic()+"',"+po.getfare()+"?,?,?,'"+po.getdCondition()+ "');";		// TODO Auto-generated method stub
+>>>>>>> origin/master
 		try {
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
 			Helper.pStatement.setObject(7, po.getMember());
@@ -134,7 +142,45 @@ public class TransportDataImpl implements TransportDataService {
 				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),Position.valueOf(result.getString("departure")),
 						Position.valueOf(result.getString("destination")),result.getString("time"),
 						Traffic.valueOf(result.getString("traffic")),
+<<<<<<< HEAD
+						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameOfWriter"));
+				pos.add(po);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return pos;
+	}
+
+
+
+	@Override
+	public ArrayList<TransportPO> findWithdCondition(String nameOfWriter, DocumentCondition dCondition) {
+		// TODO Auto-generated method stub
+		ArrayList<TransportPO>pos = new ArrayList<TransportPO>();
+		String sql = "select* from transportpo where nameOfWriter='"+nameOfWriter+"' and documentcondition='"+dCondition+"';";
+	    ArrayList<String> member = null;
+	    ArrayList<String> order = null;
+		ArrayList<Condition> condition = null;
+		ResultSet result = null;
+		TransportPO po =null;
+		try{
+			result = Helper.find(sql);
+			while(result.next()){
+				
+				ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("member"));  
+		        member = (ArrayList<String>)oips.readObject();
+		        oips =  new ObjectInputStream(result.getBinaryStream("order"));
+		        order = (ArrayList<String>)oips.readObject();
+		        oips =  new ObjectInputStream(result.getBinaryStream("condition"));
+		        condition = (ArrayList<Condition>)oips.readObject();
+				po = new TransportPO(TransportType.valueOf(result.getString("sign")),result.getString("id"),Position.valueOf(result.getString("departure")),
+						Position.valueOf(result.getString("destination")),result.getString("time"),
+						Traffic.valueOf(result.getString("traffic")),
+						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameOfWriter"));
+=======
 						result.getDouble("fare"),member,order,condition,DocumentCondition.valueOf(result.getString("documentcondition")));
+>>>>>>> origin/master
 				pos.add(po);
 			}
 		}catch(Exception e){
