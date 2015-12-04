@@ -8,8 +8,7 @@ public class LogisticsPO {
     
     
     
-    public LogisticsPO(String ordernumber,ArrayList<String>logisticsMessage){
-    	this.logisticsMessage=logisticsMessage;
+    public LogisticsPO(String ordernumber){
     	this.ordernumber=ordernumber;
     }
     

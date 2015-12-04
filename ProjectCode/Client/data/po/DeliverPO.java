@@ -8,55 +8,32 @@ import enums.DocumentCondition;
 public class DeliverPO implements Serializable {
 	private DocumentCondition documentCondition;
 	private String id;
-	private String time;
 	private String nameOfWriter;
+	private String time;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
-	private DocumentCondition dCondition;
 
-	public DeliverPO(String id, String time, ArrayList<String> member,
-<<<<<<< HEAD
-			ArrayList<String> order, DocumentCondition dCondition, String nameOfWriter) {
-=======
-			ArrayList<String> order, DocumentCondition documentCondition) {
->>>>>>> origin/master
+	public DeliverPO(String id, String nameOfWriter, String time,
+			ArrayList<String> member, ArrayList<String> order,
+			DocumentCondition documentCondition) {
 		this.id = id;
+		this.nameOfWriter = nameOfWriter;
 		this.time = time;
 		this.member = member;
 		this.order = order;
-<<<<<<< HEAD
-		this.dCondition = dCondition;
-		this.nameOfWriter = nameOfWriter;
-	}
-	
-	public String getNameOfWriter(){
-		return nameOfWriter;
-	}
-	
-	public void setNameOfWriter(String nameOfWriter){
-		this.nameOfWriter = nameOfWriter;
-	}
-	
-	public DocumentCondition getdCondition() {
-		return dCondition;
-	}
-
-	public void setdCondition(DocumentCondition dCondition) {
-		this.dCondition = dCondition;
-	}
-
-	public String getTime(){
-=======
 		this.documentCondition = documentCondition;
 	}
 
 	public String getTime() {
->>>>>>> origin/master
 		return time;
 	}
 
 	public String getID() {
 		return id;
+	}
+
+	public String getWriter() {
+		return nameOfWriter;
 	}
 
 	public ArrayList<String> getMember() {
@@ -77,6 +54,10 @@ public class DeliverPO implements Serializable {
 
 	public void setID(String id) {
 		this.id = id;
+	}
+
+	public void setWriter(String nameOfWriter) {
+		this.nameOfWriter = nameOfWriter;
 	}
 
 	public void setMember(ArrayList<String> member) {

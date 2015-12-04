@@ -1,24 +1,28 @@
 package transportsl;
 
 import enums.Condition;
+import enums.Position;
+import enums.ResultMessage;
+import enums.Traffic;
 import enums.TransportType;
 import transportslservice.TransportService;
 import vo.TransportVO;
 
-public class TransportController implements TransportService{
+public class TransportController implements TransportService {
 	Transport transport;
-	public TransportController(Transport transport){
-		this.transport=transport;
+
+	public TransportController(Transport transport) {
+		this.transport = transport;
 	}
-	
+
 	@Override
 	public TransportVO getTransport(String Transportid) throws Exception {
 		return transport.getTransport(Transportid);
 	}
 
 	@Override
-	public void choose(TransportType sign,TransportVO transportvo) {
-		transport.choose(sign,transportvo);
+	public void choose(TransportType sign, TransportVO transportvo) {
+		transport.choose(sign, transportvo);
 	}
 
 	@Override
@@ -38,25 +42,24 @@ public class TransportController implements TransportService{
 	}
 
 	@Override
-	public void addMessage(String departure, String destination,
+	public void addMessage(Position departure, Position destination,
 			String time, TransportVO transportvo) {
 		transport.addMessage(departure, destination, time, transportvo);
 	}
 
 	@Override
-	public void addTraffic(String id, TransportVO transportvo) {
-		transport.addTraffic(id, transportvo);
+	public void addTraffic(String id, Traffic trafficType, TransportVO transportvo) {
+		transport.addTraffic(id, trafficType, transportvo);
 	}
 
 	@Override
-	public void addFare(String departure, String destination,
-			TransportVO transportvo) {
-		transport.addFare(departure, destination, transportvo);
+	public void addFare(TransportVO transportvo) {
+		transport.addFare(transportvo);
 	}
 
 	@Override
-	public void saveTransport(TransportVO transportvo) throws Exception {
-		transport.saveTransport(transportvo);
+	public ResultMessage saveTransport(TransportVO transportvo) throws Exception {
+		return transport.saveTransport(transportvo);
 	}
 
 	@Override

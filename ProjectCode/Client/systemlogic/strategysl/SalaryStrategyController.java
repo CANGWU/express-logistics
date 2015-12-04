@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.sun.corba.se.spi.orbutil.threadpool.Work;
 
+import enums.ResultMessage;
 import strategyslservice.SalaryStrategyService;
 import vo.SalaryVO;
 
@@ -27,13 +28,13 @@ public class SalaryStrategyController implements SalaryStrategyService{
 	}
 
 	@Override
-	public void save(SalaryVO vo) throws RemoteException {
-		salarystrategy.save(vo);
+	public ResultMessage save(SalaryVO vo) throws RemoteException {
+		return salarystrategy.save(vo);
 	}
 
 	@Override
-	public void saveChange(SalaryVO vo) throws RemoteException {
-		salarystrategy.saveChange(vo);
+	public ResultMessage saveChange(SalaryVO vo) throws RemoteException {
+		return salarystrategy.saveChange(vo);
 	}
 
 	@Override

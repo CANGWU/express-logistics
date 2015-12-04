@@ -8,13 +8,16 @@ import enums.DocumentCondition;
 public class DeliverVO implements Serializable {
 	private DocumentCondition documentCondition;
 	private String id;
+	private String nameOfWriter;
 	private String time;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
 
-	public DeliverVO(String id, String time, ArrayList<String> member,
-			ArrayList<String> order, DocumentCondition documentCondition) {
+	public DeliverVO(String id, String nameOfWriter, String time,
+			ArrayList<String> member, ArrayList<String> order,
+			DocumentCondition documentCondition) {
 		this.id = id;
+		this.nameOfWriter = nameOfWriter;
 		this.time = time;
 		this.member = member;
 		this.order = order;
@@ -27,6 +30,10 @@ public class DeliverVO implements Serializable {
 
 	public String getID() {
 		return id;
+	}
+
+	public String getWriter() {
+		return nameOfWriter;
 	}
 
 	public ArrayList<String> getMember() {
@@ -47,6 +54,10 @@ public class DeliverVO implements Serializable {
 
 	public void setID(String id) {
 		this.id = id;
+	}
+
+	public void setWriter(String nameOfWriter) {
+		this.nameOfWriter = nameOfWriter;
 	}
 
 	public void setMember(ArrayList<String> member) {

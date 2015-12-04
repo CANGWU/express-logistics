@@ -8,8 +8,7 @@ private String workPlaceNumber;
 private String licenseNumber;
 private int workYear;
 
-public CarPO(String idNumber, String workPlaceNumber, 
-		String licenseNumber, int workYear){
+public CarPO(String idNumber, String workPlaceNumber, String licenseNumber, int workYear){
 	this.idNumber = idNumber;
 	this.workPlaceNumber = workPlaceNumber;
 	this.licenseNumber = licenseNumber;

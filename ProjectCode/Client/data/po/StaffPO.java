@@ -25,10 +25,11 @@ String phoneNumber;
 String address;
 Sex sex;
 double page;
+int numbers;
 
 public StaffPO(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
 this.name = name;
-this.work = work;
+this.work=work;
 this.workNumber = workNumber;
 this.workPlaceNumber = workPlaceNumber;
 this.birthDate = birthDate;
@@ -53,6 +54,7 @@ public StaffPO(StaffVO vo){
 }
 public StaffPO(){};
 
+
 public String getPhoneNumber(){
 	    return phoneNumber;
 }
@@ -61,9 +63,7 @@ public String getName(){
 return name;
 }
 
-public Work getWork(){
-	return work;
-}
+
 
 public String getWorkNumber(){
 return workNumber;
@@ -109,8 +109,30 @@ public void setPage(double page){
 	this.page = page;
 }
 
-public void setWork(Work work){
+
+
+public Work getWork() {
+	return work;
+}
+
+public void setWork(Work work) {
 	this.work = work;
+}
+
+public String getBirthDate() {
+	return birthDate;
+}
+
+public void setBirthDate(String birthDate) {
+	this.birthDate = birthDate;
+}
+
+public String getIdNumber() {
+	return idNumber;
+}
+
+public void setIdNumber(String idNumber) {
+	this.idNumber = idNumber;
 }
 
 public void setSex(Sex sex){

@@ -3,7 +3,6 @@ package dataservice;
 import java.rmi.Remote;
 import java.util.ArrayList;
 
-import enums.DocumentCondition;
 import enums.ResultMessage;
 import enums.TransportType;
 import po.TransportPO;
@@ -16,5 +15,4 @@ public interface TransportDataService extends Remote{
 	public ResultMessage update(TransportPO po) throws Exception;
 	public void init() throws Exception;
 	public void finish() throws Exception;
-	public ArrayList<TransportPO> findWithdCondition(String nameOfWriter, DocumentCondition dCondition);
 }

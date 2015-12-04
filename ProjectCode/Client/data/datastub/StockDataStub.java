@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import po.StockPO;
 import dataservice.StockDataService;
-import enums.ResultMessage;
 
 public class StockDataStub implements StockDataService {
 	
@@ -20,32 +19,31 @@ public class StockDataStub implements StockDataService {
 	}
 
 	@Override
-	public ArrayList<StockPO> findpositions(ArrayList<int[][]> positions) {
+	public StockPO[] findpositions(ArrayList<int[][]> positions) {
 		// TODO Auto-generated method stub
 		System.out.print("find succeed!");
-		return null;
+		return pos;
 	}
 
 	@Override
-	public ResultMessage insert(StockPO PO) {
+	public void insert(StockPO PO) {
 		// TODO Auto-generated method stub
 		System.out.print("insert Succeed!\n");
-		return null;
 		
 	}
 
 	@Override
-	public ResultMessage delete(StockPO PO) {
+	public void delete(StockPO PO) {
 		// TODO Auto-generated method stub
 		System.out.print("delete Succeed!\n");
-		return null;
 		
 	}
+
 	@Override
-	public ResultMessage update(StockPO PO) {
+	public void update(StockPO PO) {
 		// TODO Auto-generated method stub
 		System.out.print("update Succeed!\n");
-		return null;
+		
 	}
 
 }

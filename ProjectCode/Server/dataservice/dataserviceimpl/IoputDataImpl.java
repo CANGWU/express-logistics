@@ -30,51 +30,20 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 			result = Helper.find(sql);
 			if(result.next())
 				if(result.getString("ioput").equals("in"))
-<<<<<<< HEAD
-					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),result.getString("destination"),result.getString("position"),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
-				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),result.getString("destination"),result.getString("transport"),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
-=======
 					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),result.getString("destination"),result.getString("position"),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")));
 				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),result.getString("destination"),result.getString("transport"),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")));
->>>>>>> origin/master
 		}catch (Exception e){
 			e.printStackTrace();
 		}
 		return po;
 	}
-	
-	@Override
-	public ArrayList<IoputPO> findWithdCondition(String nameOfWriter, DocumentCondition dCondition) {
-		// TODO Auto-generated method stub
-		String sql = "select *from ioputpo where nameOfWriter='"+nameOfWriter+"' and DocumentCondition='"+dCondition+"';";
-		IoputPO po = null;
-		ArrayList<IoputPO>pos = new ArrayList<IoputPO>();
-		ResultSet result = null;
-		try{
-			result = Helper.find(sql);
-			if(result.next())
-				if(result.getString("ioput").equals("in"))
-					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),result.getString("destination"),result.getString("position"),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
-				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),result.getString("destination"),result.getString("transport"),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
-		        pos.add(po);
-		}catch (Exception e){
-			e.printStackTrace();
-		}
-		return pos;
-	}
 
 	
 	@Override
 	public ResultMessage insert(IoputPO po) {
-<<<<<<< HEAD
-		String sql1 = "insert into ioputpo(id,inputdate,time,position,destination,ioput,documentcondition) values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getPosition()+"','"+po.getDestination()+"','"+po.getIoput()+"','"+po.getdCondition()+"','"+po.getNameOfWriter()+"');";
-		String sql2 = "insert into ioputpo(id,outputdate,time,destination,receiptid,ioput,condition,documentcondition) "
-				+ "values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getDestination()+"','"+po.getReceiptID()+"','"+po.getIoput()+"','"+po.getCondition()+"','"+po.getdCondition()+"','"+po.getNameOfWriter()+"');";
-=======
 		String sql1 = "insert into ioputpo(id,inputdate,time,position,destination,ioput,documentcondition) values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getPosition()+"','"+po.getDestination()+"','"+po.getIoput()+"','"+po.getdCondition()+"');";
 		String sql2 = "insert into ioputpo(id,outputdate,time,destination,receiptid,ioput,condition,documentcondition) "
 				+ "values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getDestination()+"','"+po.getReceiptID()+"','"+po.getIoput()+"','"+po.getCondition()+"','"+po.getdCondition()+"');";
->>>>>>> origin/master
 		// TODO Auto-generated method stub
 		if(po.getIoput()==Ioput.in)
 		return	Helper.insert(sql1);

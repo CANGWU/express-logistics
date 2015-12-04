@@ -3,6 +3,7 @@ package receivesl;
 import po.DeliverPO;
 import dataservice.DataFactoryService;
 import dataservice.ReceiveDataService;
+import enums.ResultMessage;
 import receiveslservice.DeliverService;
 import vo.DeliverVO;
 
@@ -20,8 +21,9 @@ public class Deliver implements DeliverService {
 	public DeliverVO getDeliver(String deliverNumber) throws Exception {
 		DeliverPO deliverpo = receiveData.findD(deliverNumber);
 		DeliverVO delivervo = new DeliverVO(deliverpo.getID(),
-				deliverpo.getTime(), deliverpo.getMember(),
-				deliverpo.getOrder(), deliverpo.getDocumentCondition());
+				deliverpo.getWriter(), deliverpo.getTime(),
+				deliverpo.getMember(), deliverpo.getOrder(),
+				deliverpo.getDocumentCondition());
 		return delivervo;
 	}
 
@@ -47,11 +49,12 @@ public class Deliver implements DeliverService {
 	}
 
 	@Override
-	public void saveDeliver(DeliverVO delivervo) throws Exception {
-		DeliverPO deliverpo = new DeliverPO(delivervo.getTime(),
-				delivervo.getID(), delivervo.getMember(), delivervo.getOrder(),
+	public ResultMessage saveDeliver(DeliverVO delivervo) throws Exception {
+		DeliverPO deliverpo = new DeliverPO(delivervo.getID(),
+				delivervo.getWriter(), delivervo.getTime(),
+				delivervo.getMember(), delivervo.getOrder(),
 				delivervo.getDocumentCondition());
-		receiveData.insertD(deliverpo);
+		return receiveData.insertD(deliverpo);
 
 	}
 

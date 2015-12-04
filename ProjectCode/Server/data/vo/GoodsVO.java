@@ -1,7 +1,5 @@
 package vo;
 
-import enums.Packing;
-
 public class GoodsVO {
     int numberOfGoods;
     double weight;
@@ -9,26 +7,16 @@ public class GoodsVO {
     String nameOfGoods;
     String size;
     String expressType;
-    Packing packing;
     
-    public GoodsVO(int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType, Packing packing){
+    public GoodsVO(int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType){
         numberOfGoods=_numberOfGoods;
         weight=_weight;
         volume=_volume;
         nameOfGoods=_nameOfGoods;
         size=_size;
         expressType=_expressType;
-        this.packing = packing;
     }
     
-	public Packing getPacking() {
-		return packing;
-	}
-
-	public void setPacking(Packing packing) {
-		this.packing = packing;
-	}
-
 	public int getNumberOfGoods() {
 		return numberOfGoods;
 	}

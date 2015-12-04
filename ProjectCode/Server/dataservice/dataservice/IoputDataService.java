@@ -4,7 +4,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import enums.DocumentCondition;
 import enums.ResultMessage;
 import po.*;
 
@@ -18,7 +17,6 @@ public interface IoputDataService extends Remote{
 	public ResultMessage insert(IoputPO PO)throws RemoteException;
 	public ResultMessage delete(IoputPO PO)throws RemoteException;
 	public ResultMessage update(IoputPO PO)throws RemoteException;
-	ArrayList<IoputPO> findWithdCondition(String nameOfWriter, DocumentCondition dCondition)throws RemoteException;
 
 
 }

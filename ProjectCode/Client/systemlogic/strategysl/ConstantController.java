@@ -1,14 +1,19 @@
 package strategysl;
 
+import enums.Position;
+import enums.ResultMessage;
+import enums.Traffic;
 import strategyslservice.ConstantService;
+import transportsl.ConstantInfo;
 import vo.ConstantVO;
 
-public class ConstantController implements ConstantService{
+public class ConstantController implements ConstantService, ConstantInfo {
 	Constant constant;
-	public ConstantController(Constant constant){
-		this.constant=constant;
+
+	public ConstantController(Constant constant) {
+		this.constant = constant;
 	}
-	
+
 	@Override
 	public ConstantVO getConstant() {
 		return constant.getConstant();
@@ -20,14 +25,19 @@ public class ConstantController implements ConstantService{
 	}
 
 	@Override
-	public void save(ConstantVO vo) {
-		constant.save(vo);
+	public ResultMessage save(ConstantVO vo) {
+		return constant.save(vo);
 	}
 
 	@Override
 	public void endConstant() {
+		constant.endConstant();
+	}
 
-		
+	@Override
+	public double getFare(Position departure, Position destination,
+			Traffic trafficType) {
+		return constant.getFare(departure, destination, trafficType);
 	}
 
 }

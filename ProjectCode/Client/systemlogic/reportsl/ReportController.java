@@ -31,7 +31,7 @@ public class ReportController implements ReportService {
 
 	@Override
 	public void caculate(ReportVO reportvo) {
-		
+		report.caculate(reportvo);
 	}
 
 }

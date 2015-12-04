@@ -19,7 +19,6 @@ public class Login implements LoginService{
 	UserPO user;
 	
 	
-	
 	private Login(DataFactory datafactory){
 		this.datafactory=datafactory;
 	}
@@ -53,6 +52,9 @@ public class Login implements LoginService{
 			   return LoginResult.TransOffice;
 			   
 		}
+		
+		
+		
 		return result;
 	}
 	

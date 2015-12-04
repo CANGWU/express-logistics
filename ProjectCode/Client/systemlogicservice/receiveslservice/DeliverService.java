@@ -1,5 +1,6 @@
 package receiveslservice;
 
+import enums.ResultMessage;
 import vo.DeliverVO;
 
 public interface DeliverService {
@@ -11,6 +12,6 @@ public interface DeliverService {
 	public void addExpress(String orderNumber,DeliverVO delivervo);
 	public void addMember(String id,DeliverVO delivervo);
 	public void printDeliver(String id);
-	public void saveDeliver(DeliverVO delivervo) throws Exception;
+	public ResultMessage saveDeliver(DeliverVO delivervo) throws Exception;
 	public void endDeliver() throws Exception;
 }

@@ -8,6 +8,7 @@ import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import po.SalaryPO;
 import dataservice.DataFactoryService;
 import dataservice.SalaryStrategyDataService;
+import enums.ResultMessage;
 import strategyslservice.SalaryStrategyService;
 import vo.SalaryVO;
 
@@ -37,14 +38,14 @@ public class SalaryStrategy implements GetSingleStrategy{
 		salarystrategyData.finish();
 	}
 
-	public void save(SalaryVO vo) throws RemoteException {
+	public ResultMessage save(SalaryVO vo) throws RemoteException {
 		SalaryPO po=new SalaryPO(vo.getBaseWage(),vo.getAllowance(),vo.getCommission(),vo.getWork());
-		salarystrategyData.insert(po);
+		return salarystrategyData.insert(po);
 	}
 
-	public void saveChange(SalaryVO vo) throws RemoteException {
+	public ResultMessage saveChange(SalaryVO vo) throws RemoteException {
 		SalaryPO po=new SalaryPO(vo.getBaseWage(),vo.getAllowance(),vo.getCommission(),vo.getWork());
-		salarystrategyData.update(po);
+		return salarystrategyData.update(po);
 	}
 
 	public void newSalaryVO() {

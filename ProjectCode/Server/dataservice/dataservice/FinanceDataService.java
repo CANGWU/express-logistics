@@ -4,7 +4,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import enums.DocumentCondition;
 import enums.ResultMessage;
 import po.*;
 
@@ -21,6 +20,5 @@ public interface FinanceDataService extends Remote{
     
     public CompanyAccountPO findCompanyAccountPO(String id)throws RemoteException;
     public ResultMessage insertCompanyAccountPO(CompanyAccountPO companyaccount)throws RemoteException;
-	ArrayList<PaymentPO> findPWithdContion(String nameOfWriter, DocumentCondition dCondition) throws RemoteException;
 	
 }

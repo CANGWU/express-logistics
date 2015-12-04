@@ -1,6 +1,9 @@
 package transportslservice;
 
 import enums.Condition;
+import enums.Position;
+import enums.ResultMessage;
+import enums.Traffic;
 import enums.TransportType;
 import vo.TransportVO;
 
@@ -13,10 +16,10 @@ public interface TransportService {
 	public void addMember(String id,TransportVO transportvo);
 	public void addExpress(String orderNumber,TransportVO transportvo);
 	public void addCondition(String orderNumber,Condition conditon,TransportVO transportvo);
-	public void addMessage(String departure,String destination,String time,TransportVO transportvo);
-	public void addTraffic(String id,TransportVO transportvo);
-	public void addFare(String departure,String destination,TransportVO transportvo);
-	public void saveTransport(TransportVO transportvo) throws Exception;
+	public void addMessage(Position departure,Position destination,String time,TransportVO transportvo);
+	public void addTraffic(String id,Traffic traffic,TransportVO transportvo);
+	public void addFare(TransportVO transportvo);
+	public ResultMessage saveTransport(TransportVO transportvo) throws Exception;
 	public void printTransport(String id);
 	public void endTransport() throws Exception;
 }

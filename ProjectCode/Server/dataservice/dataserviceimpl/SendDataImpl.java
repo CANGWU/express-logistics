@@ -1,22 +1,15 @@
 package dataserviceimpl;
 
-import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
+import dataservice.CheckDataService;
 import dataservice.SendDataService;
-import enums.DocumentCondition;
 import enums.ResultMessage;
 import link.Helper;
-import po.BillPO;
-import po.GoodsPO;
 import po.OrderPO;
 import po.ReceiptsPO;
-import po.ReceiverPO;
-import po.SenderPO;
 
 public class SendDataImpl extends UnicastRemoteObject implements SendDataService {
 
@@ -73,38 +66,4 @@ public class SendDataImpl extends UnicastRemoteObject implements SendDataService
 		}
 		
 	   private volatile static SendDataImpl send;
-
-	@Override
-	public ArrayList<OrderPO> findWithdCondition(String nameOfCourier, DocumentCondition dCondition) throws RemoteException {
-		// TODO Auto-generated method stub
-		String sql = "select* from orderpo where documentcondition='"+dCondition+"' and name='"+nameOfCourier+"';";
-		ResultSet result = null;
-		OrderPO po =null;
-		ArrayList<OrderPO>pos = new ArrayList<OrderPO>();
-		ReceiverPO receiver = null;
-		SenderPO sender = null;
-		BillPO bill = null;
-		GoodsPO goods = null;
-
-		try{
-			result = Helper.find(sql);
-			while(result.next()){
-
-				ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("receiver"));  
-				receiver = (ReceiverPO)oips.readObject();
-				oips = new ObjectInputStream(result.getBinaryStream("sender"));  
-				sender = (SenderPO)oips.readObject();
-				oips = new ObjectInputStream(result.getBinaryStream("bill"));  
-				bill = (BillPO)oips.readObject();
-				oips = new ObjectInputStream(result.getBinaryStream("goods"));  
-				goods = (GoodsPO)oips.readObject();
-				po = new OrderPO(receiver,sender,bill,goods,result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),DocumentCondition.valueOf(result.getString(9)));
-			    pos.add(po);
-			}
-
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return pos;
-	}
 }

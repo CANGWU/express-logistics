@@ -1,6 +1,5 @@
 package enums;
 
 public enum Position {
-	Beijing, Shanghai, Guangzhou, Nanjing
-
+	Beijing,Shanghai,Guangzhou,Nanjing
 }

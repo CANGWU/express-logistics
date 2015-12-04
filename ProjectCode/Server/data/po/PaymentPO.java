@@ -8,33 +8,13 @@ public class PaymentPO {
     PaymentType type;
     double numberOfPayment;
     DocumentCondition dCondition;
-<<<<<<< HEAD
-    String nameOfWriter;
-    
-    
-    public PaymentPO(String receiver,PaymentType type,double numberOfPayment
-    		,DocumentCondition dCondition,String nameOfWriter){
-=======
     
     public PaymentPO(String receiver,PaymentType type,double numberOfPayment
     		,DocumentCondition dCondition){
->>>>>>> origin/master
     	this.receiver=receiver;
     	this.type=type;
     	this.numberOfPayment=numberOfPayment;
     	this.dCondition = dCondition;
-<<<<<<< HEAD
-    	this.nameOfWriter = nameOfWriter;
-    }
-    
-    public String getNameOfWriter(){
-    	return nameOfWriter;
-    }
-    
-    public void setNameOfWriter(String nameOfWriter){
-    	this.nameOfWriter = nameOfWriter;
-=======
->>>>>>> origin/master
     }
 
 	public DocumentCondition getdCondition() {

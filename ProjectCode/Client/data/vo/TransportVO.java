@@ -3,72 +3,51 @@ package vo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-public class TransportVO {
-	String sign;
-	String departure;
-	String destination;
-	String time;
-	String traffic;
-	String id;
-	long fare;
-	ArrayList<String> member;
-	ArrayList<String> order;
-	ArrayList<String> condition;
-
-	public TransportVO(String sign,String id, String departure, String destination,
-			String time, String traffic, long fare, ArrayList<String> member,
-			ArrayList<String> order, ArrayList<String> condition) {
-		this.id=id;
-		this.sign=sign;
-		this.departure=departure;
-		this.destination=destination;
-		this.time=time;
-		this.traffic=traffic;
-		this.fare=fare;
-		this.member=member;
-		this.order=order;
-		this.condition=condition;
-	}
-	
-	public String getSign(){
-=======
 import enums.Condition;
 import enums.DocumentCondition;
+import enums.Position;
+import enums.Traffic;
 import enums.TransportType;
 
 public class TransportVO implements Serializable {
 	private TransportType sign;
 	private DocumentCondition documentCondition;
-	private String id;
-	private String departure;
-	private String destination;
+	private String id;// ‘À ‰µ•±‡∫≈
+	private String transportID;// ‘ÿ‘À±‡∫≈
+	private Position departure;
+	private Position destination;
 	private String time;
-	private String traffic;
-	private long fare;
+	private String trafficID;// ‘ÿæﬂ±‡∫≈
+	private Traffic trafficType;
+	private double fare;
 	private ArrayList<String> member;
 	private ArrayList<String> order;
 	private ArrayList<Condition> condition;
+	private String nameOfWriter;
 
-	public TransportVO(TransportType sign, String id, String departure,
-			String destination, String time, String traffic, long fare,
+	public TransportVO(TransportType sign, String id, String transportID,
+			Position departure, Position destination, String time,
+			String trafficID, Traffic trafficType, double fare,
 			ArrayList<String> member, ArrayList<String> order,
-			ArrayList<Condition> condition, DocumentCondition documentCondition) {
+			ArrayList<Condition> condition,
+			DocumentCondition documentCondition, String nameOfWriter) {
 		this.id = id;
+		this.transportID = transportID;
 		this.sign = sign;
 		this.documentCondition = documentCondition;
 		this.departure = departure;
 		this.destination = destination;
 		this.time = time;
-		this.traffic = traffic;
+		this.trafficID = trafficID;
+		this.trafficType = trafficType;
 		this.fare = fare;
 		this.member = member;
 		this.order = order;
 		this.condition = condition;
+		this.nameOfWriter = nameOfWriter;
 	}
 
 	public TransportType getSign() {
->>>>>>> origin/master
 		return sign;
 	}
 
@@ -80,11 +59,19 @@ public class TransportVO implements Serializable {
 		return id;
 	}
 
-	public String getDeparture() {
+	public String getWriter() {
+		return nameOfWriter;
+	}
+
+	public String getTransportID() {
+		return transportID;
+	}
+
+	public Position getDeparture() {
 		return departure;
 	}
 
-	public String getDestination() {
+	public Position getDestination() {
 		return destination;
 	}
 
@@ -92,11 +79,15 @@ public class TransportVO implements Serializable {
 		return time;
 	}
 
-	public String getTraffic() {
-		return traffic;
+	public String getTrafficID() {
+		return trafficID;
 	}
 
-	public long getfare() {
+	public Traffic getTrafficType() {
+		return trafficType;
+	}
+
+	public double getfare() {
 		return fare;
 	}
 
@@ -111,14 +102,9 @@ public class TransportVO implements Serializable {
 	public ArrayList<Condition> getCondition() {
 		return condition;
 	}
-<<<<<<< HEAD
-	public  void setSign(String sign){
-		this.sign=sign;
-=======
 
 	public void setSign(TransportType sign) {
 		this.sign = sign;
->>>>>>> origin/master
 	}
 
 	public void setDocumentCondition(DocumentCondition documentCondition) {
@@ -129,11 +115,19 @@ public class TransportVO implements Serializable {
 		this.id = id;
 	}
 
-	public void setDeparture(String departure) {
+	public void setWriter(String nameOfWriter) {
+		this.nameOfWriter = nameOfWriter;
+	}
+
+	public void setTransportID(String transportID) {
+		this.transportID = transportID;
+	}
+
+	public void setDeparture(Position departure) {
 		this.departure = departure;
 	}
 
-	public void setDestination(String destination) {
+	public void setDestination(Position destination) {
 		this.destination = destination;
 	}
 
@@ -141,11 +135,15 @@ public class TransportVO implements Serializable {
 		this.time = time;
 	}
 
-	public void setTraffic(String traffic) {
-		this.traffic = traffic;
+	public void setTrafficID(String trafficID) {
+		this.trafficID = trafficID;
 	}
 
-	public void setFare(long fare) {
+	public void setTrafficType(Traffic trafficType) {
+		this.trafficType = trafficType;
+	}
+
+	public void setFare(double fare) {
 		this.fare = fare;
 	}
 
