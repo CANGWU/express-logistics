@@ -1,6 +1,4 @@
-package po;
-
-import java.io.Serializable;
+package vo;
 
 import enums.Condition;
 import enums.DocumentCondition;
@@ -8,11 +6,10 @@ import enums.Ioput;
 import enums.Position;
 import enums.Traffic;
 
-public class IoputPO implements Serializable  {
+public class IoputVO {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	private String id;/*¿ìµÝÌõÐÎÂëºÅ*/
 	private String inputdate;//DATE
 	private String outputdate;
@@ -26,7 +23,7 @@ public class IoputPO implements Serializable  {
 	private DocumentCondition dCondition;
 	private String nameOfWriter;
 	
-	public IoputPO(String i,String idate,String it,Position des,String posi,Ioput ioput, DocumentCondition dCondition, String nameOfWriter){
+	public IoputVO(String i,String idate,String it,Position des,String posi,Ioput ioput,Condition condition, DocumentCondition dCondition,	String nameOfWriter){
 		id = i;
 		inputdate = idate;
 		time = it;
@@ -37,8 +34,7 @@ public class IoputPO implements Serializable  {
 		this.nameOfWriter = nameOfWriter;
 		
 	}
-	public IoputPO(String i,String odate,String t,Position des,Traffic trans,String rID,Ioput ioput,Condition condition,DocumentCondition dCondition, String nameOfWriter){
-		
+	public IoputVO(String i,String odate,String t,Position des,Traffic trans,String rID,Ioput ioput,Condition condition,DocumentCondition dCondition,String nameOfWriter){
 		id = i;
 		outputdate = odate;
 		time = t;
@@ -49,21 +45,6 @@ public class IoputPO implements Serializable  {
 		this.condition = condition;
 		this.dCondition = dCondition;
 		this.nameOfWriter = nameOfWriter;
-	}
-	
-	public void setNameOfWriter(String nameOfWriter){
-		this.nameOfWriter = nameOfWriter;
-	}
-	
-	public String getNameOfWriter(){
-		return nameOfWriter;
-	}
-
-	public DocumentCondition getdCondition() {
-		return dCondition;
-	}
-	public void setdCondition(DocumentCondition dCondition) {
-		this.dCondition = dCondition;
 	}
 	public String getId() {
 		return id;
@@ -83,68 +64,66 @@ public class IoputPO implements Serializable  {
 	public void setOutputdate(String outputdate) {
 		this.outputdate = outputdate;
 	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public Position getDestination() {
+		return destination;
+	}
+	public void setDestination(Position destination) {
+		this.destination = destination;
+	}
 	public String getPosition() {
 		return position;
 	}
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	public Ioput getIoput() {
-		return ioput;
-	}
-	public void setIoput(Ioput ioput) {
-		this.ioput = ioput;
-	}
-	public Condition getCondition() {
-		return condition;
-	}
-	public void setCondition(Condition condition) {
-		this.condition = condition;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-	public void setDestination(Position destination) {
-		this.destination = destination;
+	public Traffic getTransport() {
+		return transport;
 	}
 	public void setTransport(Traffic transport) {
 		this.transport = transport;
 	}
+	public String getReceiptID() {
+		return receiptID;
+	}
 	public void setReceiptID(String receiptID) {
 		this.receiptID = receiptID;
 	}
-	public String getID(){
-		return id;
+	
+	public Ioput getIoput(){
+		return this.ioput;
 	}
 	
-	public String getTime(){
-		return time;
+	public void setIoput(Ioput ioput){
+		this.ioput = ioput;
 	}
 	
-	public String getInputDate(){
-		return inputdate;
+	public Condition getCondition(){
+		return this.condition;
 	}
 	
-	public String getOutputDate(){
-		return outputdate;
+	public void setCondition(Condition condition){
+		this.condition = condition;
+	}
+	public DocumentCondition getdCondition(){
+		return this.dCondition;
 	}
 	
-	public String getPositon(){
-		return position;
+	public void setDocumentCondition (DocumentCondition dCondition){
+		this.dCondition = dCondition;
 	}
 	
-	public Traffic getTransport(){
-		return transport;
+	public String getNameOfWriter(){
+		return this.nameOfWriter;
 	}
 	
-	public Position getDestination(){
-		return destination;
+	public void setNameOfWriter(String nameOfWriter){
+		this.nameOfWriter = nameOfWriter;
 	}
-	
-	public String getReceiptID(){
-		return receiptID;
-	}
-	
-	
 
 }

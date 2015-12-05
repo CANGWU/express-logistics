@@ -15,25 +15,24 @@ import enums.Work;
  */
 
 public class StaffPO implements Serializable{
-String name; 
-Work work;
-String workNumber;
-String workPlaceNumber;
-String birthDate;
-String idNumber;
-String phoneNumber;
-String address;
-Sex sex;
-double page;
-int numbers;
+private String name; 
+private Work work;
+private String workNumber;
+private String workPlaceNumber;
+private String birthDate;
+private String idNumber;
+private String phoneNumber;
+private String address;
+private Sex sex;
+private double page;
 
 public StaffPO(String name,Work work,String workNumber,String workPlaceNumber,String birthDate,String idNumber,String phoneNumber,String address,Sex sex,double page){
 this.name = name;
-this.work=work;
+this.work = work;
 this.workNumber = workNumber;
 this.workPlaceNumber = workPlaceNumber;
-this.birthDate = birthDate;
-this.idNumber = idNumber;
+this.setBirthDate(birthDate);
+this.setIdNumber(idNumber);
 this.phoneNumber = phoneNumber;
 this.address = address;
 this.sex = sex;
@@ -45,15 +44,14 @@ public StaffPO(StaffVO vo){
 	this.work=vo.getWork();
 	this.workNumber=vo.getWorkNumber();
 	this.workPlaceNumber=vo.getWorkPlaceNumber();
-	this.birthDate=vo.getBirthDate();
-	this.idNumber=vo.getIdNumber();
+	this.setBirthDate(vo.getBirthDate());
+	this.setIdNumber(vo.getIdNumber());
 	this.phoneNumber=vo.getPhoneNumber();
 	this.address=vo.getAddress();
 	this.sex=vo.getSex();
 	this.page=vo.getPage();
 }
 public StaffPO(){};
-
 
 public String getPhoneNumber(){
 	    return phoneNumber;
@@ -63,7 +61,9 @@ public String getName(){
 return name;
 }
 
-
+public Work getWork(){
+	return work;
+}
 
 public String getWorkNumber(){
 return workNumber;
@@ -98,7 +98,7 @@ public void setWorkPlaceNumber(String workPlaceNumber){
 }
 
 public void setBrithDate(String birthDate){
-	this.birthDate = birthDate;
+	this.setBirthDate(birthDate);
 }
 
 public void setAddress(String address){
@@ -109,14 +109,16 @@ public void setPage(double page){
 	this.page = page;
 }
 
-
-
-public Work getWork() {
-	return work;
+public void setWork(Work work){
+	this.work = work;
 }
 
-public void setWork(Work work) {
-	this.work = work;
+public void setSex(Sex sex){
+	this.sex = sex;
+}
+
+public void setPhoneNumber(String phoneNumber){
+	this.phoneNumber = phoneNumber;
 }
 
 public String getBirthDate() {
@@ -133,13 +135,5 @@ public String getIdNumber() {
 
 public void setIdNumber(String idNumber) {
 	this.idNumber = idNumber;
-}
-
-public void setSex(Sex sex){
-	this.sex = sex;
-}
-
-public void setPhoneNumber(String phoneNumber){
-	this.phoneNumber = phoneNumber;
 }
 }
