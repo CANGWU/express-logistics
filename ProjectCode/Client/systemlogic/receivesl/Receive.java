@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import po.OrderPO;
 import dataservice.DataFactoryService;
 import dataservice.ReceiveDataService;
+import enums.ResultMessage;
 import receiveslservice.ReceiveService;
 import vo.BillVO;
 import vo.GoodsVO;
@@ -36,18 +37,20 @@ public class Receive implements ReceiveService {
 						.getNumberOfGoods(), orderpo.getGoods().getWeight(),
 				orderpo.getGoods().getVolume(), orderpo.getGoods()
 						.getNameOfGoods(), orderpo.getGoods().getSize(),
-				orderpo.getGoods().getExpressType());
-		ordervo.setOrdernumber(orderpo.getOrdernumber());
+				orderpo.getGoods().getExpressType(), orderpo.getGoods()
+						.getPacking(), orderpo.getdCondition());
+		ordervo.setOrdernumber(orderNumber);
 		return ordervo;
 	}
 
 	@Override
-	public void saveExpress(OrderVO ordervo) throws Exception {
+	public ResultMessage saveExpress(OrderVO ordervo) throws Exception {
 		OrderPO orderpo = new OrderPO(ordervo.getTimeOfSend(),
 				ordervo.getDueOfReceive(), ordervo.getOrdernumber(),
 				ordervo.getNameOfCourier(), ordervo.getSender(),
-				ordervo.getReceiver(), ordervo.getBill(), ordervo.getGoods());
-		receiveData.insertO(orderpo);
+				ordervo.getReceiver(), ordervo.getBill(), ordervo.getGoods(),
+				ordervo.getDocumentCondition());
+		return receiveData.insertO(orderpo);
 
 	}
 

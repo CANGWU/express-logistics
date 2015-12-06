@@ -1,6 +1,9 @@
 package transportsl;
 
+import java.util.ArrayList;
+
 import enums.Condition;
+import enums.DocumentCondition;
 import enums.Position;
 import enums.ResultMessage;
 import enums.Traffic;
@@ -48,17 +51,19 @@ public class TransportController implements TransportService {
 	}
 
 	@Override
-	public void addTraffic(String id, Traffic trafficType, TransportVO transportvo) {
+	public void addTraffic(String id, Traffic trafficType,
+			TransportVO transportvo) {
 		transport.addTraffic(id, trafficType, transportvo);
 	}
 
 	@Override
-	public void addFare(TransportVO transportvo) {
-		transport.addFare(transportvo);
+	public double addFare(TransportVO transportvo) {
+		return transport.addFare(transportvo);
 	}
 
 	@Override
-	public ResultMessage saveTransport(TransportVO transportvo) throws Exception {
+	public ResultMessage saveTransport(TransportVO transportvo)
+			throws Exception {
 		return transport.saveTransport(transportvo);
 	}
 
@@ -70,6 +75,23 @@ public class TransportController implements TransportService {
 	@Override
 	public void endTransport() throws Exception {
 		transport.endTransport();
+	}
+
+	@Override
+	public ArrayList<TransportVO> getTransportList(String nameOfWriter,
+			DocumentCondition dCondition) throws Exception {
+		return transport.getTransportList(nameOfWriter, dCondition);
+	}
+
+	@Override
+	public ResultMessage deleteTransport(String Transportid) throws Exception {
+		return transport.deleteTransport(Transportid);
+	}
+
+	@Override
+	public ResultMessage updateTransport(TransportVO transportvo)
+			throws Exception {
+		return transport.updateTransport(transportvo);
 	}
 
 }

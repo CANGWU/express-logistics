@@ -1,26 +1,41 @@
 package vo;
 
-public class OrderVO {
-    ReceiverVO receiver;
-    SenderVO sender;
-    BillVO bill;
-    GoodsVO goods;
-    String timeOfSend;
-    String dueOfReceive;
-    String ordernumber;
-    String nameOfCourier;
-    String receivetime;
-    
-    public OrderVO(String _timeOfSend,String _nameOfCourier,String sendername,String senderaddress,String senderworkplace,String sendertelnumber,String senderphonenumber,String receivername,String receiveraddress,String receiverworkplace,String receivertelnumber,String receiverphonenumber,int _numberOfGoods, double _weight, double _volume, String _nameOfGoods, String _size, String _expressType){
-    	timeOfSend=_timeOfSend; 
-    	nameOfCourier=_nameOfCourier;
-    	receiver=new ReceiverVO(receivername,receiveraddress,receiverworkplace,receivertelnumber,receiverphonenumber);
-    	sender=new SenderVO(sendername,senderaddress,senderworkplace,sendertelnumber,senderphonenumber);
-    	goods=new GoodsVO(_numberOfGoods, _weight, _volume, _nameOfGoods, _size, _expressType);
-    	bill=new BillVO();
+import enums.DocumentCondition;
+import enums.Packing;
 
-    }
-    
+public class OrderVO {
+	private ReceiverVO receiver;
+	private SenderVO sender;
+	private BillVO bill;
+	private GoodsVO goods;
+	private String timeOfSend;
+	private String dueOfReceive;
+	private String ordernumber;
+	private String nameOfCourier;
+	private String receivetime;
+	private DocumentCondition documentCondition;
+
+	public OrderVO(String _timeOfSend, String _nameOfCourier,
+			String sendername, String senderaddress, String senderworkplace,
+			String sendertelnumber, String senderphonenumber,
+			String receivername, String receiveraddress,
+			String receiverworkplace, String receivertelnumber,
+			String receiverphonenumber, int _numberOfGoods, double _weight,
+			double _volume, String _nameOfGoods, String _size,
+			String _expressType, Packing _packing,
+			DocumentCondition _documentCondition) {
+		timeOfSend = _timeOfSend;
+		nameOfCourier = _nameOfCourier;
+		receiver = new ReceiverVO(receivername, receiveraddress,
+				receiverworkplace, receivertelnumber, receiverphonenumber);
+		sender = new SenderVO(sendername, senderaddress, senderworkplace,
+				sendertelnumber, senderphonenumber);
+		goods = new GoodsVO(_numberOfGoods, _weight, _volume, _nameOfGoods,
+				_size, _expressType, _packing);
+		bill = new BillVO();
+		documentCondition = _documentCondition;
+	}
+
 	public ReceiverVO getReceiver() {
 		return receiver;
 	}
@@ -64,28 +79,41 @@ public class OrderVO {
 	public String getTimeOfSend() {
 		return timeOfSend;
 	}
+
 	public void setTimeOfSend(String timeOfSend) {
 		this.timeOfSend = timeOfSend;
 	}
+
 	public String getDueOfReceive() {
 		return dueOfReceive;
 	}
+
 	public void setDueOfReceive(String dueOfReceive) {
 		this.dueOfReceive = dueOfReceive;
 	}
+
 	public String getOrdernumber() {
 		return ordernumber;
 	}
+
 	public void setOrdernumber(String ordernumber) {
 		this.ordernumber = ordernumber;
 	}
+
 	public String getNameOfCourier() {
 		return nameOfCourier;
 	}
+
 	public void setNameOfCourier(String nameOfCourier) {
 		this.nameOfCourier = nameOfCourier;
 	}
-	
 
-     
+	public DocumentCondition getDocumentCondition() {
+		return documentCondition;
+	}
+
+	public void setDocumentCondition(DocumentCondition documentCondition) {
+		this.documentCondition = documentCondition;
+	}
+
 }

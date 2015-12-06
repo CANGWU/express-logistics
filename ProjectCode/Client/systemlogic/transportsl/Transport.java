@@ -1,9 +1,13 @@
 package transportsl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import po.TransportPO;
 import dataservice.DataFactoryService;
 import dataservice.TransportDataService;
 import enums.Condition;
+import enums.DocumentCondition;
 import enums.Position;
 import enums.ResultMessage;
 import enums.Traffic;
@@ -31,6 +35,24 @@ public class Transport {
 		return vo;
 	}
 
+	public ArrayList<TransportVO> getTransportList(String nameOfWriter,
+			DocumentCondition dCondition) throws Exception{
+		ArrayList<TransportVO> voList=new ArrayList<TransportVO>();
+		TransportPO po;
+		TransportVO vo;
+		ArrayList<TransportPO> poList=transportData.findWithdCondition(nameOfWriter, dCondition);
+		for(Iterator i=poList.iterator();i.hasNext();){
+			po=(TransportPO) i.next();
+			vo=new TransportVO(po.getSign(), po.getTransportID(),
+					po.getID(), po.getDeparture(), po.getDestination(),
+					po.getTime(), po.getTrafficID(), po.getTrafficType(),
+					po.getfare(), po.getMember(), po.getOrder(), po.getCondition(),
+					po.getDocumentCondition(), po.getWriter());
+			voList.add(vo);
+		}
+		return voList;
+	}
+	
 	public void choose(TransportType sign, TransportVO transportvo) {
 		transportvo.setSign(sign);
 	}
@@ -61,10 +83,11 @@ public class Transport {
 		transportvo.setTrafficType(trafficType);
 	}
 
-	public void addFare(TransportVO transportvo) {
+	public double addFare(TransportVO transportvo) {
 		double fare = constantinfo.getFare(transportvo.getDeparture(),
 				transportvo.getDestination(), transportvo.getTrafficType());
 		transportvo.setFare(fare);
+		return fare;
 	}
 
 	public ResultMessage saveTransport(TransportVO transportvo)
@@ -80,6 +103,23 @@ public class Transport {
 		return transportData.insert(po);
 	}
 
+	public ResultMessage deleteTransport(String Transportid) throws Exception {
+		TransportPO po=transportData.find(Transportid);
+		return transportData.delete(po);
+	}
+
+	public ResultMessage updateTransport(TransportVO transportvo)
+			throws Exception{
+		TransportPO po = new TransportPO(transportvo.getSign(),
+				transportvo.getID(), transportvo.getTransportID(),
+				transportvo.getDeparture(), transportvo.getDestination(),
+				transportvo.getTime(), transportvo.getTrafficID(),
+				transportvo.getTrafficType(), transportvo.getfare(),
+				transportvo.getMember(), transportvo.getOrder(),
+				transportvo.getCondition(), transportvo.getDocumentCondition(),
+				transportvo.getWriter());
+		return transportData.update(po);
+	}
 	public void printTransport(String id) {
 
 	}

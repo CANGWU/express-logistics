@@ -8,13 +8,13 @@ import enums.Ioput;
 import enums.Position;
 import enums.Traffic;
 
-public class IoputPO implements Serializable  {
+public class IoputPO implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String id;/*快递条形码号*/
-	private String inputdate;//DATE
+	private String id;/* 快递条形码号 */
+	private String inputdate;// DATE
 	private String outputdate;
 	private String time;
 	private Position destination;
@@ -25,20 +25,25 @@ public class IoputPO implements Serializable  {
 	private Condition condition;
 	private DocumentCondition dCondition;
 	private String nameOfWriter;
-	
-	public IoputPO(String i,String idate,String it,Position des,String posi,Ioput ioput, DocumentCondition dCondition, String nameOfWriter){
+
+	public IoputPO(String i, String idate, String it, Position des,
+			String posi, Ioput ioput, DocumentCondition dCondition,
+			String nameOfWriter) {
 		id = i;
 		inputdate = idate;
 		time = it;
 		position = posi;
 		destination = des;
 		this.ioput = ioput;
-		this.dCondition  = dCondition;
+		this.dCondition = dCondition;
 		this.nameOfWriter = nameOfWriter;
-		
+
 	}
-	public IoputPO(String i,String odate,String t,Position des,Traffic trans,String rID,Ioput ioput,Condition condition,DocumentCondition dCondition, String nameOfWriter){
-		
+
+	public IoputPO(String i, String odate, String t, Position des,
+			Traffic trans, String rID, Ioput ioput, Condition condition,
+			DocumentCondition dCondition, String nameOfWriter) {
+
 		id = i;
 		outputdate = odate;
 		time = t;
@@ -50,101 +55,117 @@ public class IoputPO implements Serializable  {
 		this.dCondition = dCondition;
 		this.nameOfWriter = nameOfWriter;
 	}
-	
-	public void setNameOfWriter(String nameOfWriter){
+
+	public void setNameOfWriter(String nameOfWriter) {
 		this.nameOfWriter = nameOfWriter;
 	}
-	
-	public String getNameOfWriter(){
+
+	public String getNameOfWriter() {
 		return nameOfWriter;
 	}
 
 	public DocumentCondition getdCondition() {
 		return dCondition;
 	}
+
 	public void setdCondition(DocumentCondition dCondition) {
 		this.dCondition = dCondition;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getInputdate() {
 		return inputdate;
 	}
+
 	public void setInputdate(String inputdate) {
 		this.inputdate = inputdate;
 	}
+
 	public String getOutputdate() {
 		return outputdate;
 	}
+
 	public void setOutputdate(String outputdate) {
 		this.outputdate = outputdate;
 	}
+
 	public String getPosition() {
 		return position;
 	}
+
 	public void setPosition(String position) {
 		this.position = position;
 	}
+
 	public Ioput getIoput() {
 		return ioput;
 	}
+
 	public void setIoput(Ioput ioput) {
 		this.ioput = ioput;
 	}
+
 	public Condition getCondition() {
 		return condition;
 	}
+
 	public void setCondition(Condition condition) {
 		this.condition = condition;
 	}
+
 	public void setTime(String time) {
 		this.time = time;
 	}
+
 	public void setDestination(Position destination) {
 		this.destination = destination;
 	}
+
 	public void setTransport(Traffic transport) {
 		this.transport = transport;
 	}
+
 	public void setReceiptID(String receiptID) {
 		this.receiptID = receiptID;
 	}
-	public String getID(){
+
+	public String getID() {
 		return id;
 	}
-	
-	public String getTime(){
+
+	public String getTime() {
 		return time;
 	}
-	
-	public String getInputDate(){
+
+	public String getInputDate() {
 		return inputdate;
 	}
-	
-	public String getOutputDate(){
+
+	public String getOutputDate() {
 		return outputdate;
 	}
-	
-	public String getPositon(){
+
+	public String getPositon() {
 		return position;
 	}
-	
-	public Traffic getTransport(){
+
+	public Traffic getTransport() {
 		return transport;
 	}
-	
-	public Position getDestination(){
+
+	public Position getDestination() {
 		return destination;
 	}
-	
-	public String getReceiptID(){
+
+	public String getReceiptID() {
 		return receiptID;
 	}
-	
-	
 
 }

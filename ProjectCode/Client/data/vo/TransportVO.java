@@ -47,6 +47,10 @@ public class TransportVO implements Serializable {
 		this.nameOfWriter = nameOfWriter;
 	}
 
+	public TransportVO(){
+		
+	}
+	
 	public TransportType getSign() {
 		return sign;
 	}

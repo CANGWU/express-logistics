@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menubar>
+	<menu text="System">
+        <menuitem text="Unsolved"></menuitem>
+        <menuitem text="logout" tooltip="logout" icon="/free/test/email.png" action="A001"/>
+	</menu>
+    <logo image="/free/test/logo_company.png" tooltip="WPT Power Transmission" />
+</menubar>
