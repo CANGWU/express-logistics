@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><outlook>
+	<module text="个人信息" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png"></module>
+	<module text="人员管理" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png">
+	</module>
+	<module text="机构管理" icon="/free/test/module_unselected.png"
+		selected_icon="/free/test/module_selected.png">
+	</module>
+	<module text="统计报表" icon="/free/test/module_unselected.png"
+		selected_icon="/free/test/module_selected.png">
+	</module>
+	<module text="审判单据" icon="/free/test/module_unselected.png"
+		selected_icon="/free/test/module_selected.png">
+	</module>
+	<module text="制定常量" icon="/free/test/module_unselected.png"
+		selected_icon="/free/test/module_selected.png">
+	</module>
+	<module icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png"
+		text="薪水策略">
+	</module>
+	<module text="日志查看" icon="/free/test/module_unselected.png"
+		selected_icon="/free/test/module_selected.png">
+	</module>
+</outlook>

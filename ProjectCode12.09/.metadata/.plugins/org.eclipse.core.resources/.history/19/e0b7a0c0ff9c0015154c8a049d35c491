@@ -1,0 +1,205 @@
+package dataserviceimpl;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RMISecurityManager;
+import java.rmi.RemoteException;
+
+import dataservice.AManagementDataService;
+import dataservice.CManagementDataService;
+import dataservice.CheckDataService;
+import dataservice.ConstantDataService;
+import dataservice.DManagementDataService;
+import dataservice.DataFactoryService;
+import dataservice.FinanceDataService;
+import dataservice.IoputDataService;
+import dataservice.PManagementDataService;
+import dataservice.ReceiveDataService;
+import dataservice.SalaryStrategyDataService;
+import dataservice.SendDataService;
+import dataservice.StockDataService;
+import dataservice.TransportDataService;
+import dataservice.UserDataService;
+import sendslservice.SendService;
+import twaver.base.A.E.m;
+
+public class DataFactory implements DataFactoryService{
+	String URL;
+	private static DataFactory dataFactory;
+	private CheckDataService checkDataService;
+	private FinanceDataService financeDataService;
+	private SendDataService sendDataService;
+	private UserDataService userDataService;
+	private AManagementDataService aManagementDataService;
+	private PManagementDataService pManagementDataService;
+	private DManagementDataService dManagementDataService;
+	private CManagementDataService cManagementDataService;
+	private ConstantDataService constantDataService;
+	private IoputDataService ioputDataService;
+	private ReceiveDataService receiveDataService;
+	private SalaryStrategyDataService salaryStrategyDataService;
+	private StockDataService stockDataService;
+	private TransportDataService transportDataService;
+
+
+
+	private DataFactory(){
+		//System.setSecurityManager(new RMISecurityManager());
+		URL = "localhost";
+		
+
+		try {
+			
+			checkDataService = (CheckDataService)Naming.lookup("//"+URL+":1099/getCheckDataService");
+			
+			financeDataService = (FinanceDataService)Naming.lookup("//"+URL+":1099/getFinanceDataService");
+
+			sendDataService = (SendDataService)Naming.lookup("//"+URL+":1099/getSendDataService");
+
+			userDataService = (UserDataService)Naming.lookup("//"+URL+":1099/getUserDataService");
+
+			aManagementDataService = (AManagementDataService)Naming.lookup("//"+URL+":1099/getAManagementDataService");
+
+			pManagementDataService = (PManagementDataService)Naming.lookup("//"+URL+":1099/getPManagementDataService");
+
+			dManagementDataService = (DManagementDataService)Naming.lookup("//"+URL+":1099/getDManagementDataService");
+
+			cManagementDataService = (CManagementDataService)Naming.lookup("//"+URL+":1099/getCManagementDataService");
+
+			constantDataService = (ConstantDataService)Naming.lookup("//"+URL+":1099/getConstantDataService");
+
+			ioputDataService = (IoputDataService)Naming.lookup("//"+URL+":1099/getIoputDataService");
+
+			receiveDataService = (ReceiveDataService)Naming.lookup("//"+URL+":1099/getReceiveDataService");
+
+			salaryStrategyDataService = (SalaryStrategyDataService)Naming.lookup("//"+URL+":1099/getSalaryStrategyDataService");
+
+			stockDataService = (StockDataService)Naming.lookup("//"+URL+":1099/getStockDataService");
+
+			transportDataService = (TransportDataService)Naming.lookup("//"+URL+":1099/getTransportDataService");
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}
+
+
+	public static DataFactory create() throws RemoteException{
+		if(dataFactory == null){
+			synchronized(DataFactory.class){
+
+				if(dataFactory == null)
+					dataFactory = new DataFactory();
+			}
+		}
+
+		return dataFactory;
+	}
+
+
+	@Override
+	public CheckDataService getCheckData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return checkDataService;
+	}
+
+
+	@Override
+	public FinanceDataService getFinanceData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return financeDataService;
+	}
+
+
+	@Override
+	public SendDataService getSendData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return sendDataService;
+	}
+
+
+	@Override
+	public UserDataService getUserData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return userDataService;
+	}
+
+
+	@Override
+	public AManagementDataService getAManagementData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return aManagementDataService;
+	}
+
+
+	@Override
+	public PManagementDataService getPManagementData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return pManagementDataService;
+	}
+
+
+	@Override
+	public DManagementDataService getDManagementData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return dManagementDataService;
+	}
+
+
+	@Override
+	public CManagementDataService getCManagementData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return cManagementDataService;
+	}
+
+
+	@Override
+	public ConstantDataService getConstantData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return constantDataService;
+	}
+
+
+	@Override
+	public IoputDataService getIoputData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return ioputDataService;
+	}
+
+
+	@Override
+	public ReceiveDataService getReceiveData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return receiveDataService;
+	}
+
+
+	@Override
+	public SalaryStrategyDataService getSalaryStrategyData() throws RemoteException {
+		// TODO Auto-generated method stub
+		return salaryStrategyDataService;
+	}
+
+
+	@Override
+	public StockDataService getStockDate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return stockDataService;
+	}
+
+
+	@Override
+	public TransportDataService getTransportDate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return transportDataService;
+	}
+
+
+}

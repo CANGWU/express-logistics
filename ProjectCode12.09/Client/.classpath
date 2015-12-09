@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="presentation"/>
+	<classpathentry kind="src" path="data"/>
+	<classpathentry kind="src" path="systemlogic"/>
+	<classpathentry kind="src" path="dataservice"/>
+	<classpathentry kind="src" path="systemlogicservice"/>
+	<classpathentry kind="src" path="tester"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/looks-2.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/twaver.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
