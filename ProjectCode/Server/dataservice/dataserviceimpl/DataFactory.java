@@ -174,7 +174,7 @@ public class DataFactory implements DataFactoryService{
 	public StockDataService getStockDate() {
 		// TODO Auto-generated method stub
 		try {
-			return StockDataImpl.creat();
+			return StockDataImpl.create();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -186,7 +186,7 @@ public class DataFactory implements DataFactoryService{
 	public TransportDataService getTransportDate() {
 		// TODO Auto-generated method stub
 		try {
-			return TransportDataImpl.creat();
+			return TransportDataImpl.create();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

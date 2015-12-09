@@ -1,5 +1,7 @@
 package vo;
 
+import po.PeoplePO;
+
 public class PeopleVO {
      String name;
      String address;
@@ -13,6 +15,14 @@ public class PeopleVO {
         workPlace=_workPlace;
         telNumber=_telNumber;
         phoneNumber=_phoneNumber;
+    }
+    
+    public PeopleVO(PeoplePO po){
+    	this.name=po.getName();
+    	this.address=po.getAddress();
+    	this.workPlace=po.getWorkPlace();
+    	this.telNumber=po.getTelNumber();
+    	this.phoneNumber=po.getPhoneNumber();
     }
      
 	public String getName() {

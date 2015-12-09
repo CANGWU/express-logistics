@@ -24,6 +24,7 @@ public class Helper {
         try {  
             Class.forName(driver);//指定连接类型  
             conn = DriverManager.getConnection(url, user, password);//获取连接  
+            statement = conn.createStatement();
         } catch (Exception e) {  
             e.printStackTrace();  
         }  

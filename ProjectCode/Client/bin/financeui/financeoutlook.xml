@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outlook>
+	<module text="个人信息" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png"></module>
+	<module text="账户管理" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png">
+	</module>
+	<module text="结算管理" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png"></module>
+	<module text="成本管理" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png"></module>
+	<module text="账目初始化" icon="/free/test/module_unselected.png" selected_icon="/free/test/module_selected.png"></module>
+</outlook>

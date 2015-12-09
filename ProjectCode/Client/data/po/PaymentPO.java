@@ -1,18 +1,41 @@
 package po;
 
 import vo.PaymentVO;
+
+import java.io.Serializable;
+
 import enums.DocumentCondition;
 import enums.PaymentType;
 
 
-public class PaymentPO {
-    StaffPO receiver;
+public class PaymentPO implements Serializable{
+    String receiver;
     PaymentType type;
     double numberOfPayment;
     String accountname;
     DocumentCondition condition;
+    private String nameOfWriter;
+    private String remarks;
     
-    public StaffPO getReceiver() {
+
+
+	public String getNameOfWriter() {
+		return nameOfWriter;
+	}
+
+	public void setNameOfWriter(String nameOfWriter) {
+		this.nameOfWriter = nameOfWriter;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public String getReceiver() {
 		return receiver;
 	}
 
@@ -24,7 +47,7 @@ public class PaymentPO {
 		this.condition = condition;
 	}
 
-	public void setReceiver(StaffPO receiver) {
+	public void setReceiver(String receiver) {
 		this.receiver = receiver;
 	}
 
@@ -53,7 +76,7 @@ public class PaymentPO {
 		this.numberOfPayment = numberOfPayment;
 	}
 	
-	public PaymentPO(StaffPO receiver,PaymentType type,double numberOfPayment,String accountname){
+	public PaymentPO(String receiver,PaymentType type,double numberOfPayment,String accountname){
     	this.receiver=receiver;
     	this.type=type;
     	this.numberOfPayment=numberOfPayment;
@@ -61,8 +84,11 @@ public class PaymentPO {
         this.condition=DocumentCondition.handing;
     }
 	
+	public PaymentPO(){};
+
+	
 	public PaymentPO(PaymentVO vo){
-		this.receiver=new StaffPO(vo.getReceiver());
+		this.receiver=new String(vo.getReceiver());
 		this.type=vo.getType();
 		this.numberOfPayment=vo.getNumberOfPayment();
 		this.accountname=vo.getAccountname();

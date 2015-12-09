@@ -1,5 +1,6 @@
 package financesl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataserviceimpl.DataFactory;
@@ -11,8 +12,14 @@ public class AccountManagementController implements AccountManagementService{
 	
 	AccountManagement accountmanagement;
 	
-	public AccountManagementController(DataFactory datafactory){
-		accountmanagement=AccountManagement.creatAccountManagement(datafactory);
+	public AccountManagementController(){
+		
+		try {
+			accountmanagement=AccountManagement.creatAccountManagement(DataFactory.create());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -28,7 +35,7 @@ public class AccountManagementController implements AccountManagementService{
 	}
 
 	@Override
-	public AccountVO fixAccount(AccountVO account, String accountname) {
+	public ResultMessage fixAccount(AccountVO account, String accountname) {
 		// TODO Auto-generated method stub
 		return accountmanagement.fixAccount(account, accountname);
 	}
@@ -37,6 +44,18 @@ public class AccountManagementController implements AccountManagementService{
 	public ArrayList<AccountVO> seekAccount(String accountname) {
 		// TODO Auto-generated method stub
 		return accountmanagement.seekAccount(accountname);
+	}
+
+	@Override
+	public AccountVO findAccount(String accountname) {
+		// TODO Auto-generated method stub
+		return accountmanagement.findAccount(accountname);
+	}
+
+	@Override
+	public ArrayList<AccountVO> getAllAccount() {
+		// TODO Auto-generated method stub
+		return accountmanagement.getAllAccount();
 	}
 
 }

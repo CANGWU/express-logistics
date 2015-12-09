@@ -1,3 +1,7 @@
+content_assist_autoactivation_triggers_java=.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.recommenders.calls.rcp.proposalCategory.templates\u0000org.eclipse.mylyn.java.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.recommenders.chain.rcp.proposalCategory.chain\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Enum"><rhs name\="enums.ResultMessage"/><rhs name\="enums.Position"/><rhs name\="enums.DocumentCondition"/></lhs><lhs name\="enums.ResultMessage"><rhs name\="enums.ResultMessage"/></lhs><lhs name\="strategysl.Constant"><rhs name\="strategysl.Constant"/></lhs><lhs name\="dataservice.DataFactoryService"><rhs name\="dataserviceimpl.DataFactory"/></lhs><lhs name\="dataserviceimpl.DataFactory"><rhs name\="dataserviceimpl.DataFactory"/></lhs><lhs name\="strategyslservice.ConstantService"><rhs name\="strategysl.ConstantController"/></lhs><lhs name\="transportsl.ConstantInfo"><rhs name\="strategysl.ConstantController"/></lhs><lhs name\="strategysl.ConstantController"><rhs name\="strategysl.ConstantController"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.RandomAccess"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractCollection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.ArrayList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="pamanagementslservice.PManagementService"><rhs name\="pamanagementsl.PManagementController"/></lhs><lhs name\="pamanagementslservice.AManagementService"><rhs name\="pamanagementsl.AManagementController"/></lhs><lhs name\="userslservice.LogService"><rhs name\="usersl.LogManagement"/></lhs><lhs name\="strategyslservice.SalaryStrategyService"><rhs name\="strategysl.SalaryStrategyController"/></lhs><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.String"/></lhs><lhs name\="po.StaffPO"><rhs name\="po.StaffPO"/></lhs><lhs name\="po.ReceiptsPO"><rhs name\="po.ReceiptsPO"/></lhs><lhs name\="enums.Position"><rhs name\="enums.Position"/></lhs><lhs name\="enums.DocumentCondition"><rhs name\="enums.DocumentCondition"/></lhs><lhs name\="po.AccountPO"><rhs name\="po.AccountPO"/></lhs></history>
+content_assist_number_of_computers=24
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0
 eclipse.preferences.version=1
@@ -6,8 +10,13 @@ org.eclipse.jdt.internal.ui.navigator.layout=2
 org.eclipse.jdt.ui.editor.tab.width=
 org.eclipse.jdt.ui.formatterprofiles.version=12
 org.eclipse.jdt.ui.javadoclocations.migrated=true
+org.eclipse.jdt.ui.text.code_templates_migrated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.templates_migrated=true
 org.eclipse.jface.textfont=1|Consolas|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 proposalOrderMigrated=true
+sourceHoverBackgroundColor=255,255,225
 spelling_locale_initialized=true
 tabWidthPropagated=true
 useAnnotationsPrefPage=true

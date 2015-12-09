@@ -1,6 +1,8 @@
 package po;
 
-public class PeoplePO {
+import java.io.Serializable;
+
+public class PeoplePO implements Serializable{
      String name;
      String address;
      String workPlace;

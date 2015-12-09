@@ -18,6 +18,14 @@ public class LogisticsVO {
     
     
     
+	public ArrayList<String> getLogisticsMessage() {
+		return logisticsMessage;
+	}
+
+	public void setLogisticsMessage(ArrayList<String> logisticsMessage) {
+		this.logisticsMessage = logisticsMessage;
+	}
+
 	public String getOrdernumber() {
 		return ordernumber;
 	}

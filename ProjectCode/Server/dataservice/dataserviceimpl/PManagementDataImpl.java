@@ -25,7 +25,7 @@ public class PManagementDataImpl extends UnicastRemoteObject implements PManagem
 	public StaffPO find(String id) {
 		// TODO Auto-generated method stub
 		ResultSet result = null;
-		String sql = "select*from staffpo where workNumber='"+id+",;";
+		String sql = "select*from staffpo where workNumber='"+id+"';";
 	   
 		StaffPO po = null;
 		
@@ -33,7 +33,7 @@ public class PManagementDataImpl extends UnicastRemoteObject implements PManagem
 		try {
 			result = Helper.find(sql);
 			if(result.next())
-				po  = new StaffPO(result.getString("name"),Work.valueOf(result.getString("position")),result.getString("workNumber"),
+				po  = new StaffPO(result.getString("name"),Work.valueOf(result.getString("work")),result.getString("workNumber"),
 						result.getString("workPlaceNumber"),result.getString("birthDate"),result.getString("idNumber"),result.getString("phoneNumber"),
 						result.getString("address"),Sex.valueOf(result.getString("sex")),result.getInt("page"));
 		} catch (SQLException e) {
@@ -53,7 +53,7 @@ public class PManagementDataImpl extends UnicastRemoteObject implements PManagem
 		try {
 	     result = Helper.find(sql);
 			while(result.next()){
-				sta = new StaffPO(result.getString("name"),Work.valueOf(result.getString("position")),result.getString("workNumber"),
+				sta = new StaffPO(result.getString("name"),Work.valueOf(result.getString("work")),result.getString("workNumber"),
 								result.getString("workPlaceNumber"),result.getString("birthDate"),result.getString("idNumber"),result.getString("phoneNumber"),
 								result.getString("address"),Sex.valueOf(result.getString("sex")),result.getInt("page"));
 				staff.add(sta);
@@ -69,7 +69,7 @@ public class PManagementDataImpl extends UnicastRemoteObject implements PManagem
 	public ResultMessage insert(StaffPO po) {
 		// TODO Auto-generated method stub 
 		String sql = "insert into staffpo(name,work,workNumber,workPlaceNumber,birthdate,idNumber,phoneNumber,address,sex,page) values('"
-		+po.getName()+"','"+po.getWork()+"','"+po.getWorkNumber()+"','"+po.getWorkPlaceNumber()+"','"+po.getBrithDate()+"','"+po.getIDNumber()+"','"+po.getPhoneNumber()+
+		+po.getName()+"','"+po.getWork()+"','"+po.getWorkNumber()+"','"+po.getWorkPlaceNumber()+"','"+po.getBirthDate()+"','"+po.getIdNumber()+"','"+po.getPhoneNumber()+
 		"','"+po.getAddress()+"','"+po.getSex()+"',"+po.getPage()+");";
        
        return Helper.insert(sql);
@@ -79,7 +79,7 @@ public class PManagementDataImpl extends UnicastRemoteObject implements PManagem
 	@Override
 	public ResultMessage delete(StaffPO po) {
 		// TODO Auto-generated method stub
-		String sql = "DELETE FROM staffpo WHERE idNumber='"+po.getIDNumber()+"';";
+		String sql = "DELETE FROM staffpo WHERE idNumber='"+po.getIdNumber()+"';";
 		ResultMessage result = Helper.delete(sql);
 		return result;
 	}

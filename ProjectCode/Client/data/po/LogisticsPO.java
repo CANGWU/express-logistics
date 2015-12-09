@@ -1,8 +1,9 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LogisticsPO {
+public class LogisticsPO implements Serializable{
     String ordernumber;
     ArrayList<String> logisticsMessage=new ArrayList<String>();
     
@@ -10,6 +11,11 @@ public class LogisticsPO {
     
     public LogisticsPO(String ordernumber){
     	this.ordernumber=ordernumber;
+    }
+    
+    
+    public void setLogisticsMessage(ArrayList<String> logisticsMessage){
+    	this.logisticsMessage=logisticsMessage;
     }
     
     

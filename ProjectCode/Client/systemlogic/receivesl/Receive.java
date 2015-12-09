@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import po.OrderPO;
 import dataservice.DataFactoryService;
 import dataservice.ReceiveDataService;
+import dataserviceimpl.DataFactory;
 import enums.ResultMessage;
 import receiveslservice.ReceiveService;
 import vo.BillVO;
@@ -17,15 +18,25 @@ public class Receive implements ReceiveService {
 	DataFactoryService dataFactory;
 	ReceiveDataService receiveData;
 
-	public Receive(DataFactoryService DataFactory) {
-		this.dataFactory = dataFactory;
-		this.receiveData = dataFactory.getReceiveData();
+	public Receive() {
+		try {
+			this.dataFactory = DataFactory.create();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			this.receiveData = dataFactory.getReceiveData();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public OrderVO addExpress(String receivername, String _timeOfSend,
 			String orderNumber) throws Exception {
-		OrderPO orderpo = receiveData.findO(orderNumber);
+		OrderPO orderpo = receiveData.find(orderNumber);
 		OrderVO ordervo = new OrderVO(_timeOfSend, orderpo.getNameOfCourier(),
 				orderpo.getSender().getName(),
 				orderpo.getSender().getAddress(), orderpo.getSender()
@@ -57,6 +68,19 @@ public class Receive implements ReceiveService {
 	@Override
 	public void endReceive() throws Exception {
 		receiveData.finish();
+	}
+	
+	public OrderVO getOrder(String orderNumber){
+		OrderPO orderpo=null;
+		try {
+			orderpo = receiveData.find(orderNumber);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		OrderVO ordervo = new OrderVO(orderpo);
+		return ordervo;
+		
 	}
 
 }

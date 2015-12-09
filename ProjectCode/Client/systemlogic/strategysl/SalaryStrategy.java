@@ -18,7 +18,12 @@ public class SalaryStrategy implements GetSingleStrategy{
 	
 	public SalaryStrategy(DataFactoryService datafactory){
 		this.datafactory=datafactory;
-		salarystrategyData=datafactory.getSalaryStrategyData();
+		try {
+			salarystrategyData=datafactory.getSalaryStrategyData();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<SalaryVO> getSalaryStrategy() throws RemoteException {

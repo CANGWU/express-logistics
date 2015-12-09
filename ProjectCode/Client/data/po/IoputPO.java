@@ -18,7 +18,7 @@ public class IoputPO implements Serializable {
 	private String outputdate;
 	private String time;
 	private Position destination;
-	private String position;
+	private Position position;
 	private Traffic transport;
 	private String receiptID;
 	private Ioput ioput;
@@ -27,7 +27,7 @@ public class IoputPO implements Serializable {
 	private String nameOfWriter;
 
 	public IoputPO(String i, String idate, String it, Position des,
-			String posi, Ioput ioput, DocumentCondition dCondition,
+			Position posi, Ioput ioput, DocumentCondition dCondition,
 			String nameOfWriter) {
 		id = i;
 		inputdate = idate;
@@ -96,11 +96,11 @@ public class IoputPO implements Serializable {
 		this.outputdate = outputdate;
 	}
 
-	public String getPosition() {
+	public Position getPosition() {
 		return position;
 	}
 
-	public void setPosition(String position) {
+	public void setPosition(Position position) {
 		this.position = position;
 	}
 
@@ -152,7 +152,7 @@ public class IoputPO implements Serializable {
 		return outputdate;
 	}
 
-	public String getPositon() {
+	public Position getPositon() {
 		return position;
 	}
 

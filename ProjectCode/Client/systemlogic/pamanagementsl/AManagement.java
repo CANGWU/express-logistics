@@ -1,5 +1,6 @@
 package pamanagementsl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.AManagementDataService;
@@ -23,7 +24,13 @@ public class AManagement {
 	public AgencyVO select(String id) {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
-		AgencyPO po=data.find(id);
+		AgencyPO po = null;
+		try {
+			po = data.find(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		AgencyVO vo=new AgencyVO(po);
 		return vo;
 	}
@@ -32,7 +39,13 @@ public class AManagement {
 	public ArrayList<AgencyVO> getAllAgency() {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
-        ArrayList<AgencyPO> polist=		data.findAll();
+        ArrayList<AgencyPO> polist = null;
+		try {
+			polist = data.findAll();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         ArrayList<AgencyVO> volist=new ArrayList<AgencyVO>();
         for(int i=0;i<polist.size();i++){
         	volist.add(new AgencyVO(polist.get(i).getName(),polist.get(i).getIDNumber(),polist.get(i).getStaff(),polist.get(i).getPhoneNumber(),polist.get(i).getAddress(),polist.get(i).getLeader()));
@@ -44,7 +57,13 @@ public class AManagement {
 	public ResultMessage delete(String id) {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
-		return data.delete(id);
+		try {
+			return data.delete(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 		
 	}
 
@@ -61,7 +80,13 @@ public class AManagement {
 		AManagementDataService data=datafactory.getAManagementData();
 		AgencyPO po=new AgencyPO(vo)
 ;		
-		return data.update(po);
+		try {
+			return data.update(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 	}
 
 
@@ -88,7 +113,14 @@ public class AManagement {
 		// TODO Auto-generated method stub
 		AManagementDataService data=datafactory.getAManagementData();
 		AgencyPO po=new AgencyPO(name,idNumber,staff,phonenumber,address,leader);
-		return data.insert(po);
+		
+		try {
+			return data.insert(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 	}
 	
 	public AManagement createAManagement(DataFactory datafactory){

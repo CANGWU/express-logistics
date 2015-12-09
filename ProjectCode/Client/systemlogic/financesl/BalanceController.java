@@ -10,8 +10,8 @@ public class BalanceController implements BalanceService{
 	
 	Balance balance;
 	
-	public BalanceController(DataFactory datafactory){
-		balance=Balance.createBalance(datafactory);
+	public BalanceController(){
+		balance=Balance.createBalance();
 	}
 
 	@Override

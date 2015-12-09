@@ -1,5 +1,6 @@
 package checksl;
 
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,7 +26,12 @@ public class Check {
 	public LogisticsVO orderNumberCheck(String ordernumber){
 		
 		CheckDataService checkdata=datafactory.getCheckData();
-	    po=checkdata.find(ordernumber);
+	    try {
+			po=checkdata.find(ordernumber);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		vo=this.changePO(po);
 		
 		this.log();

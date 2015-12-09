@@ -1,5 +1,6 @@
 package pamanagementsl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.CManagementDataService;
@@ -23,7 +24,13 @@ public class CManagement implements CManagementService{
 		CarVO vo=null;
 		
 		CManagementDataService data=datafactory.getCManagementData();
-		CarPO po=data.find(id);
+		CarPO po = null;
+		try {
+			po = data.find(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		vo=new CarVO(po);
 		
 		return vo;
@@ -34,7 +41,13 @@ public class CManagement implements CManagementService{
 		// TODO Auto-generated method stub
 		CManagementDataService data=datafactory.getCManagementData();
 		
-		return data.delete(id);
+		try {
+			return data.delete(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 	}
 
 	@Override
@@ -48,7 +61,13 @@ public class CManagement implements CManagementService{
 		// TODO Auto-generated method stub
 		CManagementDataService data=datafactory.getCManagementData();
 		CarPO po=new CarPO(vo);
-		return data.update(po);
+		try {
+			return data.update(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 	}
 
 	@Override
@@ -65,7 +84,13 @@ public class CManagement implements CManagementService{
 		CarPO po=new CarPO(idNumber,workPlaceNumber,licenseNumber,workYear);
 		
 		
-		return data.insert(po);
+		try {
+			return data.insert(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 	}
 
 	@Override
@@ -79,7 +104,13 @@ public class CManagement implements CManagementService{
 		// TODO Auto-generated method stub
 		CManagementDataService data=datafactory.getCManagementData();
 		ArrayList<CarVO> volist=new ArrayList<CarVO>();
-		ArrayList<CarPO> polist=data.findAll();
+		ArrayList<CarPO> polist = null;
+		try {
+			polist = data.findAll();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		for(int i=0;i<polist.size();i++){
 			volist.add(new CarVO(polist.get(i)));

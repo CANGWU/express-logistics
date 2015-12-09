@@ -1,5 +1,7 @@
 package vo;
 
+import po.CarPO;
+
 public class CarVO {
 private String idNumber;
 private String workPlaceNumber;
@@ -13,6 +15,13 @@ public CarVO(String idNumber, String workPlaceNumber, String licenseNumber, int 
 	this.workYear = workYear;
 }
 
+
+public CarVO(CarPO po){
+	this.idNumber=po.getIDNumber();
+	this.workPlaceNumber=po.getWorkPlaceNumber();
+	this.licenseNumber=po.getLicenseNumber();
+	this.workYear=po.getWorkYear();
+}
 public CarVO(){};
 
 

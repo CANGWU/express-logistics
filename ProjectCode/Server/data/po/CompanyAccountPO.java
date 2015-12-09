@@ -1,20 +1,9 @@
 package po;
 
-public class CompanyAccountPO {
+import java.io.Serializable;
+
+public class CompanyAccountPO implements Serializable{
 	String customer;
-	String agency;
-	String people;
-	String stock;
-	String bankaccount;
-	
-	public CompanyAccountPO(String customer, String agency, String people, String stock, String bankaccount){
-		this.customer = customer;
-		this.agency = agency;
-		this.people = people;
-		this.stock = stock;
-		this.bankaccount = bankaccount;
-	}
-	
 	public String getCustomer() {
 		return customer;
 	}
@@ -45,4 +34,8 @@ public class CompanyAccountPO {
 	public void setBankaccount(String bankaccount) {
 		this.bankaccount = bankaccount;
 	}
+	String agency;
+	String people;
+	String stock;
+	String bankaccount;
 }

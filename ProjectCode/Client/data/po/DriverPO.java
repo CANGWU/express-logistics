@@ -1,10 +1,13 @@
 package po;
 
 import vo.DriverVO;
+
+import java.io.Serializable;
+
 import enums.Sex;
 import enums.Work;
 
-public class DriverPO extends StaffPO {
+public class DriverPO extends StaffPO implements Serializable{
 	private int driverYear;
 
 	public DriverPO(String name, Work work, String workNumber,

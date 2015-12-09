@@ -1,5 +1,6 @@
 package vo;
 
+import po.OrderPO;
 import enums.DocumentCondition;
 import enums.Packing;
 
@@ -34,6 +35,21 @@ public class OrderVO {
 				_size, _expressType, _packing);
 		bill = new BillVO();
 		documentCondition = _documentCondition;
+	}
+
+	public OrderVO(OrderPO po) {
+		// TODO Auto-generated constructor stub
+          this.receiver=new ReceiverVO(po.getReceiver());
+          this.sender=new SenderVO(po.getSender());
+          this.bill=new BillVO(po.getBill());
+          this.documentCondition=po.getdCondition();
+          this.dueOfReceive=po.getDueOfReceive();
+          this.goods=new GoodsVO(po.getGoods());
+          this.ordernumber=po.getOrdernumber();
+          this.timeOfSend=po.getTimeOfSend();
+          this.nameOfCourier=po.getNameOfCourier();
+          this.receivetime=po.getReceivetime();
+          
 	}
 
 	public ReceiverVO getReceiver() {

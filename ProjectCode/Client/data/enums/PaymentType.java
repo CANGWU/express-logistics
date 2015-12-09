@@ -1,5 +1,5 @@
 package enums;
 
 public enum PaymentType {
-     Salary,Bonus,Rent;
+     Salary,Bonus,Rent,TransFee;
 }

@@ -1,12 +1,17 @@
 package dataserviceimpl;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import dataservice.AManagementDataService;
+import enums.Condition;
 import enums.ResultMessage;
 import link.Helper;
 import po.AgencyPO;
@@ -30,8 +35,9 @@ public class AManagementDataImpl extends UnicastRemoteObject  implements AManage
 		try{
 			result = Helper.find(sql);
 			if(result.next()){
-				ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("staff"));  
-				staff = (ArrayList<String>)oips.readObject();
+				//ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("staff"));  
+				staff = (ArrayList<String>)IOObject.getArray(result.getBytes("staff"));
+				//staff = (ArrayList<String>)oips.readObject();
 				agency = new AgencyPO(result.getString("name"),result.getString("idNumber"),staff,result.getString("phoneNumber"),result.getString("address"),result.getString("leader"));
 			}
 		}catch (Exception e){
@@ -44,16 +50,15 @@ public class AManagementDataImpl extends UnicastRemoteObject  implements AManage
 	public ArrayList<AgencyPO> findAll() {
 
 		ResultSet result =null;
-		String sql = "select*from agencypo+";
+		String sql = "select*from agencypo";
 		AgencyPO agency = null;
 		ArrayList<AgencyPO>agencys = new ArrayList<AgencyPO>();
 
 		try{
 			result = Helper.find(sql);
 			while(result.next()){
-				ArrayList<String>staff = new ArrayList<String>();
-				ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("staff"));  
-				staff = (ArrayList<String>)oips.readObject();
+				ArrayList<String>staff = (ArrayList<String>)IOObject.getArray(result.getBytes("staff"));
+				
 				agency = new AgencyPO(result.getString("name"),result.getString("idNumber"),staff,result.getString("phoneNumber"),result.getString("address"),result.getString("leader"));
 				agencys.add(agency);
 			}
@@ -69,7 +74,7 @@ public class AManagementDataImpl extends UnicastRemoteObject  implements AManage
 				+po.getAddress()+"',?);";
 		try{
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
-			Helper.pStatement.setObject(5, po.getStaff());
+			Helper.pStatement.setObject(1, IOObject.toByteArray(po.getStaff()));
 			Helper.pStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -117,6 +122,9 @@ public class AManagementDataImpl extends UnicastRemoteObject  implements AManage
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	
 	public static AManagementDataImpl create() throws RemoteException{
 		if(am == null){
 			synchronized(AManagementDataImpl.class){

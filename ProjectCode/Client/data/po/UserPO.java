@@ -1,10 +1,11 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import enums.Work;
 
-public class UserPO {
+public class UserPO implements Serializable{
      
 	String name;
 	String accountnumber;
@@ -20,7 +21,7 @@ public class UserPO {
 	public void setWork(Work work) {
 		this.work = work;
 	}
-	ArrayList<LogPO> loglist=new ArrayList<LogPO>();
+	//ArrayList<LogPO> loglist=new ArrayList<LogPO>();
     
     public UserPO(String name,String accountnumber,String code,String privileges,Work work){
     	this.name=name;
@@ -31,9 +32,9 @@ public class UserPO {
     	
     }
     
-    public void addMessage(LogPO newlogpo){
-    	loglist.add(newlogpo);
-    }
+//    public void addMessage(LogPO newlogpo){
+//    	loglist.add(newlogpo);
+//    }
     
 	public String getName() {
 		return name;

@@ -1,5 +1,6 @@
 package vo;
 
+import po.GoodsPO;
 import enums.Packing;
 
 public class GoodsVO {
@@ -21,6 +22,17 @@ public class GoodsVO {
 		size = _size;
 		expressType = _expressType;
 		packing=_packing;
+	}
+
+	public GoodsVO(GoodsPO po) {
+		// TODO Auto-generated constructor stub
+		this.numberOfGoods=po.getNumberOfGoods();
+		this.weight=po.getWeight();
+		this.volume=po.getVolume();
+		this.nameOfGoods=po.getNameOfGoods();
+		this.size=po.getSize();
+		this.expressType=po.getExpressType();
+		this.packing=po.getPacking();
 	}
 
 	public int getNumberOfGoods() {

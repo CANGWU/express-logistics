@@ -1,8 +1,11 @@
 package receivesl;
 
+import java.rmi.RemoteException;
+
 import po.DeliverPO;
 import dataservice.DataFactoryService;
 import dataservice.ReceiveDataService;
+import dataserviceimpl.DataFactory;
 import enums.ResultMessage;
 import receiveslservice.DeliverService;
 import vo.DeliverVO;
@@ -12,9 +15,15 @@ public class Deliver implements DeliverService {
 	DataFactoryService dataFactory;
 	ReceiveDataService receiveData;
 
-	public Deliver(DataFactoryService DataFactory) {
-		this.dataFactory = dataFactory;
-		this.receiveData = dataFactory.getReceiveData();
+	public Deliver() {
+		try {
+			this.dataFactory = DataFactory.create();
+			this.receiveData = dataFactory.getReceiveData();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override

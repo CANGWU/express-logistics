@@ -1,6 +1,9 @@
 package strategysl;
 
 import po.ConstantPO;
+
+import java.rmi.RemoteException;
+
 import dataservice.ConstantDataService;
 import dataservice.DataFactoryService;
 import enums.Position;
@@ -14,11 +17,22 @@ public class Constant {
 
 	public Constant(DataFactoryService datafactory) {
 		this.datafactory = datafactory;
-		this.constantData = datafactory.getConstantData();
+		try {
+			this.constantData = datafactory.getConstantData();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public ConstantVO getConstant() {
-		ConstantPO po = constantData.find();
+		ConstantPO po=null;
+		try {
+			po = constantData.find();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ConstantVO vo = new ConstantVO(po.getLengthOfBN(), po.getLengthOfBS(),
 				po.getLengthOfBG(), po.getLengthOfSG(), po.getLengthOfSN(),
 				po.getLengthOfGN(), po.getLengthOfHall(),
@@ -41,16 +55,33 @@ public class Constant {
 				vo.getPriceOfExpress(), vo.getCostOfCar(), vo.getCostOfTrain(),
 				vo.getCostOfAir(), vo.getPriceOfCarton(), vo.getPriceOfWood(),
 				vo.getPriceOfBag());
-		return constantData.insert(po);
+		try {
+			return constantData.insert(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
 	}
 
 	public void endConstant() {
-		constantData.finish();
+		try {
+			constantData.finish();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public double getFare(Position departure, Position destination,
 			Traffic trafficType) {
-		ConstantPO constantpo = constantData.find();
+		ConstantPO constantpo=null;
+		try {
+			constantpo = constantData.find();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		double cost = 0;
 		switch (trafficType) {
 		case Air:

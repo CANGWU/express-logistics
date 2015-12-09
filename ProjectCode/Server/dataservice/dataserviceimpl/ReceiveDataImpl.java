@@ -40,14 +40,14 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 			result = Helper.find(sql);
 			if(result.next()){
 
-				ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("receiver"));  
-				receiver = (ReceiverPO)oips.readObject();
-				oips = new ObjectInputStream(result.getBinaryStream("sender"));  
-				sender = (SenderPO)oips.readObject();
-				oips = new ObjectInputStream(result.getBinaryStream("bill"));  
-				bill = (BillPO)oips.readObject();
-				oips = new ObjectInputStream(result.getBinaryStream("goods"));  
-				goods = (GoodsPO)oips.readObject();
+				//ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("receiver"));  
+				receiver = (ReceiverPO)IOObject.getArray(result.getBytes("receiver"));
+				//oips = new ObjectInputStream(result.getBinaryStream("sender"));  
+				sender = (SenderPO)IOObject.getArray(result.getBytes("sender"));
+				//oips = new ObjectInputStream(result.getBinaryStream("bill"));  
+				bill = (BillPO)IOObject.getArray(result.getBytes("bill"));
+				//oips = new ObjectInputStream(result.getBinaryStream("goods"));  
+				goods = (GoodsPO)IOObject.getArray(result.getBytes("goods"));
 				po = new OrderPO(receiver,sender,bill,goods,result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),DocumentCondition.valueOf(result.getString(9)));
 			}
 
@@ -65,13 +65,13 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 
 	@Override
 	public ResultMessage insertO(OrderPO order) throws Exception {
-		String sql = "insert into orderpo values(?,?,?,?"+order.getTimeOfSend()+"','"+order.getDueOfReceive()+"','"+order.getOrdernumber()+"','"+order.getNameOfCourier()+"','"+order.getReceiver()+"','"+order.getdCondition()+"');";
+		String sql = "insert into orderpo values(?,?,?,?,"+order.getTimeOfSend()+"','"+order.getDueOfReceive()+"','"+order.getOrdernumber()+"','"+order.getNameOfCourier()+"','"+order.getReceiver()+"','"+order.getdCondition()+"');";
 		try{
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
-			Helper.pStatement.setObject(0,order.getReceiver());
-			Helper.pStatement.setObject(1,order.getSender());
-			Helper.pStatement.setObject(2,order.getSender());
-			Helper.pStatement.setObject(3,order.getGoods());
+			Helper.pStatement.setObject(1,IOObject.toByteArray(order.getReceiver()));
+			Helper.pStatement.setObject(2,IOObject.toByteArray(order.getSender()));
+			Helper.pStatement.setObject(3,IOObject.toByteArray(order.getBill()));
+			Helper.pStatement.setObject(4,IOObject.toByteArray(order.getGoods()));
 			Helper.pStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -111,16 +111,17 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 
 		try{
 			result = Helper.find(sql);
-			ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("member"));  
-			member = (ArrayList<String>)oips.readObject();
-			oips = new ObjectInputStream(result.getBinaryStream("order"));  
-			order = (ArrayList<String>)oips.readObject();
-			po = new DeliverPO(result.getString(0),result.getString(1),member,order,DocumentCondition.valueOf(result.getString(4)));
-
+			if(result.next()){
+				//ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("member"));  
+				member = (ArrayList<String>)IOObject.getArray(result.getBytes("member"));
+				//oips = new ObjectInputStream(IOObjectresult.getBinaryStream("order"));  
+				order = (ArrayList<String>)IOObject.getArray(result.getBytes("order"));
+				po = new DeliverPO(result.getString(0),result.getString(1),result.getString(2),member,order,DocumentCondition.valueOf(result.getString(5)));
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-       return po;
+		return po;
 	}
 
 	@Override
@@ -131,11 +132,11 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 
 	@Override
 	public ResultMessage insertD(DeliverPO po) throws Exception {
-		String sql = "insert into deliverpo values('"+po.getID()+"','"+po.getTime()+"',?,?,'"+po.getdCondition()+"');";
+		String sql = "insert into deliverpo values('"+po.getID()+"','"+po.getWriter()+"','"+po.getTime()+"',?,?,'"+"','"+po.getDocumentCondition()+"');";
 		try{
 			Helper.pStatement = Helper.conn.prepareStatement(sql);
-			Helper.pStatement.setObject(2,po.getMember());
-			Helper.pStatement.setObject(3,po.getOrder());
+			Helper.pStatement.setObject(1,IOObject.toByteArray(po.getMember()));
+			Helper.pStatement.setObject(2,IOObject.toByteArray(po.getOrder()));
 			Helper.pStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -144,6 +145,33 @@ public class ReceiveDataImpl extends UnicastRemoteObject implements ReceiveDataS
 		}
 		// TODO Auto-generated method stub
 		return ResultMessage.SUCCESS;
+	}
+
+
+	@Override
+	public ArrayList<DeliverPO> findDWithdCondition(String nameOfWriter, DocumentCondition dCondition) throws Exception {
+		// TODO Auto-generated method stub
+		String sql = "select*from deliverpo where documentcondition='"+dCondition+"' and nameOfWriter='"+nameOfWriter+"';";
+		DeliverPO po = null;
+		ResultSet result = null;
+		ArrayList<String>member;
+		ArrayList<String>order;
+		ArrayList<DeliverPO>pos = new ArrayList<DeliverPO>();
+
+		try{
+			result = Helper.find(sql);
+			while(result.next()){
+				//ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("member"));  
+				member = (ArrayList<String>)IOObject.getArray(result.getBytes("member"));
+				//oips = new ObjectInputStream(result.getBinaryStream("order"));  
+				order = (ArrayList<String>)IOObject.getArray(result.getBytes("order"));
+				po = new DeliverPO(result.getString(0),result.getString(1),result.getString(2),member,order,DocumentCondition.valueOf(result.getString(5)));
+				pos.add(po);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return pos;
 	}
 
 	@Override

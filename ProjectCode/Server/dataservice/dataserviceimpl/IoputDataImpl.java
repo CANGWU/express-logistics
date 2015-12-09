@@ -9,7 +9,9 @@ import dataservice.IoputDataService;
 import enums.Condition;
 import enums.DocumentCondition;
 import enums.Ioput;
+import enums.Position;
 import enums.ResultMessage;
+import enums.Traffic;
 import link.Helper;
 import po.IoputPO;
 
@@ -30,8 +32,8 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 			result = Helper.find(sql);
 			if(result.next())
 				if(result.getString("ioput").equals("in"))
-					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),result.getString("destination"),result.getString("position"),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")));
-				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),result.getString("destination"),result.getString("transport"),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")));
+					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),Position.valueOf(result.getString("destination")),Position.valueOf(result.getString("position")),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
+				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),Position.valueOf(result.getString("destination")),Traffic.valueOf(result.getString("transport")),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -41,9 +43,9 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 	
 	@Override
 	public ResultMessage insert(IoputPO po) {
-		String sql1 = "insert into ioputpo(id,inputdate,time,position,destination,ioput,documentcondition) values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getPosition()+"','"+po.getDestination()+"','"+po.getIoput()+"','"+po.getdCondition()+"');";
+		String sql1 = "insert into ioputpo(id,inputdate,time,position,destination,ioput,documentcondition) values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getPosition()+"','"+po.getDestination()+"','"+po.getIoput()+"','"+po.getdCondition()+"','"+po.getNameOfWriter()+"');";
 		String sql2 = "insert into ioputpo(id,outputdate,time,destination,receiptid,ioput,condition,documentcondition) "
-				+ "values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getDestination()+"','"+po.getReceiptID()+"','"+po.getIoput()+"','"+po.getCondition()+"','"+po.getdCondition()+"');";
+				+ "values('"+po.getID()+"','"+po.getInputDate()+"','"+po.getTime()+"','"+po.getDestination()+"','"+po.getReceiptID()+"','"+po.getIoput()+"','"+po.getCondition()+"','"+po.getdCondition()+"','"+po.getNameOfWriter()+"');";
 		// TODO Auto-generated method stub
 		if(po.getIoput()==Ioput.in)
 		return	Helper.insert(sql1);
@@ -108,5 +110,25 @@ public class IoputDataImpl extends UnicastRemoteObject implements IoputDataServi
 		// TODO Auto-generated method stub
 		return null;
 	}   
+	
+	@Override
+	public ArrayList<IoputPO> findWithdCondition(String nameOfWriter, DocumentCondition dCondition) {
+		// TODO Auto-generated method stub
+		String sql = "select *from ioputpo where nameOfWriter='"+nameOfWriter+"' and DocumentCondition='"+dCondition+"';";
+		IoputPO po = null;
+		ArrayList<IoputPO>pos = new ArrayList<IoputPO>();
+		ResultSet result = null;
+		try{
+			result = Helper.find(sql);
+			if(result.next())
+				if(result.getString("ioput").equals("in"))
+					po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),Position.valueOf(result.getString("destination")),Position.valueOf(result.getString("position")),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
+				else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),Position.valueOf(result.getString("destination")),Traffic.valueOf(result.getString("transport")),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
+		        pos.add(po);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return pos;
+	}
 	   
 }

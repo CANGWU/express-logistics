@@ -13,6 +13,10 @@ public class SendController implements SendService{
 	private GatheringSend Gathering;
 	private OrderSend Order;
 	
+	public SendController(){
+		
+	}
+	
 	public SendController(DataFactoryService d,String code,getCouriers c,GetConstant constant ){
 		Gathering = new GatheringSend(d,c,code);
 		Order = new OrderSend(d,constant);

@@ -1,6 +1,8 @@
 package po;
 
-public class ReceiverPO extends PeoplePO{
+import java.io.Serializable;
+
+public class ReceiverPO extends PeoplePO implements Serializable{
 
 	public ReceiverPO(String _name, String _address, String _workPlace,
 			String _telNumber, String _phoneNumber) {

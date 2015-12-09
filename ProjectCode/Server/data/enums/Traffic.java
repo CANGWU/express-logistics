@@ -1,5 +1,5 @@
 package enums;
 
-public enum Traffic {Car,Train,Air
-
+public enum Traffic {
+	Air,Train,Car
 }

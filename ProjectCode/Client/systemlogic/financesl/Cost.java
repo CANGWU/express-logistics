@@ -1,9 +1,11 @@
 package financesl;
 
+import java.rmi.RemoteException;
+
+import pamanagementsl.PManagementController;
 import po.AccountPO;
 import po.PaymentPO;
 import po.SalaryPO;
-import strategysl.GetSingleStrategy;
 import strategysl.SalaryStrategy;
 import dataservice.FinanceDataService;
 import dataserviceimpl.DataFactory;
@@ -29,12 +31,14 @@ public class Cost  {
 
 	public PaymentVO computePayment(PaymentVO payment) {
 		// TODO Auto-generated method stub
-		GetSingleStrategy salarystrategy=new SalaryStrategy(datafactory);
-		SalaryPO salarypo=salarystrategy.getSingleSalaryStrategy(payment.getReceiver().getWork());
+		GetSingleStrategy salarystrategy=(GetSingleStrategy) new SalaryStrategy(datafactory);
+		PManagementController pmc=new PManagementController();
+		StaffVO receiver=pmc.select(payment.getReceiver());
+		SalaryPO salarypo=salarystrategy.getSingleSalaryStrategy(receiver.getWork());
 		switch(salarypo.getWork()){
 		case Driver:
 		case Courier:
-			payment.setNumberOfPayment(salarypo.getBaseWage()+salarypo.getCommission()*payment.getReceiver().getNumber()
+			payment.setNumberOfPayment(salarypo.getBaseWage()+salarypo.getCommission()*receiver.getNumber()
 					);
 			break;
 		case Officer:
@@ -71,7 +75,7 @@ public class Cost  {
 
 
 
-	public PaymentVO setPayment(PaymentType paymentType, StaffVO receiver) {
+	public PaymentVO setPayment(PaymentType paymentType, String receiver) {
 		// TODO Auto-generated method stub
 
 		PaymentVO vo=new PaymentVO(receiver,paymentType);
@@ -90,13 +94,24 @@ public class Cost  {
 			account=accountmanagement.changeBalance(account, account.getBalance()-payment.getNumberOfPayment());
 			FinanceDataService data=datafactory.getFinanceData();
 			AccountPO accountpo=account.changeToPo();
-			data.updateAccountPO(accountpo);
+			try {
+				data.updateAccountPO(accountpo);
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			PaymentPO paymentpo=new PaymentPO(payment);
-			return data.insertPaymentPO(paymentpo);
+			try {
+				return data.insertPaymentPO(paymentpo);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}else{
 			return ResultMessage.FAIL;
 		}
+		return null;
 	}
 
 

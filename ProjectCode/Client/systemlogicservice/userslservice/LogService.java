@@ -3,7 +3,8 @@ package userslservice;
 import java.util.ArrayList;
 
 import po.LogPO;
+import vo.LogVO;
 
 public interface LogService {
-       public ArrayList<LogPO> logmessage(String office,String time);
+       public ArrayList<LogVO> logmessage(String office,String time);
 }

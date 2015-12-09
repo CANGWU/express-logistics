@@ -1,19 +1,30 @@
 package vo;
 
+import po.ReceiptsPO;
+
 public class ReceiptsVO {
       
 	String date;
 	double fee;
 	String courier;
 	String[] ordernumbers;
+	String office;
 	
-	public ReceiptsVO(String date,double fee,String courier,String[] ordernumbers){
+	public ReceiptsVO(String date,double fee,String courier,String[] ordernumbers,String office){
 		this.date=date;
 		this.fee=fee;
 		this.courier=courier;
 		this.ordernumbers=ordernumbers;
+		this.office=office;
 		
-		
+	}
+	
+	public ReceiptsVO(ReceiptsPO po){
+		this.date=po.getDate();
+		this.fee=po.getFee();
+		this.courier=po.getCourier();
+		this.ordernumbers=po.getOrdernumbers();
+		this.office=po.getOffice();
 	}
 
 	public String getDate() {

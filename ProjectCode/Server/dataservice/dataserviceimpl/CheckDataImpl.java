@@ -1,12 +1,16 @@
 package dataserviceimpl;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import com.sun.org.apache.regexp.internal.RESyntaxException;
 
 import dataservice.CheckDataService;
+import enums.Condition;
 import link.Helper;
 import po.LogisticsPO;
 
@@ -28,16 +32,22 @@ public class CheckDataImpl  extends UnicastRemoteObject implements CheckDataServ
 		ResultSet result = null;
 		try{
 			result = Helper.find(sql);
-			ArrayList<String> logistics = new ArrayList<String>();
-			ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("logisticsMessage"));  
-			logistics = (ArrayList<String>)oips.readObject();
-			po = new LogisticsPO(result.getString("orderNumber"),logistics);
+			if (result.next()) {
+			ArrayList<String> logistics = (ArrayList<String>)IOObject.getArray(result.getBytes("logisticsMessage"));
+			//ObjectInputStream oips = new ObjectInputStream(result.getBinaryStream("logisticsMessage"));  
+			//logistics = (ArrayList<String>)oips.readObject();
+			po = new LogisticsPO(result.getString("orderNumber"));
+			po.setLogisticsMessage(logistics);
+		}
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 			
 		return po;
 	}
+	
+	
+	
 	
 	
 	

@@ -1,30 +1,49 @@
 package po;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class ReceiptsPO {
+public class ReceiptsPO implements Serializable{
       
-	String data;
+	String date;
 	double fee;
 	String courier;
-	ArrayList<String> ordernumbers;
+	String[] ordernumbers;
+	String office;
 	
-	public ReceiptsPO(String data,double fee,String courier,ArrayList<String> ordernumbers){
-		this.data=data;
+	public ReceiptsPO(String date,double fee,String courier,String[] ordernumbers,String office){
+		this.date=date;
 		this.fee=fee;
 		this.courier=courier;
 		this.ordernumbers=ordernumbers;
-		
+		this.office=office;
 		
 	}
 
-	public String getData() {
-		return data;
+
+
+	public String getDate() {
+		return date;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+
+
+	public void setDate(String date) {
+		this.date = date;
 	}
+
+
+
+	public String getOffice() {
+		return office;
+	}
+
+
+
+	public void setOffice(String office) {
+		this.office = office;
+	}
+
+
 
 	public double getFee() {
 		return fee;
@@ -42,11 +61,11 @@ public class ReceiptsPO {
 		this.courier = courier;
 	}
 
-	public ArrayList<String> getOrdernumbers() {
+	public String[] getOrdernumbers() {
 		return ordernumbers;
 	}
 
-	public void setOrdernumbers(ArrayList<String> ordernumbers) {
+	public void setOrdernumbers(String[] ordernumbers) {
 		this.ordernumbers = ordernumbers;
 	}
 	

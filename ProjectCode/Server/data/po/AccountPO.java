@@ -1,6 +1,8 @@
 package po;
 
-public class AccountPO {
+import java.io.Serializable;
+
+public class AccountPO implements Serializable{
      String name;
      double balance;
      

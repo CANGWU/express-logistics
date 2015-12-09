@@ -1,8 +1,10 @@
 package po;
 
+import java.io.Serializable;
+
 import vo.CarVO;
 
-public class CarPO {
+public class CarPO implements Serializable{
 private String idNumber;
 private String workPlaceNumber;
 private String licenseNumber;

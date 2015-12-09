@@ -1,18 +1,29 @@
 package po;
 
-public class CarPO {
+import java.io.Serializable;
+
+import vo.CarVO;
+
+public class CarPO implements Serializable{
 private String idNumber;
 private String workPlaceNumber;
 private String licenseNumber;
 private int workYear;
 
-public CarPO(String idNumber, String workPlaceNumber, 
-		String licenseNumber, int workYear){
+public CarPO(String idNumber, String workPlaceNumber, String licenseNumber, int workYear){
 	this.idNumber = idNumber;
 	this.workPlaceNumber = workPlaceNumber;
 	this.licenseNumber = licenseNumber;
 	this.workYear = workYear;
 }
+
+public CarPO(CarVO vo){
+	this.idNumber=vo.getIDNumber();
+	this.workPlaceNumber=vo.getWorkPlaceNumber();
+	this.licenseNumber=vo.getLicenseNumber();
+	this.workYear=vo.getWorkYear();
+}
+
 
 public CarPO(){};
 

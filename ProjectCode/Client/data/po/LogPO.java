@@ -1,6 +1,8 @@
 package po;
 
-public class LogPO {
+import java.io.Serializable;
+
+public class LogPO implements Serializable{
      
 	String time;
 	String office;

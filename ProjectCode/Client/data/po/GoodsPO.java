@@ -1,8 +1,10 @@
 package po;
 
+import java.io.Serializable;
+
 import enums.Packing;
 
-public class GoodsPO {
+public class GoodsPO implements Serializable{
 	private int numberOfGoods;
 	private double weight;
 	private double volume;

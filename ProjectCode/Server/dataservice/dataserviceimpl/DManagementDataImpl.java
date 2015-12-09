@@ -68,7 +68,7 @@ public class DManagementDataImpl extends UnicastRemoteObject implements DManagem
 	public ResultMessage insert(DriverPO po) {
 		// TODO Auto-generated method stub
        String sql = "insert into driverpo(name,work,workNumber,workPlaceNumber,birthdate,idNumber,phoneNumber,address,sex,driverYear,page) values('"
-		+po.getName()+"','"+po.getWork()+"','"+po.getWorkNumber()+"','"+po.getWorkPlaceNumber()+"','"+po.getBrithDate()+"','"+po.getIDNumber()+"','"+po.getPhoneNumber()+
+		+po.getName()+"','"+po.getWork()+"','"+po.getWorkNumber()+"','"+po.getWorkPlaceNumber()+"','"+po.getBirthDate()+"','"+po.getIdNumber()+"','"+po.getPhoneNumber()+
 		"','"+po.getAddress()+"','"+po.getSex()+"',"+po.getDriverYear()+","+po.getPage()+");";
        return Helper.insert(sql);
 	}
@@ -76,7 +76,7 @@ public class DManagementDataImpl extends UnicastRemoteObject implements DManagem
 	@Override
 	public ResultMessage delete(DriverPO po) {
 		// TODO Auto-generated method stub	
-		String sql = "DELETE FROM driverpo WHERE idNumber='"+po.getIDNumber()+"';";
+		String sql = "DELETE FROM driverpo WHERE idNumber='"+po.getIdNumber()+"';";
 		ResultMessage result = Helper.delete(sql);
 		return result;
 	}

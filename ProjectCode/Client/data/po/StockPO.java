@@ -13,14 +13,34 @@ public class StockPO implements Serializable {
 	int shelf;
 	int seat;
 	boolean empty;
+	String id;
+	String inputdate;
 	
-	public StockPO(int n,String a,int r,int sh,int se,boolean E){
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getInputdate() {
+		return inputdate;
+	}
+
+	public void setInputdate(String inputdate) {
+		this.inputdate = inputdate;
+	}
+
+	public StockPO(int n,String a,int r,int sh,int se,boolean E,String id,String inputdate){
 		num = n;
 		area = a;
 		row = r;
 		shelf = sh;
 		seat = se;
 		empty = E;
+		this.id=id;
+		this.inputdate=inputdate;
 		
 	}
 	

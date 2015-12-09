@@ -1,5 +1,7 @@
 package financesl;
 
+import java.rmi.RemoteException;
+
 import dataserviceimpl.DataFactory;
 import vo.AccountVO;
 import vo.PaymentVO;
@@ -11,12 +13,17 @@ import financeslservice.CostService;
 public class CostController implements CostService{
 	Cost cost;
 	
-	public CostController(DataFactory datafactory){
-		cost=Cost.createCost(datafactory);
+	public CostController(){
+		try {
+			cost=Cost.createCost(DataFactory.create());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public PaymentVO setPayment(PaymentType paymentType, StaffVO receiver) {
+	public PaymentVO setPayment(PaymentType paymentType, String receiver) {
 		// TODO Auto-generated method stub
 		return cost.setPayment(paymentType, receiver);
 	}

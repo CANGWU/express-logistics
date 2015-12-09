@@ -1,6 +1,8 @@
 package usersl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+
 
 
 
@@ -20,8 +22,13 @@ public class UserManagement implements UserService{
 	DataFactory datafactory;
 	static UserManagement um;
 
-	private UserManagement(DataFactory datafactory){
-		this.datafactory=datafactory;
+	private UserManagement(){
+		try {
+			this.datafactory=DataFactory.create();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -30,7 +37,13 @@ public class UserManagement implements UserService{
 		// TODO Auto-generated method stub
 		UserDataService userdata=datafactory.getUserData();
 
-		return  userdata.deleteUserPO(id);
+		try {
+			return  userdata.deleteUserPO(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	
@@ -51,7 +64,13 @@ public class UserManagement implements UserService{
 			
 		
 		
-		return userdata.updateUserPO(po);
+		try {
+			return userdata.updateUserPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
@@ -63,7 +82,13 @@ public class UserManagement implements UserService{
 		UserDataService userdata=datafactory.getUserData();
 
 		
-		return 	userdata.insertUserPO(po);
+		try {
+			return 	userdata.insertUserPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
@@ -76,7 +101,13 @@ public class UserManagement implements UserService{
 	public ArrayList<UserVO> getAllUser() {
 		// TODO Auto-generated method stub
 		UserDataService userdata=datafactory.getUserData();
-		ArrayList<UserPO> polist=userdata.getAllUsers();
+		ArrayList<UserPO> polist=null;
+		try {
+			polist = userdata.getAllUsers();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<UserVO> volist=new ArrayList<UserVO>();
 		for(int i=0;i<polist.size();i++){
 			volist.add(new UserVO(polist.get(i).getName(),polist.get(i).getAccountnumber(),polist.get(i).getCode(),polist.get(i).getPrivileges(),polist.get(i).getWork())) ;
@@ -89,7 +120,13 @@ public class UserManagement implements UserService{
 		// TODO Auto-generated method stub
 		
 		UserDataService userdata=datafactory.getUserData();
-		UserPO po=userdata.findUserPO(id);
+		UserPO po=null;
+		try {
+			po = userdata.findUserPO(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		UserVO vo=new UserVO(po.getName(),po.getAccountnumber(),po.getName(),po.getPrivileges(),po.getWork());
 		
@@ -99,9 +136,9 @@ public class UserManagement implements UserService{
 
 	
 	
-	static UserManagement creatCheck(DataFactory datafactory){
+	public static UserManagement creatUserManagement(){
 		if(um==null)
-			um = new UserManagement(datafactory);	
+			um = new UserManagement();	
 		
 		 return um;
 	}

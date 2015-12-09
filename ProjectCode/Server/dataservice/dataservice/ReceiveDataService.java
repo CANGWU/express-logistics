@@ -3,6 +3,7 @@ package dataservice;
 import java.rmi.Remote;
 import java.util.ArrayList;
 
+import enums.DocumentCondition;
 import enums.ResultMessage;
 import po.DeliverPO;
 import po.OrderPO;
@@ -22,4 +23,5 @@ public interface ReceiveDataService extends Remote{
 	public ResultMessage updateD(DeliverPO po) throws Exception;
 	public void init() throws Exception;
 	public void finish() throws Exception;
+	public ArrayList<DeliverPO> findDWithdCondition(String nameOfWriter, DocumentCondition dCondition) throws Exception;
 }

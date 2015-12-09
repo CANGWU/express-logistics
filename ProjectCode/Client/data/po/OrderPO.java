@@ -1,9 +1,11 @@
 package po;
 
+import java.io.Serializable;
+
 import enums.DocumentCondition;
 import vo.*;
 
-public class OrderPO {
+public class OrderPO implements Serializable{
 	private ReceiverPO receiver;
 	private SenderPO sender;
 	private BillPO bill;

@@ -1,5 +1,6 @@
 package pamanagementsl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataserviceimpl.DataFactory;
@@ -13,8 +14,13 @@ public class PManagementController implements PManagementService{
 	
 	PManagement pmanagement;
 	
-	public PManagementController(DataFactory datafactory){
-		pmanagement=PManagement.createPManagement(datafactory);
+	public PManagementController(){
+		try {
+			pmanagement=PManagement.createPManagement(DataFactory.create());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

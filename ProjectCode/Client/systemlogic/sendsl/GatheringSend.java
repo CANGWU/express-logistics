@@ -3,10 +3,13 @@ package sendsl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import pamanagementsl.PManagementController;
 import po.OrderPO;
 import po.ReceiptsPO;
 import dataservice.DataFactoryService;
+import dataserviceimpl.DataFactory;
 import vo.ReceiptsVO;
+import vo.StaffVO;
 
 public class GatheringSend {
 	
@@ -49,10 +52,14 @@ public class GatheringSend {
 				e.printStackTrace();
 			}
 			
-			ReceiptsVO vo = new ReceiptsVO(Date,fee,couriers.get(i),(String[])ordernumbers.toArray());
+			
+			PManagementController pmc=new PManagementController();
+			StaffVO tempvo=pmc.select(couriers.get(i));
+			
+			ReceiptsVO vo = new ReceiptsVO(Date,fee,couriers.get(i),(String[])ordernumbers.toArray(),tempvo.getWorkPlaceNumber());
 			vos.add(vo);
 			
-			ReceiptsPO po = new ReceiptsPO(Date,fee,couriers.get(i),ordernumbers);				
+			ReceiptsPO po = new ReceiptsPO(Date,fee,couriers.get(i),(String[])ordernumbers.toArray(),tempvo.getWorkPlaceNumber());				
 			pos.add(po);
 			
 

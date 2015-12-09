@@ -23,36 +23,36 @@ public class StockChange implements IoputStock {
 	public ResultMessage Input(int row,int shelf,int seat,String id,String date) {
 		// TODO Auto-generated method stub
 		ResultMessage rm = ResultMessage.SUCCESS;
-		try{
-			po = Data.getStockDate().findposition(row, shelf, seat);
-			if(po.isEmpty()){
-				po.setEmpty(false);
-				po.setID(id);
-				po.setInputDate(date);
-				if(po.getArea().equals("航运区"))
-					filled1++;
-				if(po.getArea().equals("铁运区"))
-					filled2++;
-				if(po.getArea().equals("汽运区"))
-					filled3++;
-				if(po.getArea().equals("机动区"))
-					filled4++;
-				
-				
-				try{
-				Data.getStockDate().update(po);
-				}catch(Exception e){
-					rm = ResultMessage.FAIL;
-				}
-				
-				
-				
-			}
-			else
-				rm = ResultMessage.FAIL;
-		}catch(Exception e){
-			rm = ResultMessage.FAIL;
-		}
+//		try{
+//			po = Data.getStockDate().findposition(row, shelf, seat);
+//			if(po.isEmpty()){
+//				po.setEmpty(false);
+//				po.setID(id);
+//				po.setInputDate(date);
+//				if(po.getArea().equals("航运区"))
+//					filled1++;
+//				if(po.getArea().equals("铁运区"))
+//					filled2++;
+//				if(po.getArea().equals("汽运区"))
+//					filled3++;
+//				if(po.getArea().equals("机动区"))
+//					filled4++;
+//				
+//				
+//				try{
+//				Data.getStockDate().update(po);
+//				}catch(Exception e){
+//					rm = ResultMessage.FAIL;
+//				}
+//				
+//				
+//				
+//			}
+//			else
+//				rm = ResultMessage.FAIL;
+//		}catch(Exception e){
+//			rm = ResultMessage.FAIL;
+//		}
 		
 		return rm;
 	}
@@ -66,15 +66,15 @@ public class StockChange implements IoputStock {
 			if(!po.isEmpty()){
 			
 				
-				 po.setEmpty(true);
-					if(po.getArea().equals("航运区"))
-						filled1--;
-					if(po.getArea().equals("铁运区"))
-						filled2--;
-					if(po.getArea().equals("汽运区"))
-						filled3--;
-					if(po.getArea().equals("机动区"))
-						filled4--;
+//				 po.setEmpty(true);
+//					if(po.getArea().equals("航运区"))
+//						filled1--;
+//					if(po.getArea().equals("铁运区"))
+//						filled2--;
+//					if(po.getArea().equals("汽运区"))
+//						filled3--;
+//					if(po.getArea().equals("机动区"))
+//						filled4--;
 				
 				 
 				try{

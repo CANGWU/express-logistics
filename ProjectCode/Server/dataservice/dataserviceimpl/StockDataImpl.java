@@ -31,7 +31,7 @@ public class StockDataImpl extends UnicastRemoteObject implements StockDataServi
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
+
 		return po;
 	}
 
@@ -49,7 +49,7 @@ public class StockDataImpl extends UnicastRemoteObject implements StockDataServi
 
 	@Override
 	public ResultMessage insert(StockPO PO) {
-		String sql = "insert into stockpo values("+PO.getNum()+",'"+PO.getArea()+"',"+PO.getRow()+","+PO.getShelf()+","+PO.getSeat()+",'"+PO.isEmpty()+"','"+PO.getID()+"','"+PO.getInputDate()+"');";
+		String sql = "insert into stockpo values("+PO.getNum()+",'"+PO.getArea()+"',"+PO.getRow()+","+PO.getShelf()+","+PO.getSeat()+",'"+PO.isEmpty()+"','"+PO.getId()+"','"+PO.getInputdate()+"');";
 		return Helper.insert(sql);
 		// TODO Auto-generated method stub
 
@@ -59,31 +59,60 @@ public class StockDataImpl extends UnicastRemoteObject implements StockDataServi
 	public ResultMessage delete(StockPO PO) {
 		String sql = "delete from stockpo where row="+PO.getRow()+" and shelf="+PO.getShelf()+" and seat="+PO.getSeat()+";";
 		// TODO Auto-generated method stub
-				return Helper.delete(sql);
+		return Helper.delete(sql);
 
 	}
 
 	@Override
 	public ResultMessage update(StockPO PO) {
-		
+
 		// TODO Auto-generated method stub
 		ResultMessage result = delete(PO);
-	    if(result==ResultMessage.FAIL)
-	    	return result;
-	    return insert(PO);
-	}
-	public static StockDataImpl creat() throws RemoteException {
-		if(stock == null){
-			synchronized(StockDataImpl.class){
-		
-		if(stock == null)
-		stock = new StockDataImpl();
-			}
-		}
-			
-		return stock;
+		if(result==ResultMessage.FAIL)
+			return result;
+		return insert(PO);
 	}
 	
-   private volatile static StockDataImpl stock;
+	
+	public static StockDataImpl create() throws RemoteException {
+		if(stock == null){
+			synchronized(StockDataImpl.class){
+
+				if(stock == null)
+					stock = new StockDataImpl();
+			}
+		}
+
+		return stock;
+	}
+
+	private volatile static StockDataImpl stock;
+
+	@Override
+	public ArrayList<StockPO> getAll() throws RemoteException {
+		// TODO Auto-generated method stub
+
+		String sql = "select* from stockpo;";
+		ResultSet result = null;
+		ArrayList<StockPO>stockPOs=new ArrayList<StockPO>();
+		try{
+			result = Helper.find(sql);
+			while(result.next()){
+				StockPO po = new StockPO(result.getInt(0),result.getString(1),result.getInt(2),result.getInt(3),result.getInt(4),result.getString(5).equals("true")?true:false,result.getString(6),result.getString(7));
+				stockPOs.add(po);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		return stockPOs;
+	}
+
+	@Override
+	public ResultMessage clean() {
+		// TODO Auto-generated method stub
+	    String sql = "delete from stockpo;";
+	    return Helper.delete(sql);
+	}
 
 }

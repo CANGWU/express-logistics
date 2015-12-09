@@ -1,6 +1,8 @@
 package usersl;
 
 
+import java.rmi.RemoteException;
+
 import dataservice.UserDataService;
 import dataserviceimpl.DataFactory;
 import enums.ResultMessage;
@@ -24,7 +26,13 @@ public class LogList implements LogCreate{
 		LogPO po=new LogPO(time,office,userId,logmessage);
 		UserDataService userdata=datafactory.getUserData();
 		
-		ResultMessage message=userdata.insertLogPO(po);
+		ResultMessage message = null;
+		try {
+			message = userdata.insertLogPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return message;
 	}

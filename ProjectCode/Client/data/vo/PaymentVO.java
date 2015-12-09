@@ -8,15 +8,26 @@ import enums.PaymentType;
 
 
 public class PaymentVO {
-    private StaffVO receiver;
+    private String receiver;
     private PaymentType type;
     private double numberOfPayment;
     private String accountname;
     private DocumentCondition condition;
-    private String nameOfWritter;
+    private String nameOfWriter;
+    private String remarks;
 
     
-    public DocumentCondition getCondition() {
+    public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+
+
+	public DocumentCondition getCondition() {
 		return condition;
 	}
 
@@ -24,7 +35,7 @@ public class PaymentVO {
 		this.condition = condition;
 	}
 
-	public PaymentVO(StaffVO receiver,PaymentType type){
+	public PaymentVO(String receiver,PaymentType type){
     	this.setReceiver(receiver);
     	this.type=type;
     }
@@ -45,11 +56,11 @@ public class PaymentVO {
 		this.numberOfPayment = numberOfPayment;
 	}
 
-	public StaffVO getReceiver() {
+	public String getReceiver() {
 		return receiver;
 	}
 
-	public void setReceiver(StaffVO receiver) {
+	public void setReceiver(String receiver) {
 		this.receiver = receiver;
 	}
 
@@ -61,12 +72,16 @@ public class PaymentVO {
 		this.accountname = accountname;
 	}
 
-	public String getNameOfWritter() {
-		return nameOfWritter;
+	public String getNameOfWriter() {
+		return nameOfWriter;
 	}
 
-	public void setNameOfWriter(String nameOfWritter) {
-		this.nameOfWritter = nameOfWritter;
+	public void setNameOfWriter(String nameOfWriter) {
+		this.nameOfWriter = nameOfWriter;
 	}
+
+
+
+	
 
 }

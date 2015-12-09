@@ -11,8 +11,10 @@ public interface AccountManagementService {
 	
 	public ResultMessage addAccount(String accountname,double accountmoney);
 	public ResultMessage deleteAccount(AccountVO account);
-	public AccountVO fixAccount(AccountVO account,String accountname);
+	public ResultMessage fixAccount(AccountVO account,String accountname);
 	public ArrayList<AccountVO> seekAccount(String accountname);
+	public AccountVO findAccount(String accountname);
+	public ArrayList<AccountVO> getAllAccount();
 	
 	
 }

@@ -1,7 +1,9 @@
 package reportsl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import pamanagementsl.PManagementController;
 import po.PaymentPO;
 import po.StaffPO;
 import reportslservice.ReportService;
@@ -20,7 +22,12 @@ public class Report implements ReportService {
 
 	public Report(DataFactoryService DataFactory, BalanceService balance) {
 		this.dataFactory = dataFactory;
-		financeData = dataFactory.getFinanceData();
+		try {
+			financeData = dataFactory.getFinanceData();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.balance = balance;
 	}
 
@@ -30,22 +37,24 @@ public class Report implements ReportService {
 		reportvo.setIncomeList(balance
 				.getBalanceMessage(id, beginTime, endTime));
 
-		ArrayList<PaymentPO> paymentpolist = financeData.findsPaymentPO(id);
+		ArrayList<PaymentPO> paymentpolist=null;
+		try {
+			paymentpolist = financeData.findsPaymentPO(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<PaymentVO> paymentvolist = new ArrayList<PaymentVO>();
 		PaymentPO paymentpo;
 		PaymentVO paymentvo;
-		StaffPO receiverpo;
-		StaffVO receivervo;
+		String receiverpo;
+
 		for (int i = 0; i < paymentpolist.size(); i++) {
 			paymentpo = paymentpolist.get(i);
 			receiverpo = paymentpo.getReceiver();
-			receivervo = new StaffVO(receiverpo.getName(),
-					receiverpo.getWork(), receiverpo.getWorkNumber(),
-					receiverpo.getWorkPlaceNumber(), receiverpo.getBirthDate(),
-					receiverpo.getIdNumber(), receiverpo.getPhoneNumber(),
-					receiverpo.getAddress(), receiverpo.getSex(),
-					receiverpo.getPage());
-			paymentvo = new PaymentVO(receivervo, paymentpo.getType());
+			PManagementController pmc=new PManagementController();
+			
+			paymentvo = new PaymentVO(receiverpo, paymentpo.getType());
 			paymentvo.setAccountname(paymentpo.getAccountname());
 			paymentvo.setNumberOfPayment(paymentpo.getNumberOfPayment());
 			reportvo.getPayList().add(paymentvo);

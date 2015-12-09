@@ -2,6 +2,7 @@ package usersl;
 
 
 
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +28,12 @@ public class Login implements LoginService{
 	public LoginResult login(String[] accountandcode) {
 		// TODO Auto-generated method stub
 		UserDataService data=datafactory.getUserData();
-		user=data.findUserPO(accountandcode[0]);
+		try {
+			user=data.findUserPO(accountandcode[0]);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		LoginResult result=null;
 		
 		if(user==null){
@@ -50,17 +56,20 @@ public class Login implements LoginService{
 			   return LoginResult.Stock;
 		   case TransOffice:
 			   return LoginResult.TransOffice;
+		   case Officer:
+			   return LoginResult.Officer;
+
 			   
 		}
 		
 		
 		
-		return result;
+		return LoginResult.Officer;
 	}
 	
 
 	
-	static Login creatLogin(DataFactory datafactory){
+	public static Login creatLogin(DataFactory datafactory){
 		if(login==null)
 			login = new Login(datafactory);	
 		

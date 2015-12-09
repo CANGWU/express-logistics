@@ -1,6 +1,8 @@
 package po;
 
-public class BillPO {
+import java.io.Serializable;
+
+public class BillPO implements Serializable{
      double moneyReceived;
      double totalfee;
      double change;

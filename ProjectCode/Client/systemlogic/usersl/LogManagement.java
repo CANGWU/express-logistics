@@ -1,5 +1,6 @@
 package usersl;
 
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,28 +17,41 @@ import dataserviceimpl.DataFactory;
 import enums.ResultMessage;
 import po.LogPO;
 import userslservice.LogService;
+import vo.LogVO;
 
 public class LogManagement implements LogService{
 	
 	static LogManagement log;
 	DataFactory datafactory;
 	ArrayList<LogPO> logs;
+	ArrayList<LogVO> logVOs;
 	
 	private LogManagement(DataFactory datafactory){
 		this.datafactory=datafactory;
 	}
 	
 	@Override
-	public ArrayList<LogPO> logmessage(String office,String time) {
+	public ArrayList<LogVO> logmessage(String office,String time) {
 		// TODO Auto-generated method stub
 		UserDataService userdata=datafactory.getUserData();
-		logs=userdata.findsLogsPO(office,time);
+		try {
+			logs=userdata.findsLogsPO(office,time);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		for(LogPO po:logs){
+			LogVO vo=new LogVO(po.getTime(), po.getOffice(), po.getUseuId(), po.getLogmessage());
+			logVOs.add(vo);
+		}
+
 		
 		this.log();
 		
 
 		
-		return logs;
+		return logVOs;
 	
 	}
 	
@@ -53,7 +67,7 @@ public class LogManagement implements LogService{
 	
 	
 	
-	static LogManagement creatCheck(DataFactory datafactory){
+	public static LogManagement creatCheck(DataFactory datafactory){
 		if(log==null)
 			log = new LogManagement(datafactory);	
 		

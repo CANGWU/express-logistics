@@ -109,7 +109,7 @@ public class OrderSend {
 		order.setDueOfReceive(this.computedue(order));
 		order.setBill(bill);
 		
-		OrderPO orderpo=new OrderPO(order.getTimeOfSend(),order.getDueOfReceive(),order.getOrdernumber(),order.getNameOfCourier(),order.getSender(),order.getReceiver(),order.getBill(),order.getGoods(),order.getdCondition());
+		OrderPO orderpo=new OrderPO(order.getTimeOfSend(),order.getDueOfReceive(),order.getOrdernumber(),order.getNameOfCourier(),order.getSender(),order.getReceiver(),order.getBill(),order.getGoods(),order.getDocumentCondition());
 		try {
 			Data.getSendData().insertOrderPO(orderpo);
 		} catch (RemoteException e) {

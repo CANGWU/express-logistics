@@ -10,6 +10,11 @@ public class AccountVO {
     	 this.name=name;
     	 this.balance=balance;;
      }
+     
+     public AccountVO(AccountPO po){
+    	 this.name=po.getName();
+    	 this.balance=po.getBalance();
+     }
 
 
 

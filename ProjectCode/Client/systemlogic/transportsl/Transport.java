@@ -1,5 +1,6 @@
 package transportsl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -22,13 +23,18 @@ public class Transport {
 	public Transport(DataFactoryService datafactory, ConstantInfo constantinfo) {
 		this.constantinfo = constantinfo;
 		this.datafactory = datafactory;
-		this.transportData = datafactory.getTransportDate();
+		try {
+			this.transportData = datafactory.getTransportDate();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public TransportVO getTransport(String Transportid) throws Exception {
 		TransportPO po = transportData.find(Transportid);
-		TransportVO vo = new TransportVO(po.getSign(), po.getTransportID(),
-				po.getID(), po.getDeparture(), po.getDestination(),
+		TransportVO vo = new TransportVO(po.getSign(), po.getID(),
+				po.getTransportID(), po.getDeparture(), po.getDestination(),
 				po.getTime(), po.getTrafficID(), po.getTrafficType(),
 				po.getfare(), po.getMember(), po.getOrder(), po.getCondition(),
 				po.getDocumentCondition(), po.getWriter());
@@ -40,6 +46,7 @@ public class Transport {
 		ArrayList<TransportVO> voList=new ArrayList<TransportVO>();
 		TransportPO po;
 		TransportVO vo;
+		
 		ArrayList<TransportPO> poList=transportData.findWithdCondition(nameOfWriter, dCondition);
 		for(Iterator i=poList.iterator();i.hasNext();){
 			po=(TransportPO) i.next();
