@@ -1,9 +1,0 @@
-package enums;
-
-public class Snippet {
-	public static void main(String[] args) {
-		po = new IoputPO(result.getString("id"),result.getString("inputdate"),result.getString("time"),Position.valueOf(result.getString("destination")),Position.valueOf(result.getString("position")),Ioput.valueOf(result.getString("ioput")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
-						else po = new IoputPO(result.getString("id"),result.getString("outputdate"),result.getString("time"),Position.valueOf(result.getString("destination")),Traffic.valueOf(result.getString("transport")),result.getString("receiptid"),Ioput.valueOf(result.getString("ioput")),Condition.valueOf(result.getString("condition")),DocumentCondition.valueOf(result.getString("documentcondition")),result.getString("nameofwriter"));
-	}
-}
-
